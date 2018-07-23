@@ -1,0 +1,91 @@
+\section{Statements of Results}
+We define the state space \begin{equation*}
+    S=\{x=(n, p, e) \in \mathbb{N}\times \mathbb{R}^d\times (0,\infty): |p|\leq \sqrt{2ne} \}.
+\end{equation*} We equip the state space $S$ with the parity map \begin{equation*}
+    R(n,p,e)=(n,-p,e).
+\end{equation*} We make the following basic symmetry assumption on the initial data.
+\\\textbf{A1.} The initial data $\mu_0$ satisfies the symmetry \begin{equation}
+    R_\star \mu_0 = \mu_0.
+\end{equation}
+\\ \textbf{A2.} The initial data is given in terms of a distribution $m_0$ of particle velocities, by pushforward under the map
+\begin{equation}
+    \iota: \RR^d \rightarrow S; \hspace{1cm} v\mapsto (1, v, |v|^2).
+\end{equation}
+\\ \textbf{A3.} For $0\leq k\leq 6$, we have
+\begin{equation}
+    \sigma_k(m)=\langle \|v\|^k, m_0\rangle <\infty.
+\end{equation}
+\\ \textbf{A4.} $m_0$ is not the point mass $\delta_0$.
+The main case of interest will be the case where $m_0$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
+
+We take the kernel to be \dhcomment{Derived elsewhere....} \begin{equation}
+    K(x,y,dz)=\overline{K}(x,y)\delta_{x+y}(dx)=2\gamma\left(\pi_n(x)\pi_e(y)-\pi_p(x)\cdot \pi_p(y)+\pi_e(x)\pi_n(y)\right)\delta_{x+y}(dz)
+\end{equation} Let $\mathcal{T}$ be the collection of bounded, measurable functions on $S$ of bounded support. We write $L$ for the drift operator, given by specifying for all $f\in \mathcal{T}$, \begin{equation} \label{eq: drift wo gel}
+    \langle f,L(\mu)\rangle=\int_{S\times S}\{f(x+y)-f(x)-f(y)\}\overline{K}(x,y)\mu(dx)\mu(dy).
+\end{equation} The equation without gel for $(\mu_t)_{t<T}$ is that, for all $t<T$ and all $f\in \mathcal{T}$, \begin{equation}
+    \label{eq: E} \langle f, \mu_t\rangle =\langle f, \mu_0 \rangle +\int_0^t \langle f, L(\mu_s)\rangle ds. 
+\end{equation} To include gel, we define $L_\text{gel}(\mu)$ by \begin{equation}
+    \langle f, L_\text{gel}(\mu)\rangle = \langle f, L(\mu)\rangle -\int_S f(x) 2\gamma\left(\pi_n(x)E_t-\pi_p(x)\cdot P_t + \pi_e(x)M_t\right) \mu(dx)
+\end{equation} where \begin{equation}
+    M_t:=\langle \pi_n, \mu_0-\mu_t\rangle;
+\end{equation}
+\begin{equation}
+    P_t:=\langle \pi_p, \mu_0-\mu_t\rangle;
+\end{equation}\begin{equation}
+    E_t:=\langle \pi_e, \mu_0-\mu_t\rangle
+\end{equation} are the mass, momentum and energy of the gel at infinity. The equation with gel is then \begin{equation} \label{eq: E+G}
+    \mu_t= \mu_0 + \int_0^t L_\text{gel}(\mu_s)ds
+\end{equation} in a similar sense to (\ref{eq: E}). \begin{remark} As argued in \cite{N00}, the functions $t\mapsto \langle \pi_n, \mu_t\rangle$ and $t\mapsto \langle \pi_e, \mu_t\rangle$ are non-increasing, whenever $\mu_t$ is a solution to either (\ref{eq: E}, \ref{eq: E+G}). We say that a solution is conservative if it preserves both $\pi_n$ and $\pi_e$, or, equivalently, preserves $\pi_n+\pi_e$. Then, any solution to (\ref{eq: E+G}) is conservative up to some time $t_\text{gel}\leq \infty$, and non-conservative thereafter. \end{remark}
+We summarise our results on the analysis of the Smoluchowski equation (\ref{eq: E+G}) as follows.
+\begin{theorem}
+Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}), and let $t_\text{gel}$ be given by 
+    \begin{equation} \label{eq: def of tgel} t_\text{gel} = \frac{1}{4\gamma}\sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}{\langle \pi_e^2, \mu_0\rangle}}\left(\langle \pi_n^2, \mu_0\rangle+\sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}{\langle \pi_e^2, \mu_0\rangle}}\langle \pi_n\pi_e, \mu_0\rangle \right)^{-1}.
+\end{equation} Then the equation (\ref{eq: E+G}) has a unique solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$, with the following properties.
+\paragraph{1. Phase Transition.} We have the following dichotomy: \begin{enumerate}[label=\roman{*}).]
+    \item If $t\leq t_\text{gel}$, then $M_t=E_t=0$.
+    \item If $t>t_\text{gel}$, then $M_t>0$ and $E_t>0.$
+\end{enumerate}
+Moreover, $P_t=0$ for all $t.$
+\paragraph{2. Behaviour of the Second Moment.} Consider the second moment \begin{equation} \mathcal{E}(t)=\langle \pi_n^2+ \pi_e^2, \mu_t\rangle. \end{equation} Then \begin{enumerate}[label=\roman{*}).]
+    \item If $K$ is a compact subset of $[0, \infty)\setminus\{t_\text{gel}\}$, then \begin{equation}
+        \sup_{t\in K}\mathcal{E}(t)<\infty.
+    \end{equation}
+    \item At the critical point, $\mathcal{E}(t_\text{gel})=\infty$, and $\mathcal{E}(t)\rightarrow \infty$ as $t\rightarrow t_\text{gel}.$ 
+    \item On $[0, t_\text{gel})$, $\mathcal{E}$ is monotonically increasing. 
+\end{enumerate}
+\paragraph{3. Dynamics beyond the Critical Point.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\text{gel}$, we have \begin{equation}
+    M_t=2\int_{t_\text{gel}}^t ds \int_S \pi_n(x)(\pi_n(x)E_s+\pi_e(x)M_s)\mu_s(dx);
+\end{equation}\begin{equation}
+    E_t=2\int_{t_\text{gel}}^t ds \int_S \pi_e(x)(\pi_n(x)E_s+\pi_e(x)M_s)\mu_s(dx).
+\end{equation} 
+\paragraph{4. Size-Biasing Effect.} As $t\downarrow t_\text{gel}$, we have the convergence \begin{equation}
+    \frac{E_t}{M_t}\rightarrow \text{Something here}.
+\end{equation}
+
+
+The main case of physical interest is when we take $m_0$ to be a Gaussian density $N_d(0, \sigma I)$. In this case, these evaluate to \begin{equation}
+    \label{eq: formula of tgel} t_\text{gel} = \frac{1}{2\gamma \sigma^2(d+\sqrt{d^2+2d})}
+\end{equation} and \begin{equation}
+    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}d\sigma^2\sqrt{1+\frac{2}{d}}.
+\end{equation} \end{theorem}
+
+\begin{theorem} \label{thrm: convergence of stochastic coagulent}
+\textcolor{red}{\textbf{Uniform} convergence of the stochastic coagulant in vague topology.}
+\end{theorem}
+
+\begin{theorem}[Convergence of the Gel]\label{thrm: convergence of gel} Let $M^N_t, P^N_t, E^N_t$ be the mass, momentum and energy of the gel in the stochastic system, given as the data of the largest cluster divided by $N$. Let $M_t, P_t(=0), E_t$ be the mass, momentum and energy of the gel at infinity for the limiting equation (\ref{eq: E+G}). Then \begin{equation}
+    M^N_t \rightarrow M_t; \hspace{1cm} P^N_t \rightarrow P_t=0; \hspace{1cm} E^N_t \rightarrow E_t
+\end{equation}
+ uniformly, in probability, as $N\rightarrow \infty.$ \end{theorem} \begin{theorem}[Convergence of Large Clusters] \label{thrm: convergence of large clusters} Let $\xi_N$ be any sequence with \begin{equation}
+     \xi_N\rightarrow \infty;\hspace{1cm} \frac{\xi_N}{N}\rightarrow 0.
+ \end{equation} Now, define \begin{equation}
+    \widetilde{M}^N_t=\langle \pi_n 1_{B_N}, \mu^N_t\rangle;\hspace{1cm}  \widetilde{P}^N_t=\langle \pi_p 1_{B_N}, \mu^N_t\rangle;\hspace{1cm} \widetilde{E}^N_t=\langle \pi_e 1_{B_N}, \mu^N_t\rangle;
+\end{equation} \begin{equation}
+    B_N=\{x\in S: \pi_n(x)\geq \xi_N\}.
+\end{equation} Then we have the convergence \begin{equation}
+    \widetilde{M}^N_t \rightarrow M_t 
+\hspace{1cm}
+    \widetilde{P}^N_t \rightarrow P_t=0;
+\hspace{1cm}
+    \widetilde{E}^N_t \rightarrow E_t 
+\end{equation} uniformly, in probability, as $N\rightarrow \infty$.  \end{theorem}

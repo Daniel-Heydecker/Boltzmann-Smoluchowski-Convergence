@@ -1,0 +1,72 @@
+\section{Finiteness of the second moment in the Supercritical Regime}
+
+\begin{theorem}\label{lemma: second moment finite after tgel} For $t>t_\text{gel}$, we have \begin{equation}
+    \langle \pi_n^2+\pi_e^2, \mu_t\rangle <\infty.
+\end{equation} Moreover, the map \begin{equation}
+    t\mapsto \langle \pi_n^2+\pi_e^2, \mu_t \rangle
+\end{equation} is bounded on compact subsets of $(t_\text{gel},\infty)$ \end{theorem}
+\begin{lemma}\label{lemma: dynamics after tgel} Let $t_\text{gel}<s<t$. Then we have \begin{equation}
+    M_t-M_s=2\int_s^t du \int_S \pi_n(x)(\pi_n(x)E_u+\pi_e(x)M_u)\mu_u(dx);
+\end{equation}\begin{equation}
+    E_t-E_s=2\int_s^t du \int_S \pi_e(x)(\pi_n(x)E_u+\pi_e(x)M_u)\mu_u(dx).
+\end{equation}\end{lemma} \begin{remark} We interpret Lemma \ref{lemma: dynamics after tgel} as follows. There are two mechanisms by which matter can enter the gel at infinity: \begin{enumerate}[label=\roman{*}).]
+    \item A blowup of finite mass;
+    \item Direct absorption into an existing gel.
+\end{enumerate} In view of Lemma \ref{lemma: dynamics after tgel}, we know that the first mechanism is responsible for the initial formation of the gel, and the second is responsible for the behaviour of the gel thereafter. \dhcomment{Does this make sense?} \end{remark}
+\begin{proof}[Proof of Theorem \ref{lemma: second moment finite after tgel}] Let $(G^N_t)_{t\geq 0}$ be the usual random graph processes, and fix $t>t_\text{gel}$. Let $\widetilde{G}^N_{t}$ be the graph $G^N_{t}$ with the giant component deleted. \medskip \\ Let $\rho_{t}(v)=\rho(t, v)$ be the survival function defined in \ref{lemma: survival function}, and let $\widehat{m}^t(dv)=(1-\rho_{t}(v))m(dv)$. Let $\widehat{\mu}^t_0$ be the corresponding measure on $S$ under pushforward by $v\mapsto (1, v, \frac{1}{2}|v|^2)$; by Lemma \ref{lemma: E and U}, there exists a unique solution $(\widehat{\mu}^t_s)_{s\geq 0}$ to the equation (\ref{eq: E+G}) starting at $\widehat{\mu}^t_0$. We write $\widehat{t_\text{gel}}(t)$ for the gelation time of the process $(\widehat{\mu}^t_s)_{s\geq 0}$. \medskip \\ By Theorem \ref{thrm: coupling supercritical and subcritical}, we can construct a generalised vertex space $\widehat{\mathcal{V}}=(\mathbb{R}^d, \widehat{m}, (\mathbf{w}_n)_n)$ and a graph $\widehat{G}^N_{t}\sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,tK)$ such that 
+\begin{equation}
+    \mathbb{P}\left(\mu^N(\widehat{G}^N_{t})=\mu^N(\widetilde{G}^N_{t})\right)\rightarrow 1.
+\end{equation} From Lemma (\textcolor{red}{...}), we have the convergences 
+\begin{equation}
+    \mu^N(G^N_{t})\rightarrow {\mu}_{t}
+\end{equation}
+\begin{equation}
+    \mu^N(\widehat{G}^N_{t})\rightarrow \widehat{\mu}^t_{t}
+\end{equation} in the weighted vague topology, in probability.  Moreover, since the difference \begin{equation}
+    \mu^N(G^N_{t})-\mu^N(\widetilde{G}^N_{t})=\frac{1}{N}\delta(C_1(G^N_{t})) \rightarrow 0
+\end{equation} in the vague topology in probability, since the support is eventually disjoint from any compact set, with high probability. \dhcomment{Does this make sense?} Therefore, we see that \begin{equation}
+    \mu^N(\widetilde{G}^N_{t})\rightarrow \mu_{t}
+\end{equation} in the vague topology, in probability. Therefore, by uniqueness of limits, we have $\widehat{\mu}^t_{t}=\mu_{t}$.\medskip \\ However, using assumption (\textbf{A3.}), we can see that $t K\in L^2(\mathcal{S}\times\mathcal{S}, m\times m)$, and so it follows from Theorem \ref{thrm: coupling supercritical and subcritical} that the graphs $\widehat{G}^N_{t}$ are subcritical. Therefore, $t<\widehat{t_\text{gel}}(t)$, and so by Lemma \dhcomment{something}, we have \begin{equation}
+   \langle \pi_n^2+ \pi_e^2, \mu_t\rangle = \langle \pi_n^2+\pi_e^2, \widehat{\mu}^t_{t}\rangle <\infty.
+\end{equation} Moreover, from a previous computation (\textbf{\textcolor{red}{ref}}), the function \begin{equation}
+    f^t(s):=\langle \pi_n^2, \widehat{\mu}^t_s\rangle +\sqrt{\frac{\langle \pi_n^2, \widehat{\mu}^t_0\rangle}{\langle \pi_e^2, \widehat{\mu}^t_0 \rangle}}\langle \pi_n\pi_e, \widehat{\mu}^t_s\rangle
+\end{equation}is given explicitly by \begin{equation}
+    f^t(s)=\frac{1}{4\gamma}\sqrt{\frac{\langle\pi_n^2, \widehat{\mu}^t_0\rangle }{\langle \pi_e^2, \widehat{\mu}^t_0\rangle}}\left(\widehat{t_\text{gel}}(t)-s\right)^{-1}
+\end{equation} and \begin{equation}
+    \widehat{t_\text{gel}}(t)=\frac{\sqrt{\langle \pi_n^2, \widehat{\mu}^t_0}\rangle}{4\gamma\left(\sqrt{\langle \pi_e^2, \widehat{\mu}^t_0 \rangle}\langle \pi_n^2, \widehat{\mu}^t_0\rangle +\sqrt{\langle \pi_n^2, \widehat{\mu}^t_0\rangle}\langle \pi_n\pi_e, \widehat{\mu}^t_0\rangle\right)}.
+\end{equation} Using Lemma \ref{lemma: form of rho-t} and dominated convergence, the functions \begin{equation}
+    t\mapsto \langle \pi_n^2, \widehat{\mu}^t_0\rangle =\int_{\mathbb{R}^d} (1-\rho_t(v)) m(dv);
+\end{equation} \begin{equation}
+    t\mapsto \langle \pi_n \pi_e, \widehat{\mu}^t_0\rangle =\int_{\mathbb{R}^d} \frac{1}{2}\|v\|^2(1-\rho_t(v)) m(dv);
+\end{equation} \begin{equation}
+    t\mapsto \langle \pi_e^2, \widehat{\mu}^t_0\rangle =\int_{\mathbb{R}^d} \frac{1}{4}\|v\|^4(1-\rho_t(v)) m(dv)
+\end{equation} are continuous. Therefore, the map \begin{equation}
+    t\mapsto g^t(t)= \left(1+\frac{\langle \pi_n^2, \widehat{\mu}^t_0\rangle}{\langle \pi_e^2, \widehat{\mu}^t_0\rangle}\right)f^t(t)
+\end{equation} is finite and continuous on $(t_\text{gel}, \infty)$, and so bounded on compact subsets. The result follows from using (\textcolor{red}{ref}) to observe that \begin{equation}
+    \mathcal{E}(t)=\langle \pi_n^2+\pi_e^2, \widehat{\mu}^t_t\rangle \leq g^t(t).
+\end{equation} \end{proof}
+
+It follows from this construction that we can identify $M_t, E_t$ in terms of the survival function $\rho_t$. \begin{lemma}\label{lemma: representation of M, E} Let $\rho_t$ be the survival function. Then we have \begin{equation}\label{eq: formula for M, E}
+    M_t = \int_{\mathbb{R}^d} \rho_t(v)m(dv); \hspace{1cm} E_t=\int_{\mathbb{R}^d} \frac{1}{2}|v|^2\rho_t(v)m(dv).
+\end{equation} In particular, both $M_t$ and $E_t$ are continuous, and \begin{equation}
+    M_{t_\text{gel}}=E_{t_\text{gel}}=0.
+\end{equation}. \end{lemma} \begin{proof} We deal with the supercritical, critical, and subcritical cases separately. 
+\paragraph{1. Supercritical Case.}  Let $(\widehat{\mu}^t_s)_{s\geq 0}$ and $\widehat{t_\text{gel}}(t)$ be as in the proof of Theorem \ref{lemma: second moment finite after tgel}. Then, since $(\widehat{\mu}^t_s)_{s\geq 0}$ is conservative on $[0, \widehat{t_\text{gel}})$, and $t<\widehat{t_\text{gel}}(t)$, we have \begin{equation}
+    \langle \pi_n, \widehat{\mu}^t_t\rangle =\langle \pi_n, \widehat{\mu}^t_0\rangle = \int_{\mathbb{R}^d} (1-\rho(t,v))m(dv).
+\end{equation} But since $\mu_t=\widehat{\mu}^t_t$, we have \begin{equation}
+    M_t:=\langle \pi_n, \mu_0\rangle -\langle \pi_n, \mu_t\rangle =\langle \pi_n, \mu_0\rangle - \int_{\mathbb{R}^d} (1-\rho(t,v))m(dv)
+\end{equation} which implies the result for $M_t$. The argument for $E_t$ is identical. 
+\paragraph{2. Critical Case.} It follows from a remark of \cite{N00} that the functions $t\mapsto \langle \pi_n, \mu_t\rangle; t\mapsto \langle \pi_e, \mu_t\rangle$ are nonincreasing, by subadditivity. Therefore, both \begin{equation}
+    t\mapsto M_t=\langle \pi_n, \mu_0-\mu_t\rangle;\hspace{1cm}  t\mapsto E_t=\langle \pi_e, \mu_0-\mu_t\rangle 
+\end{equation} are nondecreasing. Now, using Theorem \ref{thrm: continuity of rho} and dominated convergence, we see that as $t\downarrow t_\text{gel},$ $\rho_t\downarrow 0$ and so \begin{equation}
+    M_t =\int_{\mathbb{R}^d} \rho_t(v)m(dv) \downarrow 0. 
+\end{equation} Therefore, \begin{equation}
+    0 \leq M_{t_\text{gel}} \leq \inf_{t>t_\text{gel}} M_t = 0. 
+\end{equation} Since $\rho_{t_\text{gel}}=0$, this proves the claimed result. The case for energy is identical.
+\paragraph{3. Subcritical Case.} For $t<t_\text{gel}$, the result is immediate: we have $M_t=E_t=0$ by Lemma (\textcolor{red}{...}), and $\rho_t=0$ by Theorem \ref{lemma: survival function}. \medskip \\ Continuity follows from Theorem \ref{thrm: continuity of rho} by using dominated convergence. \end{proof}
+\begin{remark} From this, we can deduce a weak version of Theorem \ref{thrm: convergence of gel}. If we let $M^N_t$ be the scaled mass of the largest cluster \begin{equation}
+    M^N_t=\frac{1}{N}C_1(G^N_t)
+\end{equation} then it follows from Theorem \ref{thrm: RG1}, together with the above formula for $M_t$, that for each fixed $t$, we have \begin{equation}
+    M^N_t \rightarrow M_t \hspace{1cm} \text{in probability.}
+\end{equation} \end{remark}
+

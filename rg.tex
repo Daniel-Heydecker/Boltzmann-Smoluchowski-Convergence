@@ -1,0 +1,59 @@
+\section{Relation to Random Graph Processes}\label{sec:rg}
+
+We study the following random graph processes:
+
+\subsection{True Process}
+
+Consider the complete graph $K_N$, and for each vertex $x$, define an independent Gaussian random variable $v_x\sim N(0,I).$ For an edge $e=(xy)$, \rpcomment{I think we understand an edge as an unordered pair, so I agree with this formula.} we define the edge rate \begin{equation*} W_e=2(\kappa+\gamma|v_x-v_y|^2) \sim 2\kappa+2\gamma \chi^2_d. \end{equation*} Independently, we let $(T_e)_{e\in E}$ be independent, $\text{Exponential}(1)$ random variables. We define a random graph process $(G^N_t)_{t\geq 0}$ by including the edge $e$ if $
+    t \geq \frac{NT_e}{W_e}$.  \medskip \\ We note that, if $e, e'$ share a vertex, then the weights $W_e, W_{e'}$ are positively correlated, and so \begin{equation*} \mathbb{P}(\text{Both $e, e'$ included at time $t$})>p_N^2.\end{equation*} If $e, e'$ do not share a vertex, then the edges $e,e'$ are independent. This generalises to any number of edges, in a style similar to the FKG inequality. \medskip \\  For any time $t$, the probability that any given edge $e$ is included in $G^N_t$ is given by \begin{equation*}
+        p^N_t=\mathbb{E}\left[1-\exp\left(-\frac{tW_e}{N}\right)\right].
+    \end{equation*} We observe the following: \begin{lemma}\label{lemma:cutoff time} Fix $t\geq 0$. Then \begin{equation*}
+        Np^N_t \rightarrow t\mathbb{E}W_e. \hspace{1cm} \text{as } N \rightarrow \infty.
+    \end{equation*} In particular, \begin{itemize}
+        \item if $t=\frac{1-\epsilon}{\mathbb{E}W_e}$, then $\limsup_N Np^N_t<1$;
+        \item if $t=\frac{1+\epsilon}{\mathbb{E}W_e}$, then $\liminf_N Np^N_t>1$.
+    \end{itemize}\end{lemma}
+\subsection{Recent development}
+   This is an example of the `inhomogenous random graphs' studied by \cite{BJR07}, with `Ground Space' $S=\mathbb{R}^d, \mu=N(0,\sigma^2I)$, and constructing a vertex space by taking $\mathbf{x}_n=(x_1,...,x_n)$ as an i.i.d. sample from $\mu.$ Using the alternative formulation \cite{BJR07}[Equation 2.6], we consider the time-dependent family of kernels
+   \begin{equation}
+       K_t(v,w)=2t(\kappa+\gamma|v-w|^2)
+   \end{equation}
+   ($K_t/t$ is the rate at which an unordered pair of molecules, one with velocity $v$ and one with velocity $w$ collide.)
+   Consider the convolution operator \begin{equation}\label{eq: T original}
+       T: L^2(\mu)\rightarrow L^2(\mu); \hspace{1cm} (T f)(v)=\int_{\mathbb{R}^d} K_1(v,w)f(w)\mu(dw). 
+   \end{equation} Write $\|T\|$ for the operator norm of $T$. Then the critical time is $t_G=\|T\|^{-1}.$ We have the following phase transition, which follows from \cite{BJR07}[Theorem 3.1] on verifying that the kernels $K_t$ satisfy some regularity conditions.  \begin{theorem} \begin{itemize}
+       \item Suppose $t\leq t_G$. Then, with high probability, the largest component of $G^N_t$ is $o(n)$.
+       \item Suppose $t>t_G.$ Then, with high probability, the largest component of $G^N_t$ is $\Theta(N)$.
+   \end{itemize} \end{theorem} We now wish to identify the critical time $t_G$ explicitly in terms of the parameters $\kappa, \gamma$ and the dimension $d$. To do so, we construct a basis $\{e_n\}_{n\geq 1}$ of $L^2(\mu)$, such that \begin{equation*}
+       e_i(v)=v_i, \hspace{0.2cm}i=1,2,..d;
+   \end{equation*}
+   \begin{equation*}
+       e_{d+1}(v)=1, \hspace{1cm}e_{d+2}(v)=|v|^2
+   \end{equation*} and such that, for $n\geq d+3$, $e_n$ is orthogonal to $E=\text{Span}(e_1,...,e_{d+2})$.
+   By expanding the integrand $|v-w|^2$ \begin{equation*} 
+       (Tf)(v)  = 2\left[\kappa\langle f, e_{d+1}\rangle e_{d+1}(v)
+       +\gamma \langle f, e_{d+1}\rangle e_{d+2}(v)
+       -2\gamma \sum_{i=1}^d \langle f, e_i\rangle e_i(v)
+       +\gamma \langle f, e_{d+2}\rangle e_{d+1}(v)\right]
+   \end{equation*} 
+  it is clear that $T$ maps into the subspace $E$, and that $T(e_n)=0$ if $n\geq d+3.$ Moreover, it is clear from the definition that $T$ is self-adjoint, and so the operator norm $\|T\|$ is given by the largest modulus of an eigenvalue of $T|_E.$ It is straightforward to verify that, in the basis $\{e_1,...,e_d, e_{d+1}, e_{d+2}\}$, $T|_E$ has the matrix representation \begin{equation*}
+       \left[T|_E\right]=\begin{bmatrix}
+    -4\gamma\sigma^2 & 0  & \dots  & 0 &0 \\
+    0 & -4\gamma\sigma^2  & \dots  & 0 &0\\
+    \vdots & \vdots  & \ddots & \vdots &\vdots \\
+    0 & 0  & \dots  & 2(\kappa+d\gamma\sigma^2) & 2(d\sigma^2\kappa+d(d+2)\gamma\sigma^4) \\ 
+    0 & 0& \dots & 2\gamma & 2d\gamma \sigma^2
+\end{bmatrix}.
+   \end{equation*} Therefore, the eigenvalues are $-4\gamma \sigma^2$, and the two roots  $\lambda_\pm$ to a quadratic equation which simplifies to \begin{equation*}
+       \lambda^2-2\lambda(\kappa+2d\gamma\sigma^2)-4d\gamma^2\sigma^4=0.
+   \end{equation*} The two roots are \begin{equation}
+       \lambda_\pm=\kappa +2d\gamma\sigma^2 \pm \sqrt{(\kappa+2d\gamma\sigma^2)^2+8d\gamma^2\sigma^4}.
+   \end{equation} Therefore, the largest eigenvalue in modulus is $\lambda_+$, so we find \begin{equation*}
+       \|T\|=\kappa +2d\gamma\sigma^2 + \sqrt{(\kappa+2d\gamma\sigma^2)^2+8d\gamma^2\sigma^4}.
+   \end{equation*} This gives the critical time as \begin{equation}
+       t_G= \frac{1}{\kappa +2d\gamma\sigma^2 + \sqrt{(\kappa+2d\gamma\sigma^2)^2+8d\gamma^2\sigma^4}}.
+   \end{equation} In the case $\kappa=0$, this simplifies to \begin{equation*}
+       t_G= \frac{1}{2\gamma\sigma^2(d+\sqrt{d^2+2d})}
+   \end{equation*} which is precisely the blow-up time for the mean field dynamics in this special case.
+   \begin{lemma}\label{lemma: the one I haven't done yet}
+   \dhcomment{Need a result to the effect of: `The empirical measure corresponding to a graph $G^N \sim \mathcal{G}^\mathcal{V}(N,K)$ converges vaugely to $\mu_t$, where $\mu_t$ is the solution to the Smoluchowski equation starting at the pushforward of $m$}  \end{lemma}

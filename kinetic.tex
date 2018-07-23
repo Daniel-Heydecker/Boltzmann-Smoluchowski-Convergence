@@ -1,0 +1,63 @@
+\section{Kinetic Equation}
+
+Blow up in finite time of the solution to \eqref{eq:wk-kinetic}.
+
+From Lemma \ref{lemma: integral equation}, and standard regularity arguments, we have 
+\begin{align}
+    \frac{\dd}{\dd t}\langle \pi_n^2, \mu_t\rangle &=
+    2\kappa \langle \pi_n^2, \mu_t\rangle^2
+    + 8 \gamma \langle \pi_n \pi_e, \mu_t\rangle\langle \pi_n^2, \mu_t\rangle\\
+    \frac{\dd}{\dd t}\langle \pi_n \pi_e, \mu_t\rangle &=
+    2\kappa \langle \pi_n^2, \mu_t\rangle \langle \pi_n \pi_e, \mu_t\rangle
+    + 4 \gamma \langle \pi_n \pi_e, \mu_t\rangle^2
+    + 4 \gamma \langle \pi_n^2, \mu_t\rangle\langle \pi_e^2, \mu_t\rangle\\
+    \frac{\dd}{\dd t}\langle \pi_e^2, \mu_t\rangle &=
+    2\kappa \langle \pi_n \pi_e, \mu_t\rangle^2
+    + 8 \gamma \langle \pi_n \pi_e, \mu_t\rangle\langle \pi_e^2, \mu_t\rangle.
+\end{align}
+In the case $\kappa = 0$ note that
+\begin{equation}\label{eq:proportional}
+    \langle \pi_e^2, \mu_t\rangle = \langle \pi_e^2, \mu_0\rangle
+    \frac{\langle \pi_n^2, \mu_t\rangle}{\langle \pi_n^2, \mu_0\rangle}
+\end{equation}
+and then one easily checks that
+\begin{equation}
+    f(t) := \langle \pi_n^2, \mu_t\rangle
+           + \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
+                        {\langle \pi_e^2, \mu_0\rangle}}
+             \langle \pi_n \pi_e, \mu_t\rangle
+\end{equation}
+satisfies
+\begin{equation*}
+    \frac{\dd }{\dd t}f(t) = 4\gamma 
+    \sqrt{\frac{\langle \pi_e^2, \mu_0\rangle}
+                        {\langle \pi_n^2, \mu_0\rangle}}f(t)^2,
+\end{equation*}
+which has the solution
+\begin{equation}\label{eq:quadmoment-ode}
+    f(t) = \left(\frac{1}{f(0)} - 4\gamma 
+    \sqrt{\frac{\langle \pi_e^2, \mu_0\rangle}
+                        {\langle \pi_n^2, \mu_0\rangle}}t \right)^{-1}.
+\end{equation}
+The solution to \eqref{eq:quadmoment-ode} blows up when
+\begin{equation}\label{eq:quad-tgel}
+    t = \frac{1}{4\gamma f(0)}
+             \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
+                        {\langle \pi_e^2, \mu_0\rangle}}
+\end{equation}
+
+Assuming the initial condition is independent Maxwell-Boltzmann velocities in $d$ dimensions and all clusters of size 1 one has
+\begin{align*}
+    \langle \pi_n^2, \mu_0\rangle &= 1\\
+    \langle \pi_n \pi_e, \mu_0\rangle &= d\frac{\sigma^2}{2}\\
+    \langle \pi_e^2, \mu_0\rangle &= \frac{\sigma^4}{4}\left(2d + d^2\right)
+\end{align*}
+and thus $f(0) = 1 + d / \sqrt{2d + d^2}$.
+In this case the critical time given by \eqref{eq:quad-tgel} is
+\begin{equation}
+    \frac{1}{2\gamma \sigma^2 \left(d + \sqrt{2d +d^2}\right)}.
+\end{equation}
+This should be compared to the expression for the mean free time \cite[equation 4.38]{PSW17}, which is $1/4\gamma \sigma^2 d$.
+
+We also note (\dhcomment{I can give a rigorous proof} \rpcomment{I think I might manage a monotonicity argument too}) that taking $\kappa$ greater than $0$ can only reduce the critical time; in particular, the gelation time $t_\text{gel}$ remains strictly smaller than the mean free time. However, we have not found a similar analysis leading to a closed form expression in this case.  
+In particular \eqref{eq:proportional} has to be replaced by a variation of constants formula, which involves several integrals.

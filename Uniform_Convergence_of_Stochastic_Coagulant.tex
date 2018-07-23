@@ -1,0 +1,31 @@
+\section{Uniform Convergence of the Stochastic Coagulant} We now show how previous results, giving a representation of $M_t$ and $E_t$ in terms of the survival function $\rho_t$ allow us to analyse the behaviour of these quantaties at infinity. From this, we will be able to upgrade our previous result (\textcolor{red}{...}) on the convergence of the stochastic coagulant to \emph{uniform} convergence. \begin{lemma}\label{lemma: M and E at infinity} As $t\uparrow \infty$, we have \begin{equation}
+    M_t\uparrow 1; \hspace{1cm}E_t\uparrow \langle \pi_e, \mu_0\rangle.
+\end{equation} \end{lemma}
+\begin{proof}[Proof of Theorem \ref{thrm: convergence of stochastic coagulent}] From the form (\textcolor{red}{...}) of the metric $d_0$, it is sufficient to prove that, for any $f\in C_c(S)$, \begin{equation}
+    \sup_{t\geq 0}\hspace{0.1cm} \langle(\pi_n+\pi_e)f, \mu^N_t-\mu_t \rangle \rightarrow 0 \hspace{1cm} \text{in probability.}
+\end{equation} Without loss of generality, we assume that $\|f\|_{L^\infty(S)}=1.$ Let $0<\epsilon<\frac{1}{2}$ and let $\delta>0$ be such that \begin{equation}
+    \delta< \min\left(\frac{\epsilon^2}{8\sigma_4(m)}, \frac{\epsilon}{4}\right)
+\end{equation}
+    From Lemma \ref{lemma: M and E at infinity}, we can choose $t_+\in (t_\text{gel}, \infty)$ such that \begin{equation}
+        M_{t_+}>1-\delta;\hspace{1cm}E_{t_+}>\langle \pi_e, \mu_0\rangle -\frac{\epsilon}{4}. 
+    \end{equation}Consider the events
+    \begin{equation}
+        A^1_N=\left\{M^N_{t_+}>1-\delta \right\};
+    \end{equation}
+    \begin{equation} A^2_N = \left \{\langle \pi_e^2, \mu^N_0\rangle <\frac{1}{2}\sigma_4(m)\right\}.\end{equation} Then $\mathbb{P}(A^1_N)\rightarrow 1$ by the remark following Lemma \ref{lemma: representation of M, E}, and $\mathbb{P}(A^2_N)\rightarrow 1$ by the weak law of large numbers. Let $(G^N_t)$ be the random graph process associated to $\mu^N_t$, and let $\widetilde{\mu}^N_t$ be the stochastic coagulant $\mu^N_t$ with the largest cluster, corresponding to $C_1(G^N_t)$, removed.  Then, on the event $A^1_N\cap A^2_N$, for any $t\geq t_+$, we have \begin{equation} \begin{split}
+\langle \pi_e, \widetilde{\mu}^N_t\rangle & =\sum_{i\not \in C_1(G^N_t)}\frac{1}{2}\|v\|^2 \leq \left(\sum_{i \not\in C_1(G^N_t)} 1 \right)^\frac{1}{2} \left(\sum_{i =1}^N \frac{1}{4}\|v_i\|^4 \right)^\frac{1}{2}\\[2ex] & =(1-M^N_t)^\frac{1}{2} \langle \pi_e^2, \mu^N_0\rangle  \leq (1-M^N_{t_+})^\frac{1}{2}\langle \pi_e^2, \mu^N_0\rangle ^\frac{1}{2} \\[2ex] &\leq \delta^\frac{1}{2} \left(\frac{1}{2}\sigma_4(m)\right)^\frac{1}{2}<\frac{\epsilon}{4} \end{split} \end{equation} and \begin{equation}
+    \langle \pi_n, \widetilde{\mu}^N_t\rangle =1-M^N_t \leq 1-M^N_{t_+} <\frac{\epsilon}{4}.
+\end{equation} Since $f$ is compactly supported, we can choose $m<\infty$ such that $\text{Supp}(f)\subset \{x\in S: \pi_n(x)<m\}$. Then, for $N$ large enough, $(1-\delta)N>m$, and so, on $A^1_N$, \begin{equation}
+    \langle (\pi_n+\pi_e)f,\mu^N_t\rangle = \langle (\pi_n+\pi_e)f,\widetilde{\mu}^N_t\rangle+(M^N_t+E^N_t)f(NM^N_t,NP^N_t, NE^N_t) =  \langle (\pi_n+\pi_e)f,\widetilde{\mu}^N_t\rangle.
+\end{equation} We now estimate, for $t\geq t_+$, \begin{equation}
+    |\langle (\pi_n+\pi_e)f, \mu_t\rangle|\leq \langle (\pi_n+\pi_e)|f|, \mu_t\rangle \leq \langle \pi_n+\pi_e, \mu_t\rangle <\frac{\epsilon}{2}
+\end{equation} and, on $A^1_N\cap A^2_N$, for $t\geq t_+$  and $N$ large enough, \begin{equation} \begin{split}
+    |\langle (\pi_n+\pi_e)f, \mu^N_t\rangle|&=|\langle (\pi_n+\pi_e)f, \widetilde{\mu}^N_t\rangle | \\ & \leq \langle \pi_n+\pi_e, \widetilde{\mu}^N_t\rangle <\frac{\epsilon}{2}.   \end{split}
+\end{equation} Therefore, on $A^1_N\cap A^2_N$, we have \begin{equation}
+    \sup_{t\geq t_+}|\langle (\pi_n+\pi_e)f, \mu^N_t-\mu_t\rangle| <\epsilon.
+\end{equation} Finally, let $B_N$ be the event \begin{equation}
+    B_N=\left\{\sup_{t\leq t_+} |\langle (\pi_n+\pi_e)f, \mu^N_t-\mu_t\rangle |<\epsilon\right\}.
+\end{equation} Then $\mathbb{P}(B_N)\rightarrow 1$ by Lemma \ref{lemma: local uniform convergence of stochastic coagulent}. On the event $A^1_N\cap A^2_N\cap B_N$, we have \begin{equation}
+    \sup_{t\geq 0} |\langle (\pi_n+\pi_e)f, \mu^N_t-\mu_t\rangle |<\epsilon
+\end{equation} which proves the claimed convergence.
+\end{proof}

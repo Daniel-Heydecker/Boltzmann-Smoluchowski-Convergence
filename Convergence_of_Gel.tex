@@ -1,0 +1,180 @@
+\section{Convergence of the Gel} 
+We now prove the theorem \ref{thrm: convergence of gel} concerning the convergence of the stochastic gel. To do so, we fix a scale $\xi(N)\ll N$, and consider the `anomalous' clusters, which have mass larger $\frac{\xi_N}{N}$, but are not the macroscopic cluster of size $\mathcal{O}(1)$. The following result guarantees that such clusters do not asymptotically contribute to mass, momentum or energy, in a uniform sense.
+\begin{lemma} \label{lemma: anomalous clusters} Let $G^N_t$ be the random graph process constructed in (\textcolor{red}{...}), and fix a sequence $\xi_N\rightarrow \infty$ with $\xi_N\ll N$. We call a cluster $\mathcal{C}\subset G^N_t$ \emph{anomalous} if it is smaller than the large component $C_1(G^N_t)$, but larger than $\xi_N.$ Then we have the convergence \begin{equation}
+       \sup_{t \geq t_\text{gel}}\left[\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] \rightarrow 0 \hspace{1cm}\text{in probability.}\end{equation} 
+        \end{lemma} 
+       
+       We prove this lemma as follows. First, we prove uniform convergence of the mass, on compact subsets $I\subset (t_\text{gel}, \infty)$ in Lemma \ref{lemma: anomalous clusters 2}. We will then show how this may be extended to the whole interval $[t_\text{gel}, \infty)$. The subcritical case is also true (Lemma \ref{lemma: large clusters below criticality}), and we will then deduce analogous results for the momentum and energy.
+       
+\begin{lemma}\label{lemma: anomalous clusters 2}
+       Let $G^N_t$ and $\xi_N$ be as above. Fix a compact subset $I\subset (t_\text{gel}, \infty)$. Then we have the convergence \begin{equation} \sup_{t \in I}\left[\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] \rightarrow 0 \hspace{1cm}\text{in probability.}\end{equation}
+\end{lemma}
+\begin{proof}[Proof of Lemma \ref{lemma: anomalous clusters 2}]  It is sufficient to prove that, for all $t>t_\text{gel}$, there exists an open interval $(t_-, t_+) \subset (t_\text{gel}, \infty)$ containing $t$, such that
+\begin{equation}
+    \sup_{t_-<s<t_+}\left[\frac{1}{N}\sum_{j\geq 2: \#C_j(G^N_s)\geq \xi_N} \#C_j(G^N_s)\right] \rightarrow 0 \hspace{1cm}\text{in probability.}
+\end{equation} Recall from Theorem \ref{lemma: second moment finite after tgel} that, if we let (\textcolor{blue}{\textbf{....}}), then $\widehat{t_\text{gel}}(t)$ is a continuous map, and that $\widehat{t_\text{gel}}(t)>t$ for any $t>t_\text{gel}.$ Therefore, for any $t$, we can choose $t_\pm$ such that
+\begin{equation}
+    t_\text{gel}<t_-<t<t_+<\widehat{t_\text{gel}}(t_-).
+\end{equation} We form $\widetilde{G}^N_{t_-}$ from $G^N_{t-}$ by deleting all vertexes of the giant component of $C_1(G^N_{t_-})$. We now form a new graph, $\widetilde{G}^N_{t_-,t_+}$ by including all edges between vertexes of $\widetilde{G}^N_{t_-}$ which are present in the graph $G^N_{t_+}$. \medskip \\ From Theorem \ref{thrm: coupling supercritical and subcritical}, we can construct a generalised vertex space $\widehat{\mathcal{V}}$ and graphs $\widehat{G}^N_{t_-}\sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,t_-K)$, with the same vertex data as $\widetilde{G}^N_{t_-}$, such that \begin{equation}
+    \mathbb{P}\left(\widehat{G}^N_{t_-}=\widetilde{G}^N_{t_-}\right)\rightarrow 1.
+\end{equation} We now form $G^N_{t_-,t_+}$ by adding those edges present in $G^N_{t_+}$. By the Markov property of the graph process $(G^N_s)_{t\geq 0}$, these edges are independent of the construction of $\widehat{G}^N_{t_-}$, and so $G^N_{t_-,t_+}\sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,t_+K)$. By the choices of $t_\pm$, $\widehat{G}^N_{t_-,t_+}$ is still subcritical, and by construction, \begin{equation}
+    \mathbb{P}\left(\widehat{G}^N_{t_-, t_+}=\widetilde{G}^N_{t_-, t_+}\right)\rightarrow 1.
+\end{equation} For $s\in [t_-, t_+]$, let $\mathcal{C}_1'(G^N_s)$ be the connected component of $G^N_s$ which contains $\mathcal{C}_1(G^N_{t_-})$. By considering the cases $\mathcal{C}_1'(G^N_s)=\mathcal{C}_1(G^N_s)$ and $\mathcal{C}_1'(G^N_s)\neq \mathcal{C}_1(G^N_s)$ separately, we bound \begin{equation}
+    \sum_{j\geq 2: C_j(G^N_s)\geq \xi_N} C_j(G^N_s) \leq \sum_{\substack{j\geq 1: C_j(G^N_s)\geq \xi_N \\ \mathcal{C}_j(G^N_s)\neq \mathcal{C}_1'(G^N_s)}} C_j(G^N_t)
+\end{equation} Now, observe that we can rewrite the sum as \begin{equation}
+    \sum_{\substack{j\geq 1: C_j(G^N_s)\geq \xi_N \\ \mathcal{C}_j(G^N_s)\neq \mathcal{C}_1'(G^N_s)}}  C_j(G^N_s) = \sum_{i=1}^N 1[C(i; G^N_s)\geq \xi_N; i \not \in \mathcal{C}'_1(G^N_s)].
+\end{equation}  Now, let $s\in [t_-, t_+]$, and $i\in\{1, 2,..,N\}$. Suppose that $C(i; G^N_s)\geq \xi_N$ and that $i \not \in \mathcal{C}'_1(G^N_s)$. It follows that $\mathcal{C}(i, G^N_s)$ is disjoint from $\mathcal{C}_1(G^N_{t_-})$, and so all vertexes of $\mathcal{C}(i, G^N_s)$ are present in $G^N_{t_-t_+}$. Moreover, all edges in $\mathcal{C}(i, G^N_s)$ are also present in $G^N_{t_-t_+}$, and so $\mathcal{C}(i, G^N_s) \subset \mathcal{C}(i, G^N_{t_-t_+}$. Therefore, for all $i$, and all $s\in [t_-, t_+]$ \begin{equation}
+    1[C(i; G^N_s)\geq \xi_N; i \not \in \mathcal{C}'_1(G^N_t)] \leq 1[i \in V(G^N_{t_-t_+}); C(i; G^N_{t_-t_+})\geq \xi_N].
+\end{equation} Summing, we have the bound \begin{equation}\begin{split}
+\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t) & \leq \frac{1}{N}\sum_{j\geq 1: C_j(\widehat{G}^N_{t_-,t_+})\geq \xi_N} C_j(\widehat{G}^N_{t_-,t_+}) 
+\end{split} \end{equation} Therefore, \begin{equation}\begin{split}
+    \sup_{s\in [t_-, t_+]} \left[\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] & \leq \frac{1}{N}C_1(G^N_{t_-, t_+})+\frac{1}{N}\sum_{j\geq 2: C_j(\widehat{G}^N_{t_-,t_+})\geq \xi_N} C_j(\widehat{G}^N_{t_-,t_+}).
+\end{split} \end{equation} The first term of the right-hand side converges to $0$ in probability  because $\widehat{G}^N_{t_-,t_+}$ is subcritical, and the second term converges to $0$ in probability by Theorem \ref{thrm: RG2}. \end{proof} 
+\begin{proof}[Proof of Lemma \ref{lemma: anomalous clusters}] Fix $\epsilon >0$; without loss of generality, assume that $\epsilon<1.$. By continuity from Lemma \ref{lemma: representation of M, E} and Lemma \ref{lemma: M and E at infinity}, we can choose $t_\pm \in (t_\text{gel}, \infty)$ such that \begin{equation}
+    M_{t_-}<\frac{\epsilon}{3};\hspace{1cm}M_{t_+}>1-\frac{\epsilon}{3}.
+\end{equation} Consider now the events \begin{equation}
+    A^1_N=\left\{M^N_{t_-}<\frac{2\epsilon}{3}; \hspace{0.2cm} M^N_{t_+}>1-\epsilon \right\};
+\end{equation} \begin{equation}
+    A^2_N=\left\{\frac{1}{N}\sum_{j\geq 2: C_j(G^N_{t_-})\geq \xi_N} C_j(G^N_{t_-})<\frac{\epsilon}{3} \right\}.
+\end{equation} By the remark following Lemma \ref{lemma: representation of M, E}, it follows that $\mathbb{P}(A^1_N)\rightarrow 1, $ and $\mathbb{P}(A^2_N)\rightarrow 1$ by Theorem \ref{thrm: RG2}. On the event $A^1_N \cap A^2_N$, we bound as follows. 
+\begin{enumerate}[label=\roman{*}).]
+    \item For the initial interval $[t_\text{gel}, t_-]$, we argue as above to bound
+    %The argument above hasn't actually been done yet!
+    \begin{equation}
+        \sup_{t\in [t_\text{gel}, t_-]} \left[\frac{1}{N} \sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] \leq \frac{1}{N}\sum_{j\geq 1: C_j(G^N_{t_-}) \geq \xi_N} C_j(G^N_{t_-}) <\epsilon.
+    \end{equation}
+    \item For late times $t\in [t_+, \infty)$, the largest cluster $\mathcal{C}_1(G^N_t)$ is at least the size of the cluster containing $\mathcal{C}_1(G^N_{t_+})$. Therefore, \begin{equation}
+        \inf_{t\geq t_+} \frac{1}{N}C_1(G^N_t)\geq M^N_{t_+}>1-\epsilon
+    \end{equation} and so 
+    \begin{equation}\begin{split}
+        \sup_{t\geq t_+} \left[\frac{1}{N} \sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] & \leq \sup_{t\geq t_+} \left[ \frac{1}{N} \sum_{j\geq 2} C_j(G^N_t)\right] \\ & =1-\inf_{t\geq t_+} \left[\frac{1}{N}C_1(G^N_t)\right] \\ & <\epsilon. \end{split}
+    \end{equation}
+\end{enumerate}
+Now, consider the events
+\begin{equation}
+    A^3_N=\left\{\sup_{t\in [t_-, t_+]}\left[\frac{1}{N}\sum_{j\geq 2: C_j(G^N_{t})\geq \xi_N} C_j(G^N_{t})\right]<\epsilon \right\};\end{equation}
+    \begin{equation}
+    A_N=A^1_N\cap A^2_N\cap A^3_N.\end{equation} By Lemma \ref{lemma: anomalous clusters 2}, $\mathbb{P}(A^3_N)\rightarrow 1$, and so \begin{equation}
+        \mathbb{P}(A_N)\geq 1-\mathbb{P}((A^1_N)^c)-\mathbb{P}((A^2_N)^c)-\mathbb{P}((A^3_N)^c) \rightarrow 1.
+    \end{equation} On the event $A_N$, we have \begin{equation}
+        \sup_{t\geq t_\text{gel}}\left[\frac{1}{N}\hspace{0.1cm} \sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] <\epsilon
+    \end{equation} which proves the claimed convergence in probability. 
+\end{proof} 
+We also remark that this is also true, and much simpler, in the subcritical and critical phases $[0, t_\text{gel}]:$ 
+\begin{lemma}\label{lemma: large clusters below criticality} Let $G^N_t$ and $\xi_N$ be as above. Then \begin{equation}
+    \sup_{t\le t_\text{gel}} \left[\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\ge \xi_N} C_j(G^N_t)\right]\rightarrow 0\hspace{1cm}\text{in probability}.
+\end{equation} \end{lemma}\begin{proof} Following a similar argument as in the supercritical case, we bound for $t\leq t_\text{gel}$, \begin{equation}
+    \frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t) \leq \frac{1}{N}\sum_{j\geq 1: C_j(G^N_{t_\text{gel}})\geq \xi_N} C_j(G^N_{t_\text{gel}}).
+\end{equation} Therefore \begin{equation}
+    \sup_{t\le t_\text{gel}} \left[\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right] \leq  \frac{1}{N}C_1(G^N_{t_\text{gel}})+ \frac{1}{N}\sum_{j\geq 2: C_j(G^N_{t_\text{gel}})\geq \xi_N} C_j(G^N_{t_\text{gel}}).
+\end{equation} By Theorems \ref{thrm: RG1}, \ref{thrm: RG2}, both terms converge to $0$ in probability. \end{proof}  
+We now use these results to deduce an analogous result for the momentum and energy of these `anomalous clusters'. \begin{corollary}\label{corr: anomalous clusters 3}  The momentum and energy of the anomalous clusters satisfy \begin{equation}
+           \sup_{t\ge 0} \left\|\hspace{0.1cm}\frac{1}{N}\sum_{j\ge 2: C_j(G^N_t)\ge \xi_N} \hspace{0.1cm} P\left(\mathcal{C}_j(G^N_t)\right) \hspace{0.1cm}\right\| \rightarrow 0 \hspace{1cm} \text{in probability};
+       \end{equation} \begin{equation}
+           \sup_{t\ge 0} \left[\hspace{0.1cm}\frac{1}{N}\sum_{j\ge 2: C_j(G^N_t)\ge \xi_N} \hspace{0.1cm} E\left(\mathcal{C}_j(G^N_t)\right) \hspace{0.1cm}\right] \rightarrow 0 \hspace{1cm} \text{in probability}.
+       \end{equation}   \end{corollary} \begin{proof} By the law of large numbers, we can find a constant $\eta<\infty$ such that the events \begin{equation}
+        A_N =\left\{\frac{1}{N}\sum_{i=1}^N \|v_i\|^2 \le \eta;\hspace{0.5cm} \frac{1}{N}\sum_{i=1}^N \frac{1}{4}\|v_i\|^4\le \eta\right\}
+    \end{equation} have probability $\mathbb{P}(A_N)\rightarrow 1$. On this event, we use Cauchy-Schwarz to estimate, for any $t\ge 0$, \begin{equation}\begin{split} \label{eq: use of CS 1}\left\|\hspace{0.1cm}\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} \hspace{0.1cm}\sum_{i \in \mathcal{C}_j(G^N_t)} v_i \hspace{0.1cm}\right\| & \leq \left(\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right)^\frac{1}{2}\left(\frac{1}{N}\sum_{i=1}^N \|v_i\|^2\right)^\frac{1}{2} \\[2ex] & \le  \sqrt{\eta}\left(\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right)^\frac{1}{2}; \end{split} \end{equation} and similarly \begin{equation} \label{eq: use of CS 2} \begin{split} \sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} \hspace{0.1cm}\sum_{i \in \mathcal{C}_j(G^N_t)} \frac{1}{2}\|v_i\|^2 \hspace{0.1cm} & \leq \left(\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right)^\frac{1}{2}\left(\frac{1}{N}\sum_{i=1}^N \frac{1}{4}\|v_i\|^4\right)^\frac{1}{2} \\[2ex] & \leq \sqrt{\eta}\left(\frac{1}{N}\sum_{j\geq 2: C_j(G^N_t)\geq \xi_N} C_j(G^N_t)\right)^\frac{1}{2}. \end{split}\end{equation} In each case, the right-hand side converges uniformly to $0$ in probability by Lemmas \ref{lemma: anomalous clusters}, \ref{lemma: large clusters below criticality}, which proves the claimed convergence. \end{proof} 
+We now prove a weak result, to bound the size of the largest cluster \emph{below}, even in the critical case where there is no giant component. In conjunction with Lemma \ref{lemma: anomalous clusters}, this allows to `extract' information about the largest cluster by considering all clusters of size at least $\xi_N$, for some suitably slow-growing sequence $\xi_N$.
+\begin{lemma}\label{lemma: lower bound on largest cluster} Fix $t>0$ and $r\in \mathbb{N}$, and let $G^N_t$ be the random graph process for a base measure $m_0$ satisfying (\textbf{A1-4}). Then \begin{equation}
+    \mathbb{P}(C_1(G^N_t)\leq r)\rightarrow 0.
+\end{equation} \end{lemma} \begin{proof} From (\textbf{A1},\textbf{A4}), it follows that the measure $m_0$ is not a point mass, and we can therefore find disjoint sets $V, W$ of positive measure such that $\inf_{v \in V, w \in W} \|v-w\|>0$. Define \begin{equation} I_1=\{i \in \{1,2,...,N\}: v_i \in V\}; \hspace{1cm} N_1=\#I_1
+\end{equation} and similarly, $I_, N_2$, with $V$ replaced by $W$. With high probability, $N_1\geq cN$ and $N_2\geq cN$, for some constant $c>0$. Now, for all $i\in I_1, j\in I_2$ the edge $e=(ij)$ is present in $G^N_t$ with probability \begin{equation}
+    \mathbb{P}(e \text{ present in }G^N_t) \geq \left(1-\exp\left(-\frac{\epsilon}{N}\right)\right) \geq \frac{\delta}{N}
+\end{equation} for all $N$ large enough, for some positive $\epsilon(t, V, W)>0$ and $\delta=\delta(t, V, W)>0$. \medskip \\ Therefore, we can couple a random bipartite graph $H^N$, with vertex sets size $cN$ and edge probability $\frac{\delta}{N}$, such that $H^N \subset G^N_t$ with high probability. As $N\rightarrow \infty$, the degree distribution $\text{Binomial}(cN,\frac{\delta}{N})$ converges weakly to a $\text{Poisson}(c\delta)$ distribution. In particular, there exists $k\in (0,1)$ such that, for all $N$ and all vertexes $i$ in $H^N$, \begin{equation}
+    \mathbb{P}(\text{deg}_{H^N}(i)>r) \geq k.
+\end{equation} Therefore, \begin{equation}
+    \mathbb{P}(\delta(H^N)\le r) \le (1-k)^{2cN} \rightarrow 0
+\end{equation} which implies the claim.  \end{proof} 
+For the proof of Theorem \ref{thrm: convergence of gel}, we will wish to study the convergence of integrals $\langle (\pi_n+\pi_e)f, \mu^N_t\rangle$, for bounded continuous functions $f$ with non-compact support. However, the available convergence result Theorem \ref{thrm: convergence of stochastic coagulent} only gives convergence when the support of $f$ is compact. Our next lemma allows us to approximate the integrals $\langle (\pi_n+\pi_e)f, \mu^N_t\rangle$ for functions \emph{whose support is bounded in the $\pi_n$-direction}. \begin{lemma}\label{lemma: etar} There exists a sequence $\eta_r \rightarrow \infty$ such that \begin{equation}
+    \beta_n(r)=\sup_{N\geq 1} \hspace{0.1cm} \mathbb{E}\left[\sup_{t\geq 0}\langle \pi_n 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle \right]\rightarrow 0;
+\end{equation} \begin{equation}
+    \beta_e(r)= \sup_{N\geq 1} \hspace{0.1cm} \mathbb{E}\left[\sup_{t\geq 0}\langle \pi_e 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle\right] \rightarrow 0. 
+\end{equation} \end{lemma} \begin{proof} Let $\mu^N_t$ be a stochastic coagulant coupled to a random graphs process $G^N_t$. Using Cauchy-Schwarz, \begin{equation} \begin{split}
+   \langle \pi_e 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle & = \frac{1}{N} \sum_{\substack{j\geq 1: C_j(G^N_t)\le r \\ E(\mathcal{C}_j(G^N_t))>\eta_r}} \hspace{0.2cm} \sum_{i\in C_j(G^N_t)} \frac{1}{2}\|v_i\|^2  \\ & \leq \left(\frac{1}{N} \sum_{\substack{j\geq 1: C_j(G^N_t)\le r \\[2ex] E(\mathcal{C}_j(G^N_t))>\eta_r}} C_j(G^N_t)\right)^\frac{1}{2}\left(\frac{1}{N}\sum_{i=1}^N \frac{1}{4}\|v_i\|^4\right)  \\[2ex] & = \langle \pi_n 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle^\frac{1}{2}\left(\frac{1}{N}\sum_{i=1}^N \frac{1}{4}\|v_i\|^4\right)^\frac{1}{2}.
+\end{split} \end{equation} The second factor is constant in time, and bounded in $L^2$ by (\textbf{A4}), and so it is sufficient to prove the case for $\pi_n$. \medskip \\ Choose $\eta_r\rightarrow \infty$ quickly enough that \begin{equation} \label{eq: choice of etar}
+    r\int_{\mathbb{R}^d}1\left[\frac{1}{2}\|v\|^2>\frac{\eta_r}{r}\right]m_0(dv)\rightarrow 0.
+\end{equation}We observe that \begin{equation}
+    \sup_{t\geq 0} \hspace{0.1cm} \langle \pi_n 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle \leq \frac{1}{N}\sum_{i=1}^N 1_{A_i}  
+\end{equation} where \begin{equation}
+    A_i=\left\{\exists \hspace{0.1cm} t: C(i, G^N_t)< r, \hspace{0.2cm} E\left(\mathcal{C}(i, G^N_t)\right)> \eta_r \right\}.
+\end{equation} Let \begin{equation}
+    \mathcal{X}_{N,r}=\left\{i \in \{1,2,..,N\}: \hspace{0.1cm} \frac{1}{2}\|v_i\|^2>\frac{\eta_r}{r}\right\}; \hspace{1cm}X_{N,r}=\#\mathcal{X}_{N,r}.
+\end{equation} For $i\in \mathcal{X}_{N,r}$, let $t_{i}$ be the first time that the cluster $\mathcal{C}(i, G^N_t)$ is of size $r$, and define \begin{equation}
+    \mathcal{C}^*(i,r,N)=\mathcal{C}(i, G^N_{t_i});\hspace{1cm} \mathcal{C}^*(r,N)=\bigcup_{i\in \mathcal{X}_{N,r}} \mathcal{C}^*(i,r,N).
+\end{equation} Then we bound $\#\mathcal{C}^*(r,N)\le r X_{N,R}$.  \medskip \\ With this notation, we can prove the claimed convergence. Fix $i$, and suppose that, for some time $t\geq 0$, $C(i, G^N_t)< r$ and $E(\mathcal{C}(i, G^N_t))> \eta_r.$ Then there exists some $j \in \mathcal{C}(i, G^N_t)$ with $\frac{1}{2}\|v_j\|^2 >\frac{\eta_r}{r}$, and so $j\in \mathcal{X}_{N,r}$. Since $C(j, C^N_t)=C(i, G^N_t)< r$, we must also have $t\le t_j$ and so $i\in\mathcal{C}(j,G^N_t) \subset \mathcal{C}^*(r,N).$ Therefore, \begin{equation}
+    \sup_{t\geq 0} \hspace{0.1cm} \langle \pi_n 1[\pi_e(x)>\eta_r, \pi_n(x)\le r], \mu^N_t\rangle \le \frac{1}{N}\sum_{i=1}^N 1_{A_i} \le \frac{1}{N}\#\mathcal{C}(r,N) \le \frac{r}{N}X_{N,r}.
+\end{equation} Taking expectations, and using that the initial velocities are sampled independently from $m_0$, \begin{equation} \begin{split}
+    \mathbb{E}\left[\sup_{t\geq 0} \hspace{0.1cm} \langle \pi_n 1[\pi_e(x)>\eta_r, \pi_n(x)\le r], \mu^N_t\rangle\right] \le \frac{r}{N} \mathbb{E} X_{N,r}  = r\int_{\mathbb{R}^d} 1\left[\frac{1}{2}\|v\|^2>\frac{\eta_r}{r}\right]m_0(dv) \rightarrow 0. 
+\end{split} \end{equation}\end{proof}  
+   We can now prove the claimed convergence of the gel.
+   \begin{proof}[Proof of Theorem \ref{thrm: convergence of gel}] Throughout, we let $(\mu^N_t)_{t\geq 0}$ be a stochastic coagulant coupled to a random graphs process $(G^N_t)_{t\geq 0}$, as described in Section \ref{sec: coupling_to_random_graph}. We write $(v_i)_{i=1}^N$ for the velocities associated to the graph vertexes. \medskip \\ We will deal first with the supercritical case. Let $\xi_N$ be a sequence, to be constructed later, such that \begin{equation}
+       \xi_N\rightarrow \infty; \hspace{1cm} \frac{\xi_N}{N}\rightarrow 0; \hspace{1cm}\mathbb{P}(C_1(G^N_{t_\text{gel}})\geq \xi_N)\rightarrow 1.
+   \end{equation}  We now construct `bump functions' as follows.  For any $r \in \mathbb{N}$, let $\eta_r$ be as in Lemma \ref{lemma: etar} and let $S_r$ be the set \begin{equation}\label{eq: choice of xiN}
+       \{x: \pi_n(x)< r, \|\pi_p(x)\|\leq \sqrt{2r\eta_r}, \pi_e(x)\leq \sqrt{\eta_r}\}.
+   \end{equation} Let $\widetilde{g}_r$ be the indicator $\widetilde{g}_r=1[\pi_n(x)< r]$, and construct a continuous, compactly supported function $\widetilde{f}_r$ such that \begin{equation}
+      0\leq \widetilde{f}_r\leq 1;\hspace{1cm} \widetilde{f}_r=1 \hspace{0.1cm} \text{ on } S_r;\hspace{1cm} \widetilde{f}_r(x)=0 \hspace{0.1cm} \text{ if } \pi_n(x)\ge r.
+   \end{equation} By symmetrising if necessary, we also assume that $f_r(Rx)=f_r(x)$, for all $x\in S$. We define $f_N=\widetilde{f}_{\xi_N}$ and $g_N=\widetilde{g}_{\xi_N}$. \medskip \\ We now decompose the difference $M^N_t-M_t:$ \begin{equation}\label{eq: decomposition of erorr}\begin{split} M^N_t-M_t &= \underbrace{(1-M_t-\langle \pi_n f_N, \mu_t\rangle)}_{:=\mathcal{T}^1_N(t)} + \underbrace{\langle \pi_n f_N, \mu^N_t-\mu_t\rangle}_{:=\mathcal{T}^2_N(t)} + \underbrace{\langle \pi_n (f_n-g_n), \mu^N_t\rangle}_{:=\mathcal{T}^3_N(t)} +\underbrace{(
+   \langle \pi_n g_N, \mu^N_t\rangle - (1-M^N_t))}_{:=\mathcal{T}^4_N(t)}\end{split} \end{equation} We now estimate the errors $\mathcal{T}^i_N$, $i=1,3,4.$ The remaining term $\mathcal{T}^2_N$ will be dealt with separately, and requires careful construction of the sequence $\xi_N$. \paragraph{1. Estimate on $\mathcal{T}^1_N$.} Let $h_N=1_{S_{\xi_N}}$, so that $h_N \le f_N \le 1$. As $N\rightarrow \infty$, $\pi_n h_N \uparrow \pi_n$, and so by monotone convergence, \begin{equation}
+       \langle \pi_n h_N, \mu_t\rangle \uparrow \langle \pi_n, \mu_t\rangle =1-M_t.
+   \end{equation} Moreover, each function $t\mapsto \langle \pi_n h_N, \mu_t\rangle$ is continuous by (\textcolor{red}{...}), and the limit function $t\mapsto 1-M_t$ is continuous by Lemma \ref{lemma: representation of M, E}. Therefore, arguing as in Dini's Theorem, the convergence is uniform in $t\geq t_\text{gel}$, and since \begin{equation}
+       \langle \pi_n h_N, \mu_t\rangle \le \langle \pi_n f_N, \mu_t \rangle \le \langle \pi_n, \mu_t\rangle = 1-M_t, 
+   \end{equation} it follows that $\mathcal{T}^1_N(t) \rightarrow 0$, uniformly in $t\geq t_\text{gel}$.
+   \paragraph{2. Estimate on $\mathcal{T}^3_N$.} From the definitions of $f_N, g_N$, we observe that \begin{equation}
+       |\mathcal{T}^3_N(t)|=\langle \pi_n(g_N-f_N), \mu^N_t\rangle \le  \langle \pi_n 1[\pi_n(x)<\xi_N, \pi_e(x)>\eta_{\xi_N}], \mu^N_t\rangle.
+   \end{equation} Therefore, in the notation of Lemma \ref{lemma: etar}, \begin{equation}
+       \mathbb{E}\left[\sup_{t\geq t_\text{gel}} |\mathcal{T}^3_N(t)|\right] \leq \beta_n(\xi_N).
+   \end{equation} By construction of $\eta_r$, and since $\xi_N \rightarrow \infty$, it follows that \begin{equation}
+       \mathbb{E}\left[\sup_{t\geq t_\text{gel}} |\mathcal{T}^3_N(t)|\right] \rightarrow 0.\end{equation} Therefore, $\mathcal{T}^3_N$ converges to $0$, uniformly in probability.
+       \paragraph{3. Estimate on $\mathcal{T}^4_N$.} By the choice (\ref{eq: choice of xiN}) of $\xi_N$, we have that $\mathbb{P}(\forall  t\geq t_\text{gel}, C_1(G^N_t)\geq \xi_N)\rightarrow 1.$ On this event, we have the equality \begin{equation}
+           \begin{split}
+               \langle \pi_n g_N, \mu^N_t\rangle &=\langle \pi_n, \mu^N_t\rangle - \langle \pi_n 1[\pi_n\geq \xi_N], \mu^N_t\rangle \\[2ex] & = 1-\sum_{j\geq 1: C_j(G^N_t)\ge \xi_N} C_j(G^N_t) \\[2ex] & = 1-M^N_t-\sum_{j\ge 2:C_j(G^N_t)\ge \xi_N} C_j(G^N_t). 
+           \end{split} 
+       \end{equation} where $(G^N_t)_{t\geq 0}$ is the random graph process coupled to the stochastic coagulant. Therefore, with high probability, \begin{equation} \mathcal{T}^4_N(t) = \sum_{j\ge 2:C_j(G^N_t)\ge \xi_N} C_j(G^N_t) \end{equation} which converges to $0$, uniformly in probability on $t\geq t_\text{gel}$, by Lemma \ref{lemma: anomalous clusters}.
+       \paragraph{4. Construction of $\xi_N$, and convergence of $\mathcal{T}^2_N$.} To conclude the proof of the supercritical case, it remains to show how a sequence $\xi_N$ can be constructed such that $\mathcal{T}^2_N \rightarrow 0$ uniformly, in probability. Let $A^1_{r,N}, A^2_{r,N}$ be the events \begin{equation} \label{eq: definition of A1rn}
+       A^1_{r,N}=\left\{\sup_{t\geq 0} |\langle \pi_n f_r, \mu^N_t-\mu_t\rangle|<\frac{1}{r}\right\}; \hspace{1cm}
+       A^2_{r,N}=\left\{C_1(G^N_{t_\text{gel}}) \geq r\right\}.
+   \end{equation} Then, as $N\rightarrow \infty$, both $\mathbb{P}(A^1_{r,N}), \mathbb{P}(A^2_{r,N}) \rightarrow 1$, by Theorem \ref{thrm: convergence of stochastic coagulent} and Lemma \ref{lemma: lower bound on largest cluster}. We now define $N_r$ inductively for $r\geq 1$ by setting $N_1=1$ and \begin{equation}
+       \label{eq: recursive definition of Nr} N_{r+1}=\min\left\{n \in \mathbb{N}: n\geq \max((r+1)^2, N_r+1),  \mathbb{P}(A^2_{r+1,N})>\frac{r}{r+1},  \mathbb{P}(A^3_{r+1,N})>\frac{r}{r+1} \hspace{0.1cm} \text{for all }N\geq n. \right\}
+   \end{equation} Now, we set $\xi_N=r$ for $N\in [N_r, N_{r+1})\cap\mathbb{N}.$ It follows that $\xi_N \rightarrow \infty$ and $\xi_N\leq \sqrt{N}\ll N$, and \begin{equation}
+       \mathbb{P}\left(C_1(G^N_{t_\text{gel}}))\geq \xi_N\right)\ge 1-\frac{1}{\xi_N} \rightarrow 1. 
+   \end{equation} Therefore, $\xi_N$ satisfies the requirements (\ref{eq: choice of xiN}) above. Moreover, \begin{equation}
+       \mathbb{P}\left(\sup_{t\geq t_\text{gel}} |\mathcal{T}^2_N| <\frac{1}{\xi_N}\right) \ge \mathbb{P}\left(A^1_{\xi_N,N}\right) > 1-\frac{1}{\xi_N}\rightarrow 1
+   \end{equation} and so, with this choice of $\xi_N$, $\mathcal{T}^2_N \rightarrow 0$ uniformly in probability on $t\ge t_\text{gel}.$ \bigskip \\ This concludes the argument for the mass $M^N_t$ of the stochastic gel. The cases for the momentum $P^N_t$ and energy $E^N_t$ are essentially identical, with three minor differences. \begin{enumerate}[label=\roman{*}).]
+       \item For the momentum, by symmetry under $R$ we have \begin{equation}
+           \langle \pi_p f_N, \mu_t\rangle =0; \hspace{0.5cm} \langle \pi_p f_N, \mu_t\rangle =0.
+       \end{equation} Therefore, for the momentum term, $\mathcal{T}^3_N$ is identically $0$. For the energy, we argue by Dini as above.
+       \item For the momentum, we relate the error term $\mathcal{T}^3_N$ to the equivalent terms for the mass and energy, using the bound $\|\pi_p(x)\|\le\sqrt{2\pi_n(x)\pi_e(x)}$ and Cauchy-Schwarz. In the notation of Lemma \ref{lemma: etar}, this produces the bound \begin{equation}
+           \mathbb{E}\left[\sup_{t\geq t_\text{gel}} \|\mathcal{T}^3_N(t)\|\right] \leq \sqrt{2 \beta_n(\xi_N)\beta_e(\xi_N)} \rightarrow 0.
+       \end{equation}
+       \item In the decomposition (\ref{eq: decomposition of erorr}) for the momentum (resp. energy) terms, there is an additional error \begin{equation}
+           \mathcal{T}^5_N = \langle \pi_p, \mu^N_0-\mu_0\rangle \hspace{1cm}\left(\text{resp. } \langle \pi_e, \mu^N_0-\mu_0\rangle\right).
+       \end{equation} Each of these converge to $0$ in probability, by the law of large numbers.
+   \end{enumerate} \bigskip  Finally, we show uniform convergence in the subcritical phase $t<t_\text{gel}$. In this region, we have $M_t=E_t=0$ and $P_t=0$. Hence \begin{equation}
+       \sup_{t<t_\text{gel}} \left[|M^N_t-M_t|\right] = \sup_{t<t_\text{gel}}\left[ \frac{1}{N}C_1(G^N_t)\right]=\frac{1}{N}C_1(G^N_{t_\text{gel}}) \rightarrow 0
+   \end{equation} in probability, by Theorem \ref{thrm: RG1}. The cases for momentum and energy are similar, using Cauchy-Schwarz as in (\ref{eq: use of CS 1}, \ref{eq: use of CS 2}). \end{proof} 
+   
+   From this, the convergence of the data $\widetilde{M}^N_t, \widetilde{P}^N_t, \widetilde{E}^N_t$ of the large clusters follows relatively quickly.
+   
+   \begin{proof}[Proof of Theorem \ref{thrm: convergence of large clusters}] Let $\xi_N$ be any sequence with \begin{equation} \xi_N\rightarrow \infty; \hspace{1cm} \frac{\xi_N}{N}\rightarrow 0. \end{equation} In terms of the random graph process $G^N_t$, we can write the estimators as \begin{equation}\begin{split} 
+       \widetilde{M}^N_t = \frac{1}{N}\sum_{j\ge 1: C_j(G^N_t)\ge \xi_N} C_j(G^N_t);  \hspace{1cm} &\widetilde{P}^N_t =  \frac{1}{N}\sum_{j\ge 1: C_j(G^N_t)\ge \xi_N} P\left(\mathcal{C}_j(G^N_t)\right);\\[2ex] &\widetilde{E}^N_t =  \frac{1}{N}\sum_{j\ge 1: C_j(G^N_t)\ge \xi_N} E\left(\mathcal{C}_j(G^N_t)\right).
+  \end{split} \end{equation} From Theorem \ref{thrm: convergence of gel}, it is sufficient to prove that $M^N_t-\widetilde{M}^N_t, P^N_t-\widetilde{P}^N_t, E^N_t-\widetilde{E}^N_t$ converge to $0$, uniformly in probability. \medskip \\ Let $\mathcal{K}_t$ be the symmetric diference of the clusters considered: \begin{equation}
+      \mathcal{K}_t=\{1\}\triangle\left\{j: \hspace{0.1cm}C_j(G^N_t)\ge \xi_N \right\}=\begin{cases} \{1\} & \text{ if } C_1(G^N_t)< \xi_N; \\ \{j\ge 2: C_j(G^N_t) \ge \xi_N\} & \text{ if } C_1(G^N_t) \ge \xi_N \end{cases} and 
+  \end{equation} \begin{equation}
+          \left|M^N_t-\widetilde{M}^N_t\right|=\frac{1}{N}\sum_{j\in\mathcal{K}_t} C_j(G^N_t). 
+      \end{equation} Let $\epsilon>0$. By Lemma \ref{lemma: representation of M, E}, we can choose $t_+>t_\text{gel}$ such that $M_{t_+}<\epsilon.$ Then, for $t\le t_+$, we bound \begin{equation}
+          \left|M^N_t-\widetilde{M}^N_t\right| \le M^N_t +\frac{1}{N}\sum_{j\ge 2: C_j(G^N_t)\ge \xi_N} C_j(G^N_t).
+      \end{equation} By Theorem \ref{thrm: convergence of gel}, the first term converges to $M_t <\epsilon$ uniformly in probability, and by Lemmas \ref{lemma: anomalous clusters}, \ref{lemma: large clusters below criticality}, the second term converges in probability to $0$, uniformly in $t\le t_+$. Therefore, the event \begin{equation}
+          A^1_N=\left\{\sup_{t\le t_+} \left|M^N_t-\widetilde{M}^N_t\right|<\epsilon\right\}
+      \end{equation} has $\mathbb{P}(A_N)\rightarrow 1.$ Since $t_+>t_\text{gel}$, there is a giant component, and so $C_1(G^N_{t_+})>\xi_N$ with high probability. On this event, for all $t\ge t_+$, we have \begin{equation}
+          \left|M^N_t-\widetilde{M}^N_t\right|=\frac{1}{N}\sum_{j\ge 2: C_j(G^N_t)\ge \xi_N} C_j(G^N_t)
+      \end{equation} which converges to $0$, uniformly in probability, by Lemma \ref{lemma: anomalous clusters}. Therefore, \begin{equation}
+          A^2_N=\left\{\sup_{t\ge t_+} \left|M^N_t-\widetilde{M}^N_t\right|<\epsilon \right\}
+      \end{equation} has probability $\mathbb{P}(A^2_N)\rightarrow 1$. Combining, we have \begin{equation}
+          \mathbb{P}\left(\sup_{t\ge 0}\hspace{0.1cm}\left|M^N_t-\widetilde{M}^N_t\right|>\epsilon\right)\rightarrow 1
+      \end{equation} as desired. For the momentum and energy, we bound \begin{equation}
+          \left\| P^N_t-\widetilde{P}^N_t \right\| \le \frac{1}{N} \sum_{j\in\mathcal{K}_t} \left\|P\left(\mathcal{C}_j(G^N_t)\right)\right\|;\hspace{1cm}\left| E^N_t-\widetilde{E}^N_t \right| \le \frac{1}{N} \sum_{j\in\mathcal{K}_t} \left\|E\left(\mathcal{C}_j(G^N_t)\right)\right\|.
+      \end{equation} By using the case for the mass, and using Cauchy-Schwarz as in (\ref{eq: use of CS 1}, \ref{eq: use of CS 2}), we see that both right-hand-sides converge to $0$, uniformly in probability, as $N\rightarrow \infty.$ \end{proof}
+   
+   
+  

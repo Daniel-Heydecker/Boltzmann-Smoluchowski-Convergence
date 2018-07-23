@@ -1,0 +1,37 @@
+ 
+   \begin{proof}[Proof of Theorem \ref{thrm: convergence of gel}, \textcolor{red}{\textbf{OLD}}] Throughout, we let $(\mu^N_t)_{t\geq 0}$ be a stochastic coagulent coupled to a random graphs process $(G^N_t)_{t\geq 0}$, as described in Section \ref{sec: coupling_to_random_graph}. We write $(v_i)_{i=1}^N$ for the velocities associated to the graph vertexes. \paragraph{1. Construction of Bump Functions.} For any $r \in \mathbb{N}$, let $\eta_r$ be as in Lemma \ref{lemma: etar} and let $S_r$ be the set \begin{equation}
+       \{x: \pi_n(x)< r, \|\pi_p(x)\|\leq \sqrt{2r\eta_r}, \pi_e(x)\leq \sqrt{\eta_r}\}.
+   \end{equation} Let $g_r$ be the indicator $g_r=1[\pi_n(x)< r]$, and construct a continuous, compactly supported function $f_r$ such that \begin{equation}
+      0\leq f_r\leq 1;\hspace{1cm} f_r=1 \hspace{0.1cm} \text{ on } S_r;\hspace{1cm} f_r(x)=0 \hspace{0.1cm} \text{ if } \pi_n(x)\ge r.
+   \end{equation} By symmetrising if necessary, we also assume that $f_r(Rx)=f_r(x)$, for all $x\in S$. By the construction of $\eta_r$, we have \begin{equation}
+       \sup_{t\geq 0}\langle (\pi_n+\pi_e)|f_r-g_r|, \mu^N_t\rangle \rightarrow 0
+   \end{equation} in probability. 
+   \paragraph{2. Diagonal Argument} We now construct a sequence $\xi'_N \uparrow \infty$ as follows. Let $A^2_{r,N}, A^3_{r,N}$ be the events \begin{equation} \label{eq: definition of A2rn}
+       A^2_{r,N}=\left\{\sup_{t\geq 0} |\langle \pi_n f_r, \mu^N_t-\mu_t\rangle|<\frac{1}{r}; \hspace{0.5cm} \sup_{t\ge 0}\|\langle \pi_p f_r, \mu^N_t-\mu_t\rangle\|<\frac{1}{r};\hspace{0.5cm} \sup_{t\ge 0}|\langle \pi_e f_r, \mu^N_t-\mu_t\rangle|<\frac{1}{r} \right\};
+   \end{equation}
+   \begin{equation}
+       A^3_{r,N}=\left\{C_1(G^N_{t_\text{gel}}) \geq r\right\}.
+   \end{equation} Then, as $N\rightarrow \infty$, both $\mathbb{P}(A^2_{r,N}), \mathbb{P}(A^3_{r,N}) \rightarrow 1$, by Theorem \ref{thrm: convergence of stochastic coagulent} and Lemma \ref{lemma: lower bound on largest cluster}. We now define $N_r$ inductively for $r\geq 1$ by setting $N_1=1$ and \begin{equation}
+       \label{eq: recursive definition of Nr} N_{r+1}=\min\left\{n \in \mathbb{N}: n\geq \max((r+1)^2, N_r+1), \hspace{0.2cm}  \mathbb{P}(A^2_{r+1,N})>1-\frac{1}{r}, \hspace{0.2cm} \mathbb{P}(A^3_{r+1,N})>\frac{1}{r} \hspace{0.2cm} \text{for all }N\geq n. \right\}
+   \end{equation} Now, we set $\xi'_N=r$ for $N\in [N_r, N_{r+1}).$ Then $\xi'_N \rightarrow \infty$; $\xi'_N\leq \sqrt{N}\ll N$, and the event \begin{equation} A_N=A^1_{\xi'_N, N} \cap A^2_{\xi'_N, N}\cap A^3_{\xi'_N, N} \end{equation} has \begin{equation}
+       \mathbb{P}(A_N) >1-\mathbb{P}\left((A^1_N)^c\right)-\frac{2}{\xi'_N}\rightarrow 1.
+   \end{equation} \paragraph{3. Estimation for the Supercritical Regime.} We now estimate the differences $M^N_t-M_t, P^N_t-P_t, E^N_t-E_t$ in the supercritical regime $t\geq t_\text{gel}$, on the high-probability events $A_N.$ \medskip \\ For a fixed $t$, $\langle \pi_nf_{\xi'_N},\mu_t\rangle \uparrow \langle \pi_n, \mu_t\rangle=1-M_t$ by monotone convergence, and by Lemma \ref{lemma: representation of M, E}, the limit is continuous on $[0, \infty)$. Therefore, arguing as in Dini's theorem, the convergence is uniform. An identical argument applies for the energy, so that   \begin{equation}\label{eq: definition of deltaN} \delta_N=\max\left(\sup_{t\geq 0}|\langle \pi_n f_{\xi'_N}, \mu_t\rangle - (1-M_t)|,\hspace{0.1cm}  \sup_{t\geq 0}|\langle \pi_e f_{\xi'_N}, \mu_t\rangle - (\langle \pi_e, \mu_0\rangle -E_t)|\right) \rightarrow 0. \end{equation} For the momentum, the symmetry (\textbf{A1}) implies that $\langle \pi_p f_{\xi'_N}, \mu_t\rangle =0=\langle \pi_p, \mu_t\rangle$, and so the difference is identically 0. \medskip \\ On the event $A_N$, we have the equality \begin{equation} 
+       \langle \pi_n f_{\xi'_N}, \mu^N_t\rangle =\langle \pi_n g_{\xi'_N}, \mu^N_t\rangle =\sum_{j\geq 1: C_j(G^N_t)< \xi'_N} \frac{1}{N}C_j(G^N_t).
+   \end{equation} Moreover, for $t\geq t_\text{gel}$, $C_1(G^N_t)\geq \xi'_N$, and so we can rewrite further  \begin{equation} \label{eq: extracting MNT on AN}
+       \langle \pi_n f_{\xi'_N}, \mu^N_t\rangle  =1-M^N_t-\sum_{j\geq 2: C_j(G^N_t)\geq \xi'_N} \frac{1}{N}C_j(G^N_t).
+   \end{equation} Similarly, on $A_N$, \begin{equation} 
+       \langle \pi_n f_{\xi'_N}, \mu^N_t\rangle  =\langle \pi_p, \mu^N_0\rangle-P^N_t-\frac{1}{N} \sum_{j\geq 2: C_j(G^N_t)\geq \xi'_N} \hspace{0.1cm}\sum_{i \in \mathcal{C}_j(G^N_t)} v_i;
+   \end{equation} \begin{equation} 
+       \langle \pi_e f_{\xi'_N}, \mu^N_t\rangle  =\langle \pi_e, \mu^N_0\rangle-E^N_t-\frac{1}{N} \sum_{j\geq 2: C_j(G^N_t)\geq \xi'_N} \hspace{0.1cm}\sum_{i \in \mathcal{C}_j(G^N_t)} \frac{1}{2}\|v_i\|^2.
+   \end{equation} Now, let the \emph{anomalous error} $a_N$ be given by \begin{equation}
+       a_N = \sup_{t\geq t_\text{gel}} \left[\sum_{j\geq 2: C_j(G^N_t)\geq \xi'_N} \frac{1}{N}C_j(G^N_t)\right].
+   \end{equation}  Combining (\ref{eq: definition of A2rn}, \ref{eq: definition of deltaN}, \ref{eq: extracting MNT on AN}), we obtain the estimate on $A_N$ \begin{equation} \label{eq: estimation of MNT MT}  \sup_{t\geq 0} |M^N_t-M_t| \leq \frac{1}{\xi'_N}+\delta_N + a_N;  \end{equation} Similarly, \begin{equation}
+       \sup_{t\geq 0} \|P^N_t-P_t\| \leq \frac{1}{\xi'_N} + \sqrt{a_N \eta} + \|\langle \pi_p, \mu^N_0-\mu_0\rangle \|;
+   \end{equation}  \begin{equation}
+       \sup_{t\geq 0} |E^N_t-E_t| \leq \frac{1}{\xi'_N} + \delta_N+ \sqrt{a_N \eta} + |\langle \pi_e, \mu^N_0-\mu_0\rangle |.
+   \end{equation} The errors $(\xi'_N)^{-1}, \delta_N$ are nonrandom, and converge to 0, while the terms involving $a_N$ converge to $0$ in probability by Lemma \ref{lemma: anomalous clusters}, and the terms representing sampling errors of $\mu^N_0$ converge in probability to $0$ by the law of large numbers. Since $\mathbb{P}(A_N)\rightarrow 1$, this shows that \begin{equation}
+       \sup_{t\geq t_\text{gel}} |M^N_t-M_t|; \hspace{1cm} \sup_{t\geq t_\text{gel}} \|P^N_t-P_t\|; \hspace{1cm} \sup_{t\geq t_\text{gel}} |E^N_t-E_t|
+   \end{equation} converge to $0$ in probability. 
+   \paragraph{4. Estimation for the Subcritical Regime.} To conclude the proof of uniform converence, it is sufficient to show uniform convergence in probability for the subcritical regime $t<t_\text{gel}$. Since $M_t=0$ for this region, we estimate \begin{equation}
+       \sup_{0\leq t<t_\text{gel}} |M^N_t-M_t| =\sup \sup_{0\leq t<t_\text{gel}} M^N_t \leq \frac{1}{N}C_1(G^N_{t_\text{gel}}) \rightarrow 0
+   \end{equation} in probability, using Theorem \ref{thrm: RG1}. The cases for momentum and energy follow, using Cauchy-Schwarz as in (\ref{eq: use of CS 1}-\ref{eq: use of CS 2}). \paragraph{5. Convergence of the Alternative Estimator}   \end{proof}      

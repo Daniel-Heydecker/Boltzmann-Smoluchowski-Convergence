@@ -1,0 +1,42 @@
+\section{Size-Biasing Effect}
+We also have the following result, which describes the average energy of a particle in the early gel. Intuitively, since highly energetic particles are more likely to become part of the gel, we would expect that the average energy of a particle, conditional on being in the gel, is strictly greater than the average energy of the initial distribution:  \begin{equation}
+    \lim_{t\downarrow t_\text{gel}} \frac{E_t}{M_t}>\frac{1}{2}d\sigma^2.
+\end{equation}We show that there is a \emph{finite biasing} effect: that this limit exists, and is finite. 
+\begin{theorem} Let $\mu_0$ be the initial data for a Gaussian $m_0=N(0, \sigma^2 I_d)$ distribution. Then \begin{equation}
+    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}d\sigma^2
+\sqrt{1+\frac{2}{d}}.
+\end{equation} \end{theorem}  We make the following claim on the behaviour of the coefficients $a_t$, $b_t$ near the critical point $t_\text{gel}$: \begin{lemma}\label{lemma: a and b}\begin{enumerate}[label=\roman{*}).]
+    \item For $t>t_\text{gel}$, $a_t>0$;
+    \item As $t\downarrow t_\text{gel}$, \begin{equation}
+        a_t \rightarrow 0 \hspace{0.5cm} \text{and} \hspace{0.5cm} b_t\rightarrow 0;
+    \end{equation}
+    \item As $t\downarrow t_\text{gel}$, \begin{equation} \label{eq: b/a}
+        \frac{b_t}{a_t}\rightarrow \frac{1}{\sigma^2d\sqrt{1+\frac{2}{d}}}.
+    \end{equation}
+\end{enumerate}  \end{lemma}  We now explicitly compute the mass and energy in terms of $a_t$ and $b_t$:\begin{equation}
+    M_t=1-e^{-a_t}\left(\frac{1}{1+2\sigma^2b_t}\right)^\frac{d}{2}\sim a_t+d\sigma^2 b_t;
+\end{equation}\begin{equation}
+    E_t=\frac{1}{2}\left(1-e^{-a_t}\left(\frac{1}{1+2\sigma^2b_t}\right)^{1+\frac{d}{2}}\right)\sim \frac{1}{2}(a_t+(d+2)\sigma^2 b_t).
+\end{equation} The claimed result now follows from Lemma \ref{lemma: a and b} by taking quotients and using (\ref{eq: b/a}). 
+\begin{proof}[Proof of Lemma \ref{lemma: a and b}] \begin{enumerate}[label=\roman{*}).]
+    \item For $t>t_\text{gel}$, $\rho_t$ is not identically $0$, and so is positive on a set of positive measure. Hence, using (\textcolor{red}{nonlinear fixed point equation}) and the strict positivity of $K$, it follows that $\rho_t>0$ everywhere. In particular, \begin{equation}
+        \rho_t(0)=1-e^{-a_t}>0
+    \end{equation} which implies that $a_t>0.$
+    \item By Theorem \ref{thrm: continuity of rho},  $\rho_t\rightarrow 0$ almost everywhere as $t\downarrow t_\text{gel}$. Using the identification (\textcolor{red}{form of rho}), this implies that both $a_t$, $b_t \rightarrow 0$ as $t\downarrow t_\text{gel}$.
+    \item Substituting the identification (\ref{eq: form of rho}) into the fixed point equation (\ref{eq: nonlinear fixed point eq}), we find that $a_t, b_t$ satisfy the relations \begin{equation}
+        a_t=2\gamma t\left(1-e^{-a_t}\left(\frac{1}{1+2\sigma^2 b_t}\right)^\frac{d}{2}\right)\sim 2\gamma t(a_t+d\sigma^2 b_t);
+    \end{equation}\begin{equation}
+        b_t=2\gamma t(d\sigma^2)\left(1-e^{-a_t}\left(\frac{1}{1+2\sigma^2 b_t}\right)^{1+\frac{d}{2}}\right) \sim 2\gamma t(d\sigma^2)(a_t+(d+2)\sigma^2 b_t).
+    \end{equation} In particular, $b_t>0$. Now, for $t>t_\text{gel}$ small enough, $\frac{b_t}{a_t}$ takes values in the compact set \begin{equation}
+        \frac{b_t}{a_t} \in \left[0, \frac{4}{d\sigma^2}\left(\frac{a_t+d\sigma^2b_t}{a_t+(d+2)\sigma^2b_t}\right)\right] \subset \left[0, \frac{4}{(d+2)\sigma^2}\right].
+    \end{equation} It therefore follows that $(\frac{b_t}{a_t})_{t>t_\text{gel}}$ has at least one limit point, and \begin{equation}
+        \frac{b_t}{a_t}\sim \frac{a_t+d\sigma^2 b_t}{(d\sigma^2)(a_t+(d+2)\sigma^2 b_t)}.
+    \end{equation} Now, if $c$ is any limit point, then $c\geq 0$, and taking limits, $c$ must satisfy \begin{equation}
+        c=\frac{1}{d\sigma^2} \frac{1+d\sigma^2 c}{1+(d+2)\sigma^2c}.
+    \end{equation} This rearranges to \begin{equation}
+        d(d+2)\sigma^4c^2-1=0.
+    \end{equation} Therefore, the unique possible limit point is\begin{equation}
+        c=\frac{1}{\sigma^2 \sqrt{d(d+2)}}=\frac{1}{\sigma^2 d\sqrt{1+\frac{2}{d}}}
+    \end{equation} which proves the claimed convergence.
+\end{enumerate}\end{proof}
+ 

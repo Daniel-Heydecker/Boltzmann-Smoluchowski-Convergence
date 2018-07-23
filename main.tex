@@ -1,0 +1,105 @@
+\documentclass[11pt, notitlepage]{article}
+\makeatletter\@addtoreset{section}{part}\makeatother%
+\usepackage{amssymb}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx} %for graphics
+\usepackage{subcaption} %for subfigures
+\usepackage{relsize}
+\usepackage{xcolor}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+\usepackage{titling}
+\usepackage[]{algorithm2e}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\newtheorem{example}{Example}[section]
+\usepackage{framed}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\newcommand{\EE}{\ensuremath{\mathbb{E}}}
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\PP}{\ensuremath{\mathbb{P}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\dd}{\ensuremath{\mathrm{d}}}
+\newcommand{\XX}{\ensuremath{\mathbb{X}}\xspace}
+\newcommand{\sX}{\ensuremath{\mathcal{X}}\xspace}
+\newcommand{\abs}[1]{\left\lvert{#1}\right\rvert}
+\newcommand{\norm}[1]{\left\lVert{#1}\right\rVert}
+\newcommand{\var}[1]{\mathrm{var}\left({#1}\right)}
+\newcommand{\epvar}[1]{\mathrm{epvar}{\left({#1}\right)}}
+\newcommand{\lip}[1]{\ensuremath{\mathrm{Lip}\left({#1}\right)}\xspace}
+\newcommand{\rca}[1]{\mathrm{rca}{\left({#1}\right)}}
+\newcommand{\tmu}{\ensuremath{\widetilde{\mu}}\xspace}
+\newcommand{\tl}{\ensuremath{\widetilde{\lambda}}\xspace}
+
+\newcommand\dhcomment[1]{\textcolor{blue}{\textbf{#1!}}}
+
+\newcommand\rpcomment[1]{\textcolor{green}{\textbf{#1!}}}
+\title{Boltzmann-Smoluchowski Convergence}
+\author{RP, DH}
+\date{\today}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{intuition}{Physical Intuition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{formula}{Formula}[section]
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{observation}[conjecture]{Observation}
+%\newtheorem{remark}[theorem]{Remark}
+
+
+\begin{document}
+
+\maketitle
+
+\input{introduction.tex}
+\input{derivation.tex}
+\input{tightness.tex}
+\input{LLN.tex}
+\input{kinetic.tex}
+\input{Statements_of_results.tex}
+\input{Smoluchowski.tex}
+\input{LLN2.tex}
+\input{Introduction_to_Random_Graphs.tex}
+\input{Coupling_to_random_graphs.tex}
+\input{Finiteness_of_second_moment_after_tgel.tex}
+\input{Uniform_Convergence_of_Stochastic_Coagulant.tex}
+\input{Size_Biasing_effect.tex}
+\input{Convergence_of_Gel.tex}
+
+
+
+\begin{thebibliography}{}
+\bibitem{D&N} Darling, R.W.R. and Norris, J.R., 2008. Differential equation approximations for Markov chains. Probability surveys, 5, pp.37-79.
+
+\bibitem{HPR16} Heida, M. and Patterson, R.I.A. and Renger, D.R,M., 2016. WIAS Preprint 2353
+
+\bibitem{Meg} Megginson, R.M., An introduction to Banach space theory,
+
+\bibitem{PSW17} Patterson, R.I.A and Simonella, S. and Wagner, W., 2017. A Kinetic Equation for the Distribution of Interaction Clusters in Rarefied Gases, J. Stat. Phys., 
+
+\bibitem{BJR07} Bollob\'as, B., Janson, S. and Riordan, O., 2007. The phase transition in inhomogeneous random graphs. Random Structures \& Algorithms, 31(1), pp.3-122.
+
+\bibitem{N00} Norris, J.R., 2000. Cluster coagulation. Communications in Mathematical Physics, 209(2), pp.407-435.
+
+\bibitem{N99} Norris, J.R., 1999. Smoluchowski's coagulation equation: Uniqueness, nonuniqueness and a hydrodynamic limit for the stochastic coalescent. Annals of Applied Probability, pp.78-109.
+
+\bibitem{K02} Kallenberg, O., 2002. Foundations of modern probability, 2.ed., Springer
+
+\end{thebibliography}
+
+
+\end{document}
