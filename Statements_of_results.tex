@@ -73,7 +73,7 @@ We make the following basic symmetry assumption on the initial data.
 We summarise our results on the analysis of the Smoluchowski equation (\ref{eq: E+G}) as follows.
 \begin{theorem}
 Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}), and let $t_\text{gel}$ be given by 
-    \begin{equation} \label{eq: def of tgel} t_\text{gel} = \frac{1}{4\gamma}\sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}{\langle \pi_e^2, \mu_0\rangle}}\left(\langle \pi_n^2, \mu_0\rangle+\sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}{\langle \pi_e^2, \mu_0\rangle}}\langle \pi_n\pi_e, \mu_0\rangle \right)^{-1}.
+    \begin{equation} \label{eq: def of tgel} t_\text{gel}=\textbf{\textcolor{red}{Something extremely clever here.}}
 \end{equation} Then the equation (\ref{eq: E+G}) has a unique solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$, with the following properties.
 \paragraph{1. Phase Transition.} We have the following dichotomy: \begin{enumerate}[label=\roman{*}).]
     \item If $t\leq t_\text{gel}$, then $M_t=E_t=0$.
@@ -87,11 +87,25 @@ Moreover, $P_t=0$ for all $t.$
     \item At the critical point, $\mathcal{E}(t_\text{gel})=\infty$, and $\mathcal{E}(t)\rightarrow \infty$ as $t\rightarrow t_\text{gel}.$ 
     \item On $[0, t_\text{gel})$, $\mathcal{E}$ is monotonically increasing. 
 \end{enumerate}
-\paragraph{3. Dynamics beyond the Critical Point.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\text{gel}$, we have \begin{equation}
-    M_t=2\int_{t_\text{gel}}^t ds \int_S \pi_n(x)(\pi_n(x)E_s+\pi_e(x)M_s)\mu_s(dx);
-\end{equation}\begin{equation}
-    E_t=2\int_{t_\text{gel}}^t ds \int_S \pi_e(x)(\pi_n(x)E_s+\pi_e(x)M_s)\mu_s(dx).
-\end{equation} 
+\paragraph{3. Dynamics beyond the Critical Point.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\text{gel}$, we have 
+\begin{equation}
+    M_t=\int_{t_\text{gel}}^t ds
+    \left(
+      \kappa \left<\pi_n^2,\mu_s\right> +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu_s \right>M_s +
+        \left<\pi_n^2,\mu_s \right>E_s \right]
+    \right);
+\end{equation}
+\begin{equation}
+    E_t=\int_{t_\text{gel}}^t ds
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu_s\right> +
+      2\gamma \left[
+        \left<\pi_e^2,\mu_s \right>M_s +
+        \left<\pi_n \pi_e,\mu_s \right>E_s \right]
+    \right).
+\end{equation}
 \paragraph{4. Size-Biasing Effect.} As $t\downarrow t_\text{gel}$, we have the convergence \begin{equation}
     \frac{E_t}{M_t}\rightarrow \text{Something here}.
 \end{equation}
