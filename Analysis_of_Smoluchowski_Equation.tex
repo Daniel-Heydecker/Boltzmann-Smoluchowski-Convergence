@@ -127,38 +127,37 @@ Suppose the converse then one has a $\delta>0$ and a sequence $x^n \rightarrow \
 $\zeta(x^n) > \tau + \delta $ for all $n\in \NN$ and where $\tau := \zeta(\overline{x})$.
 Thus $\zeta\left(\phi(x^n,\tau)\right) > \delta $, which we will now show leads to a contradiction unless $\kappa = \gamma = 0$.
 
-If $\kappa > 0$ then $\dot x_1 \geq 2\kappa x_1^2$ and so $\zeta(x) \leq 1 / 2\kappa x_1(0)$ and thus $\lim_n \zeta\left(\phi(x^n,\tau)\right) = 0$.
-If $\gamma > 0$
- note that
+If $\kappa > 0$ then $\dot x_1 \geq 2\kappa x_1^2$ and so $\zeta(x) \leq 1 / 2\kappa x_1(0)$ and thus $\lim_n \zeta\left(\phi(x^n,\tau)\right) = 0$ yielding the required contradiction.
+
+If $\gamma > 0$ then we can get an upper bound for $\zeta$ by setting $\kappa = 0$ and in this case
 \begin{equation}\label{eq:proportional}
-    \langle \pi_e^2, \mu_t\rangle = \langle \pi_e^2, \mu_0\rangle
-    \frac{\langle \pi_n^2, \mu_t\rangle}{\langle \pi_n^2, \mu_0\rangle}
+    x_3(t) = x_1(t)
+    \frac{x_3(0)}{x_1(0)}
 \end{equation}
 and then one easily checks that
 \begin{equation}
-    f(t) := \langle \pi_n^2, \mu_t\rangle
-           + \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
-                        {\langle \pi_e^2, \mu_0\rangle}}
-             \langle \pi_n \pi_e, \mu_t\rangle
+    f(t) := x_1(t)
+           + \sqrt{\frac{x_1(0)}{x_3(0)}} x_2(t)
 \end{equation}
 satisfies
 \begin{equation*}
     \frac{\dd }{\dd t}f(t) = 4\gamma 
-    \sqrt{\frac{\langle \pi_e^2, \mu_0\rangle}
-                        {\langle \pi_n^2, \mu_0\rangle}}f(t)^2,
+    \sqrt{\frac{x_1(0)}{x_3(0)}}f(t)^2,
 \end{equation*}
 which has the solution
 \begin{equation}\label{eq:quadmoment-ode}
     f(t) = \left(\frac{1}{f(0)} - 4\gamma 
-    \sqrt{\frac{\langle \pi_e^2, \mu_0\rangle}
-                        {\langle \pi_n^2, \mu_0\rangle}}t \right)^{-1}.
+    \sqrt{\frac{x_3(0)}{x_1(0)}}t \right)^{-1}
 \end{equation}
-The solution to \eqref{eq:quadmoment-ode} blows up when
-\begin{equation}\label{eq:quad-tgel}
-    t = \frac{1}{4\gamma f(0)}
-             \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
-                        {\langle \pi_e^2, \mu_0\rangle}}
-\end{equation}
+and so
+\begin{equation*}
+    \zeta\left(\phi\left(x^n,t\right)\right)
+    =
+    .
+\end{equation*}
+Thus $\lim_n \zeta\left(\phi(x^n,\tau)\right) = 0$ yielding the required contradiction in this case too.
+
+\rpcomment{ii)}
 \end{proof}
 
 From this, we deduce the claimed result that $t_\mathrm{gel}=T$. Indeed, the argument above characterises $t_\mathrm{gel}^\epsilon$ as the time of existence \begin{equation}

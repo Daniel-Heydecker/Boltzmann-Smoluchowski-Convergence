@@ -1,7 +1,7 @@
 \section{Equality of the Critical Times}
 
 In this section, we will prove that the critical time $t_\mathrm{crit}$ for the graph process, introduced in Section \ref{sec: coupling_to_random_graph}, coincides with the gelation time for the limiting equation, defined in Section \ref{sec:SE} as the time at which mass escapes to infinity. 
-\begin{lemma} Let $\mu_0$ be a probabilty measure on $S$ satisfying (\textbf{A1-4}). Let $(\mu_t)_{t\ge 0}$ be the solution to (\ref{eq: E+G}) starting at $\mu_0$, with associated mass $M_t$ and energy $E_t$ of the gel; let $t_\text{gel}$ be given by \begin{equation}
+\begin{lemma}\label{lemma: connect critical times} Let $\mu_0$ be a probability measure on $S$ satisfying (\textbf{A1-4}). Let $(\mu_t)_{t\ge 0}$ be the solution to (\ref{eq: E+G}) starting at $\mu_0$, with associated mass $M_t$ and energy $E_t$ of the gel; let $t_\text{gel}$ be given by \begin{equation}
     t_\mathrm{gel}=\inf\{t\ge 0: M_t>0\}.
 \end{equation} Let $(G^N_t)$ be a random graph process for the same base measure $m$ on $\mathbb{R}^d$, and let $t_\mathrm{crit}$ be the critical time calculated in Lemma \ref{lemma: computation of tcrit}. Then $t_\mathrm{crit}=t_\mathrm{gel}$. \end{lemma}
 The proof is based on the following weak version of the convergence of the gel in Theorem \ref{thrm: convergence of stochastic coagulent}, and may be taken as preliminary reading for the more detailed arguments in Section \ref{sec: COG}. \begin{lemma} \label{lemma: WCOG} Fix $t>0$, and write $M^N_t$ for the scaled mass of the largest component of $G^N_t$: \begin{equation} M^N_t:=\frac{1}{N}\#C_1(G^N_t). \end{equation} Then $M^N_t\rightarrow M_t$ in probability. \end{lemma}  We begin with the following preparatory lemma, which serves to bound the size of the largest cluster \emph{below}, even in the cases where there is no giant component. In conjunction with Theorem \ref{thrm: RG2}, this allows to `extract' information about the largest cluster by considering all clusters of size at least $\xi_N$, for some suitably slow-growing sequence $\xi_N$.
@@ -16,7 +16,7 @@ The proof is based on the following weak version of the convergence of the gel i
     \mathbb{P}(\Delta(H^N)\le r) \le (1-k)^{2cN} \rightarrow 0
 \end{equation} which implies the claim.  \end{proof}
 
-For the proof of Theorem \ref{thrm: convergence of gel}, we will wish to study the convergence of integrals $\langle (\pi_n+\pi_e)f, \mu^N_t\rangle$, for bounded continuous functions $f$ with non-compact support. However, the available convergence result Lemma \ref{lemma: local uniform convergence of stochastic coagulent} only gives convergence when the support of $f$ is compact. Our next lemma allows us to approximate the integrals $\langle (\pi_n+\pi_e)f, \mu^N_t\rangle$ for functions \emph{whose support is bounded in the $\pi_n$-direction}. \begin{lemma}\label{lemma: etar} There exists a sequence $\eta_r \rightarrow \infty$ such that \begin{equation}
+For the proof of of Lemma \ref{lemma: connect critical times}, we will wish to study the convergence of integrals $\langle (\pi_n+\pi_e)f, \mu^N_t\rangle$, for bounded continuous functions $f$ with non-compact support. However, the available convergence result Lemma \ref{lemma: local uniform convergence of stochastic coagulent} only gives convergence when the support of $f$ is compact. Our next lemma allows us to approximate the integrals $\langle (\pi_n+\pi_e)f, \mu^N_t\rangle$ for functions \emph{whose support is bounded in the $\pi_n$-direction}. \begin{lemma}\label{lemma: etar} There exists a sequence $\eta_r \rightarrow \infty$ such that \begin{equation}
     \beta_n(r)=\sup_{N\geq 1} \hspace{0.1cm} \mathbb{E}\left[\sup_{t\geq 0}\langle \pi_n 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle \right]\rightarrow 0;
 \end{equation} \begin{equation}
     \beta_e(r)= \sup_{N\geq 1} \hspace{0.1cm} \mathbb{E}\left[\sup_{t\geq 0}\langle \pi_e 1[\pi_e(x)>\eta_r, \pi_n(x)< r], \mu^N_t\rangle\right] \rightarrow 0. 
@@ -57,7 +57,7 @@ For the proof of Theorem \ref{thrm: convergence of gel}, we will wish to study t
            \begin{split}
                \langle \pi_n g_N, \mu^N_t\rangle &=\langle \pi_n, \mu^N_t\rangle - \langle \pi_n 1[\pi_n\geq \xi_N], \mu^N_t\rangle \\[2ex] & = 1-\frac{1}{N}\sum_{j\geq 1: C_j(G^N_t)\ge \xi_N} C_j(G^N_t) \\[2ex] & = 1-M^N_t-\frac{1}{N}\sum_{j\ge 2:C_j(G^N_t)\ge \xi_N} C_j(G^N_t) 
            \end{split} 
-       \end{equation} where $(G^N_t)_{t\geq 0}$ is the random graph process coupled to the stochastic coagulant. Therefore, with high probability, \begin{equation} \mathcal{T}^4_N(t) = \sum_{j\ge 2:C_j(G^N_t)\ge \xi_N} C_j(G^N_t) \end{equation} which converges to $0$, by Theorem \ref{thrm: RG2}.
+       \end{equation} where $(G^N_t)_{t\geq 0}$ is the random graph process coupled to the stochastic coagulant. Therefore, with high probability, \begin{equation} \mathcal{T}^4_N(t) = \frac{1}{N} \sum_{j\ge 2:C_j(G^N_t)\ge \xi_N} C_j(G^N_t) \end{equation} which converges to $0$, by Theorem \ref{thrm: RG2}.
        \paragraph{4. Construction of $\xi_N$, and convergence of $\mathcal{T}^2_N$.} It remains to show how a sequence $\xi_N$ can be constructed such that $\mathcal{T}^2_N \rightarrow 0$ uniformly, in probability. Let $A^1_{r,N}, A^2_{r,N}$ be the events \begin{equation} \label{eq: definition of A1rn for WCOG}
        A^1_{r,N}=\left\{ |\langle \pi_n f_r, \mu^N_t-\mu_t\rangle|<\frac{1}{r}\right\}; \hspace{1cm}
        A^2_{r,N}=\left\{C_1(G^N_{t_\text{gel}}) \geq r\right\}.
@@ -66,5 +66,5 @@ For the proof of Theorem \ref{thrm: convergence of gel}, we will wish to study t
    \end{equation} Now, we set $\xi_N=r$ for $N\in [N_r, N_{r+1})\cap\mathbb{N}.$ It follows that $\xi_N \rightarrow \infty$ and $\xi_N\leq \sqrt{N}\ll N$, and \begin{equation}
        \mathbb{P}\left(C_1(G^N_{t_\text{gel}}))\geq \xi_N\right)\ge 1-\frac{1}{\xi_N} \rightarrow 1. 
    \end{equation} Therefore, $\xi_N$ satisfies the requirements (\ref{eq: choice of xiN for WCOG}) above. Moreover, \begin{equation}
-       \mathbb{P}\left(\sup_{t\geq t_\text{gel}} |\mathcal{T}^2_N| <\frac{1}{\xi_N}\right) \ge \mathbb{P}\left(A^1_{\xi_N,N}\right) > 1-\frac{1}{\xi_N}\rightarrow 1
+       \mathbb{P}\left(|\mathcal{T}^2_N| <\frac{1}{\xi_N}\right) \ge \mathbb{P}\left(A^1_{\xi_N,N}\right) > 1-\frac{1}{\xi_N}\rightarrow 1
    \end{equation} and so, with this choice of $\xi_N$, $\mathcal{T}^2_N \rightarrow 0$ in probability. \end{proof} 
