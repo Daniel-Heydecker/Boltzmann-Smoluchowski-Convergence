@@ -1,0 +1,140 @@
+\section{Analysis of Smoluchowski Equations}We will now analyse the relationship between various notions of solution for various Smoluchowski equations.  The remainder of this chapter is dedicated to a partial proof of these results, based on a previous analysis of Smolouchowski-type equations \cite{N00}. The remainder of the proof uses the convergence of the stochastic coalescent, and a coupling to an \emph{inhomogenous random graph process}, which will be introduced in later chapters.  
+\begin{lemma} [Existence and Uniquness of Solutions]\label{lemma: E and U} For any $\mu_0$, the equation with gel (\ref{eq: E+G}) has a unique global solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$.  \end{lemma} \begin{corollary}\label{cor: maximal conservative solutions} Suppose $(\mu'_t)_{t<T}$ is a conservative local solution to the equation without gel, (\ref{eq: E}), starting at $\mu_0$. Then $\mu_t=\mu'_t$ for all $t<T$, and hence \ref{eq: E} has a unique maximal conservative solution, given by $(\mu_t)_{t<t_\text{gel}}$.\end{corollary}  We consider a further modified equation, resulting from a related, and more easily analysed kernel. Let \begin{equation}
+    \label{eq: modified K} \begin{split} K^\text{m}(x,y,dz)& \\  = & \gamma(\pi_n(x)\pi_e(y)-\pi_p(x)\cdot \pi_p(y)+ \pi_e(x)\pi_n(y))\delta_{x+y}(dz) \\ & + \gamma(\pi_n(x)\pi_e(y)+\pi_p(x)\cdot \pi_p(y)+ \pi_e(x)\pi_n(y))\left(\frac{\delta_{x+Ry}+\delta_{Rx+y}}{2}\right)(dz) \\ & =\frac{1}{4}K(Rx, y, dz)+\frac{1}{2}K(x,y,dz)+\frac{1}{4}K(x,Ry, dz). \end{split} 
+\end{equation} Let $L^\text{m}$ be the drift operator for the modified kernel $K^\text{m}$, and consider the modified equation \begin{equation} \tag{mE-G}\label{eq: mE}
+    \mu_t=\mu_0+\int_0^t L^\text{m}(\mu_s)ds.
+\end{equation}The total mass of the modified kernel is \begin{equation}
+    \label{eq: modified Kbar} \overline{K^\text{m}}(x,y)=2\gamma(\pi_n(x)\pi_e(y)+\pi_e(x)\pi_n(y)).
+\end{equation}
+Consider the modified state space, for $\epsilon>0$, \begin{equation*}
+    S^\epsilon= \{x\in S: \epsilon \pi_n(x) \leq \pi_e(x) \leq \epsilon^{-1} \pi_n(x)\}.
+\end{equation*} Note that this state space is preserved under both kernels $K, K^\text{m}$. Moreover, on the reduced state space $S^\epsilon$, the modified kernel $K^\text{m}$ is approximately multiplicative: for some $\delta_\epsilon>0$ and $\Delta_\epsilon<\infty$, we have \begin{equation*}
+    \delta_\epsilon\hspace{0.1cm} (\pi_n(x)+\pi_e(x))\hspace{0.1cm}(\pi_n(y)+\pi_e(y)) \leq \overline{K^\text{m}}(x,y) \leq  \Delta_\epsilon\hspace{0.1cm} (\pi_n(x)+\pi_e(x))\hspace{0.1cm}(\pi_n(y)+\pi_e(y))
+\end{equation*}for all $x,y \in S^\epsilon$. For any $\epsilon$, let $\mu_0^\epsilon$ denote the restriction $\mu_0^\epsilon(dx)=1[x\in S^\epsilon]\mu_0(dx).$ Applying a result from  \cite{N00}, we obtain the following:
+\begin{lemma}\label{lemma: solution to modified equation}
+    For all $\epsilon>0$, there is a unique maximal conservative solution  $(\nu^\epsilon_t)_{t< T^\epsilon}$ in $S^\epsilon$ to the modified equation (\ref{eq: mE}). Moreover, the map $t\mapsto \langle (\pi_n+\pi_e)^2, \nu^\epsilon_t\rangle$ is finite and increasing on $[0,T_\epsilon)$, and increases to $\infty$ as $t\uparrow T_\epsilon$. 
+\end{lemma}
+
+Similarly, we can also apply Corollary \ref{cor: maximal conservative solutions} to deduce the existence of maximal conservative solutions $(\mu^\epsilon_t)_{t<t_\text{gel}^\epsilon}$ to (\ref{eq: E}) starting at $\mu^\epsilon_0$, which are again given by initial segments of a global solution $(\mu^\epsilon_t)_{t\geq 0}$ to (\ref{eq: E+G}). Repeatedly exploiting uniqueness, we show that these coincide:
+
+\begin{lemma}[Relationship of equations] Let $\mu^\epsilon_0$ be as above, for initial data $\mu_0$ satisfying (\textbf{R1}) \rpcomment{What is R1 please?}. Then the maximal conservative solutions $(\mu^\epsilon_t)_{t<t_\text{gel}^\epsilon}$ and $(\nu^\epsilon_t)_{t<T^\epsilon}$, to (\ref{eq: E}) and (\ref{eq: mE}) respectively, coincide. In particular, the map \begin{equation*}
+    t\mapsto \langle (\pi_n+\pi_e)^2, \mu^\epsilon_t\rangle
+\end{equation*} is finite and increasing on $[0, t_\text{gel}^\epsilon)$, and increases to $\infty$ as $t\uparrow t_\text{gel}^\epsilon.$ \end{lemma}
+
+\begin{proof} Firstly, we note that $( \mu^\epsilon_t \circ R^{-1})_{t<t_\text{gel}}$ also solves (\ref{eq: E}), starts at $\mu^\epsilon_0$ and is conservative. Therefore, by uniqueness in Corollary \ref{cor: maximal conservative solutions}, we must have $\mu^\epsilon_t \circ R^{-1}=\mu^\epsilon_t$ for all $t<t_\text{gel}.$ Therefore, for any bounded, measurable function $f$, and $t<t^\epsilon_\text{gel},$ \begin{equation} \begin{split}
+        \int_{S\times S\times S} f(z)K(x,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)& = \int_{S\times S} f(x+y)\overline{K}(x,y)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy) \\ &=\int_{S\times S} f(x+y)\overline{K}(x,y)(R_\star\mu^\epsilon_t)(dx)\mu^\epsilon_t(dy) \\& = \int_{S\times S} f(Rx+y)\overline{K}(Rx,y)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)\\ = &\int_{S\times S\times S} f(z)K(Rx,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy).
+    \end{split} \end{equation} Similarly, \begin{equation} \begin{split}
+        \int_{S\times S\times S} f(x)K(x,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)& = \int_{S\times S} f(x)\overline{K}(x,y)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy) \\ &=\int_{S\times S} f(x)\overline{K}(x,y)\mu^\epsilon_t(dx)(R_\star\mu^\epsilon_t)(dy) \\& = \int_{S\times S} f(x)\overline{K}(x,Ry)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)\\& = \int_{S\times S} f(x)\overline{K}(Rx,y)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)\\ = &\int_{S\times S\times S} f(x)K(Rx,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)
+    \end{split} \end{equation} and \begin{equation}
+        \int_{S\times S \times S} f(y)K(x,y,dz)\mu^\epsilon(dx)\mu^\epsilon(dy)=\int_{S\times S \times S} f(y)K(Rx,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy). 
+    \end{equation} Hence, it follows that \begin{equation}\label{eq: symmetry under R1}
+        \int_{S\times S\times S} (f(z)-f(x)-f(y))K(x,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy) =  \int_{S\times S\times S} (f(z)-f(x)-f(y))K(Rx,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy)
+    \end{equation} and by an identical argument \begin{equation}\label{eq: symmetry under R2}
+        \int_{S\times S\times S} (f(z)-f(x)-f(y))K(x,y,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy) =  \int_{S\times S\times S} (f(z)-f(x)-f(y))K(x,Ry,dz)\mu^\epsilon_t(dx)\mu^\epsilon_t(dy).
+    \end{equation} Combining these, we see that $(\mu^\epsilon_t)_{t<t^\epsilon_\text{gel}}$ solves the modified equation (\ref{eq: mE}), and so, by uniqueness of the maximal conservative solution $(\nu^\epsilon_t)_{t<T^\epsilon}$ in Lemma \ref{lemma: solution to modified equation}, we have \begin{equation}
+        t^\epsilon_\text{gel} \leq T^\epsilon; \hspace{1cm} \mu^\epsilon_t=\nu^\epsilon_t \hspace{0.5cm}\forall t<t^\epsilon_\text{gel}.
+    \end{equation} The other implication is identical, using the uniqueness of the maximal conservative solution $(\nu^\epsilon_t)_{t<T^\epsilon}$ in Lemma \ref{lemma: solution to modified equation} to deduce that $\nu^\epsilon_t=R_\star \nu^\epsilon_t$ for $t<T^\epsilon$. Hence, the equations (\ref{eq: symmetry under R1}, \ref{eq: symmetry under R2}) hold with $\nu^\epsilon_t$ in place of $\mu^\epsilon_t$, for any bounded, measurable $f$ and $t<T^\epsilon.$ Therefore, $(\nu^\epsilon_t)_{t<T^\epsilon}$ is a conservative solution to the unmodified equation (\ref{eq: E}), and so by Corollary \ref{cor: maximal conservative solutions}, \begin{equation}
+        T^\epsilon \leq t^\epsilon_\text{gel}; \hspace{1cm} \nu^\epsilon_t=\mu^\epsilon_t \hspace{0.5cm}\forall t<T^\epsilon.
+    \end{equation} \end{proof}  \iffalse Repeating the calculation we have already done, we can calculate the gelation times explicitly: \begin{lemma}[Identification of Gelation Times]\label{lemma: calculation of gelation} For $\epsilon>0$, the gelation time $t_\text{gel}^\epsilon$ is given by \begin{equation} t_\text{gel}^\epsilon = \frac{1}{4\gamma}\sqrt{\frac{\langle \pi_n^2, \mu_0^\epsilon\rangle}{\langle \pi_e^2, \mu_0^\epsilon\rangle}}\left(\langle \pi_n^2, \mu_0^\epsilon\rangle+\sqrt{\frac{\langle \pi_n^2, \mu_0^\epsilon\rangle}{\langle \pi_e^2, \mu_0^\epsilon\rangle}}\langle \pi_n\pi_e, \mu_0^\epsilon\rangle \right)^{-1}. \end{equation} As $\epsilon \downarrow 0$, we have \begin{equation}
+    t_\text{gel}^\epsilon \rightarrow t_\text{gel} =\frac{1}{4\gamma}\sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}{\langle \pi_e^2, \mu_0\rangle}}\left(\langle \pi_n^2, \mu_0\rangle+\sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}{\langle \pi_e^2, \mu_0\rangle}}\langle \pi_n\pi_e, \mu_0\rangle \right)^{-1}.
+\end{equation}  \end{lemma} \begin{proof} \textcolor{red}{\textbf{Here's what we had before:}} From Lemma \ref{lemma: integral equation}, and standard regularity arguments, we have 
+\begin{align}
+    \frac{\dd}{\dd t}\langle \pi_n^2, \mu_t\rangle &=
+    2\kappa \langle \pi_n^2, \mu_t\rangle^2
+    + 8 \gamma \langle \pi_n \pi_e, \mu_t\rangle\langle \pi_n^2, \mu_t\rangle\\
+    \frac{\dd}{\dd t}\langle \pi_n \pi_e, \mu_t\rangle &=
+    2\kappa \langle \pi_n^2, \mu_t\rangle \langle \pi_n \pi_e, \mu_t\rangle
+    + 4 \gamma \langle \pi_n \pi_e, \mu_t\rangle^2
+    + 4 \gamma \langle \pi_n^2, \mu_t\rangle\langle \pi_e^2, \mu_t\rangle\\
+    \frac{\dd}{\dd t}\langle \pi_e^2, \mu_t\rangle &=
+    2\kappa \langle \pi_n \pi_e, \mu_t\rangle^2
+    + 8 \gamma \langle \pi_n \pi_e, \mu_t\rangle\langle \pi_e^2, \mu_t\rangle.
+\end{align}
+In the case $\kappa = 0$ note that
+\begin{equation}\label{eq:proportional}
+    \langle \pi_e^2, \mu_t\rangle = \langle \pi_e^2, \mu_0\rangle
+    \frac{\langle \pi_n^2, \mu_t\rangle}{\langle \pi_n^2, \mu_0\rangle}
+\end{equation}
+and then one easily checks that
+\begin{equation}
+    f(t) := \langle \pi_n^2, \mu_t\rangle
+           + \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
+                        {\langle \pi_e^2, \mu_0\rangle}}
+             \langle \pi_n \pi_e, \mu_t\rangle
+\end{equation}
+satisfies
+\begin{equation*}
+    \frac{\dd }{\dd t}f(t) = 4\gamma 
+    \sqrt{\frac{\langle \pi_e^2, \mu_0\rangle}
+                        {\langle \pi_n^2, \mu_0\rangle}}f(t)^2,
+\end{equation*}
+which has the solution
+\begin{equation}\label{eq:quadmoment-ode}
+    f(t) = \left(\frac{1}{f(0)} - 4\gamma 
+    \sqrt{\frac{\langle \pi_e^2, \mu_0\rangle}
+                        {\langle \pi_n^2, \mu_0\rangle}}t \right)^{-1}.
+\end{equation}
+The solution to \eqref{eq:quadmoment-ode} blows up when
+\begin{equation}\label{eq:quad-tgel}
+    t = \frac{1}{4\gamma f(0)}
+             \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
+                        {\langle \pi_e^2, \mu_0\rangle}}
+\end{equation}
+
+Assuming the initial condition is independent Maxwell-Boltzmann velocities in $d$ dimensions and all clusters of size 1 one has
+\begin{align*}
+    \langle \pi_n^2, \mu_0\rangle &= 1\\
+    \langle \pi_n \pi_e, \mu_0\rangle &= d\frac{\sigma^2}{2}\\
+    \langle \pi_e^2, \mu_0\rangle &= \frac{\sigma^4}{4}\left(2d + d^2\right)
+\end{align*}
+and thus $f(0) = 1 + d / \sqrt{2d + d^2}$.
+In this case the critical time given by \eqref{eq:quad-tgel} is
+\begin{equation}
+    \frac{1}{2\gamma \sigma^2 \left(d + \sqrt{2d +d^2}\right)}.
+\end{equation}
+This should be compared to the expression for the mean free time \cite[equation 4.38]{PSW17}, which is $1/4\gamma \sigma^2 d$. \end{proof} \fi In order to deduce the conservation properties of the solution $(\mu_t)_{t\geq 0}$ to (\ref{eq: E+G}), we use the following monotonicity argument, which follows from a result of \cite{N00}: \begin{lemma}\label{lemma: connecting mu-epsilon and mu}
+    For $\epsilon>0$, let $(\mu^\epsilon_t)_{t\geq 0}$ be the global solution to (\ref{eq: E+G}), starting at $\mu_0^\epsilon.$ Let $M^\epsilon_t$ and $E^\epsilon_t$ be the mass and energy of the corresponding gel. Then we have the relation \begin{equation}
+        \epsilon M^\epsilon_t \leq E^\epsilon_t \leq \epsilon^{-1}M^\epsilon_t.
+    \end{equation}We have the monotonicity principle\begin{equation}
+        \mu^\epsilon_t \leq \mu_t;
+    \end{equation}\begin{equation}
+        M^\epsilon_t \leq M_t; \hspace{1cm} E^\epsilon_t \le E_t.
+    \end{equation}
+ In particular, \begin{enumerate}[label=\roman{*}).]
+        \item If $t<t_\text{gel}$, then $M_t=E_t=0$.
+        \item If $t>t_\text{gel}$, then $M_t >0$ and $E_t>0$.
+    \end{enumerate} Moreover, $\mu^\epsilon_t\uparrow \mu_t$ as $\epsilon\downarrow 0$, in the sense of monotone limits.
+\end{lemma} \dhcomment{Haven't yet proven monotonicity principle required, but should follow from \cite{N00}} \medskip \\ Finally, we turn to the behaviour of the second moment
+$\mathcal{E}(t)=\langle \pi_n^2+\pi_e^2, \mu_t\rangle$ in the subcritical phase $t<t_\text{gel}$. Following ideas of \cite{N00}, we show that the gelation coincides exactly with the blowup of the second moment. \begin{lemma}\label{lemma: second moment before tgel} The second moment $\mathcal{E}(t)=\langle \pi_n^2+\pi_e^2, \mu_t\rangle$ is finite and increasing on $[0, t_\text{gel})$, and increases to infinity as $t\uparrow t_\text{gel}$. \end{lemma} \begin{proof} We first appeal to the following result, which is a special case of \cite[Theorem 2.1]{N00} and describes the blowup of the second moment. \begin{lemma} We say that a local solution $(\nu_t)_{t<T}$ to (\ref{eq: E}) is \emph{strong} if, for all times $t<T$, we have \begin{equation}
+    \sup_{s\le t} \hspace{0.1cm} \langle( \pi_n+\pi_e)^2, \mu_s\rangle <\infty.
+\end{equation} Then any strong local solution to (\ref{eq: E}) is also conservative. Moreover, for any $\mu_0$ satisfying (\textbf{A1-4}), there is a unique maximal strong solution $(\mu'_t)_{t<T}$ to (\ref{eq: E}), starting at $\mu_0$, such that $ \langle (\pi_n+\pi_e)^2, \mu'_t\rangle$ is increasing on $[0,T)$, and increases to $ \infty$  as $t\uparrow T$. \end{lemma} 
+
+It follows immediately that $(\mu'_t)_{t<T}$ is a  conservative solution to (\ref{eq: E}), and so $T \le t_\text{gel}$, and $\mu'_t=\mu_t$ for all $t<T$. Therefore, to conclude the proof, it is sufficient to show that $T\ge t_\text{gel}$. \medskip \\ Following the ideas of \cite[Proposition 2.7]{N00}, we obtain the integral relations, for all $t<T$, \begin{equation}
+    \langle \pi_n^2, \mu_t\rangle =
+    \langle \pi_n^2, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n^2, \mu_s\rangle^2+8\gamma\langle \pi_n\pi_e, \mu_t\rangle\langle\pi_n^2, \mu_s\rangle \right] ds;
+\end{equation} 
+
+\begin{equation}
+    \langle \pi_n \pi_e, \mu_t\rangle =
+    \langle \pi_n\pi_e, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n^2, \mu_s\rangle\langle \pi_n\pi_e, \mu_s\rangle+4\gamma\langle \pi_n\pi_e, \mu_t\rangle^2+4\gamma\langle\pi_n^2, \mu_s\rangle\langle \pi_e^2, \mu_s \rangle \right] ds;
+\end{equation}
+
+\begin{equation}
+    \langle \pi_e^2, \mu_t\rangle =
+    \langle \pi_e^2, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n\pi_e, \mu_s\rangle+8\gamma\langle \pi_n\pi_e, \mu_t\rangle\langle\pi_e^2, \mu^t\rangle \right] ds.
+\end{equation} Since the integrands appearing on the right-hand side are bounded on compact subsets of $[0,T)$, we may view this as a differential equation for the three moments $\langle \pi_n^2, \mu_t\rangle, \langle \pi_n \pi_e, \mu_t\rangle, \langle \pi_e^2, \mu_t\rangle$ and, from the construction of $T$, this solution blows up precisely at $T$. An identical argument holds for $\mu^\epsilon_t$, which blows up at $t^\epsilon_\text{gel}$. We now use the following lemma:
+\begin{lemma} ...\end{lemma}
+
+
+
+
+\iffalse We define the map \begin{equation}
+    f(t) := \langle \pi_n^2, \mu_t\rangle
+           + \sqrt{\frac{\langle \pi_n^2, \mu_0\rangle}
+                        {\langle \pi_e^2, \mu_0\rangle}}
+             \langle \pi_n \pi_e, \mu_t\rangle.
+\end{equation} Then $f$ is finite on $[0, T)$, and so we find the differential equation on $[0,T)$ \begin{equation}
+    \frac{d}{dt}f(t)=4\gamma\sqrt{\frac{\langle \pi_e^2, \mu_t\rangle}{\langle \pi_n^2, \mu_0\rangle}}f(t)^2
+\end{equation} has a finite solution on $[0,T)$. By the previous calculation, $f$ blows up precisely at $t_\text{gel}$, and so $T\leq t_\text{gel}.$ On the other hand, we observe that there is some $C(\mu_0)$ such that, for all times $t<T$, \begin{equation}
+    \langle (\pi_n+\pi_e)^2, \mu_t \rangle \leq Cf(t).
+\end{equation} Therefore, if we assume that $T<t_\text{gel}$, we would conclude that $\sup_{t<T} \langle (\pi_n+\pi_e)^2, \mu_t\rangle <\infty$, which is a contradiction. Hence, $T=t_\text{gel}$, which proves the claimed result. \fi \end{proof} 

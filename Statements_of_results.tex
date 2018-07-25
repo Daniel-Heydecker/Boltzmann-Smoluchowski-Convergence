@@ -1,30 +1,29 @@
-\section{Statements of Results}
-We define the state space \begin{equation*}
+\subsection{Definitions}
+From \eqref{e:cluster-merge-rate} one sees that Kac interaction cluster dynamics do not require a full knowledge of the Kac process, but only the number of molecules (mass), combined momentum and combined kinetic energy of the molecules indexed by each interaction cluster.
+Therefore the interaction cluster size dynamics can be replicated by considering coagulation of particles in a state space
+\footnote{The inequality arises because clusters satisfy $\sum_{i=1}^n v_i = p$ and $\frac12 \sum_{i=1}^n \abs{v_i}^2 = e$ for some $v_i \in \mathbb{R}^d$.}
+\begin{equation}
     S=\{x=(n, p, e) \in \mathbb{N}\times \mathbb{R}^d\times (0,\infty): |p|\leq \sqrt{2ne} \}.
-\end{equation*} We equip the state space $S$ with the parity map \begin{equation*}
-    R(n,p,e)=(n,-p,e).
-\end{equation*} We make the following basic symmetry assumption on the initial data.
-\\\textbf{A1.} The initial data $\mu_0$ satisfies the symmetry \begin{equation}
-    R_\star \mu_0 = \mu_0.
 \end{equation}
-\\ \textbf{A2.} The initial data is given in terms of a distribution $m_0$ of particle velocities, by pushforward under the map
-\begin{equation}
-    \iota: \RR^d \rightarrow S; \hspace{1cm} v\mapsto (1, v, |v|^2).
-\end{equation}
-\\ \textbf{A3.} For $0\leq k\leq 6$, we have
-\begin{equation}
-    \sigma_k(m)=\langle \|v\|^k, m_0\rangle <\infty.
-\end{equation}
-\\ \textbf{A4.} $m_0$ is not the point mass $\delta_0$.
-The main case of interest will be the case where $m_0$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
 
-We take the kernel to be \dhcomment{Derived elsewhere....} \begin{equation}
-    K(x,y,dz)=\overline{K}(x,y)\delta_{x+y}(dx)=2\gamma\left(\pi_n(x)\pi_e(y)-\pi_p(x)\cdot \pi_p(y)+\pi_e(x)\pi_n(y)\right)\delta_{x+y}(dz)
-\end{equation} Let $\mathcal{T}$ be the collection of bounded, measurable functions on $S$ of bounded support. We write $L$ for the drift operator, given by specifying for all $f\in \mathcal{T}$, \begin{equation} \label{eq: drift wo gel}
+We write $\pi_n, \pi_p, \pi_e$ for projection onto the first (mass), second (momentum) and third (kinetic energy) factors respectively and identify the masses of these particles with the sizes of the Kac interaction clusters. We equip $S$ with the parity map \begin{equation*}
+    R(n,p,e)=(n,-p,e).
+\end{equation*}
+
+
+The rate at which pairs of clusters $\left\{ x,y \right\}$ merge to form a new cluster $z$ is given using an interaction kernel $K$:
+\begin{equation}
+    K(x,y,dz)=\overline{K}(x,y)\delta_{x+y}(dx);
+    \end{equation} \begin{equation} \overline{K}(x,y)=\kappa \pi_n(x)\pi_n(y)+2\gamma\left(\pi_n(x)\pi_e(y)-\pi_p(x)\cdot \pi_p(y)+\pi_e(x)\pi_n(y)\right),
+\end{equation}
+where delta stands for the Dirac point measure and $\kappa, \gamma\ge 0$. 
+
+Jump processes
+
+ We write $L$ for the drift operator, given by specifying for all bounded measurable $f\colon S \rightarrow \RR$, \begin{equation} \label{eq: drift wo gel}
     \langle f,L(\mu)\rangle=\int_{S\times S}\{f(x+y)-f(x)-f(y)\}\overline{K}(x,y)\mu(dx)\mu(dy).
-\end{equation} The equation without gel for $(\mu_t)_{t<T}$ is that, for all $t<T$ and all $f\in \mathcal{T}$, \begin{equation}
-    \label{eq: E} \langle f, \mu_t\rangle =\langle f, \mu_0 \rangle +\int_0^t \langle f, L(\mu_s)\rangle ds. 
-\end{equation} To include gel, we define $L_\text{gel}(\mu)$ by \begin{equation}
+\end{equation}
+This captures the effects of coagulations between finite clusters. However, as discussed above, we wish to include the possibility of a macroscopic component, which we term \emph{gel}. To include this effect, we define $L_\text{gel}(\mu)$ by \begin{equation}
     \langle f, L_\text{gel}(\mu)\rangle = \langle f, L(\mu)\rangle -\int_S f(x) 2\gamma\left(\pi_n(x)E_t-\pi_p(x)\cdot P_t + \pi_e(x)M_t\right) \mu(dx)
 \end{equation} where \begin{equation}
     M_t:=\langle \pi_n, \mu_0-\mu_t\rangle;
@@ -33,9 +32,44 @@ We take the kernel to be \dhcomment{Derived elsewhere....} \begin{equation}
     P_t:=\langle \pi_p, \mu_0-\mu_t\rangle;
 \end{equation}\begin{equation}
     E_t:=\langle \pi_e, \mu_0-\mu_t\rangle
-\end{equation} are the mass, momentum and energy of the gel at infinity. The equation with gel is then \begin{equation} \label{eq: E+G}
+\end{equation} are the mass, momentum and energy of the gel
+A coagulant is then a solution $(\mu_t)_{t<T}$ to \begin{equation} \tag{E+G} \label{eq: E+G}
     \mu_t= \mu_0 + \int_0^t L_\text{gel}(\mu_s)ds
-\end{equation} in a similar sense to (\ref{eq: E}). \begin{remark} As argued in \cite{N00}, the functions $t\mapsto \langle \pi_n, \mu_t\rangle$ and $t\mapsto \langle \pi_e, \mu_t\rangle$ are non-increasing, whenever $\mu_t$ is a solution to either (\ref{eq: E}, \ref{eq: E+G}). We say that a solution is conservative if it preserves both $\pi_n$ and $\pi_e$, or, equivalently, preserves $\pi_n+\pi_e$. Then, any solution to (\ref{eq: E+G}) is conservative up to some time $t_\text{gel}\leq \infty$, and non-conservative thereafter. \end{remark}
+\end{equation}.
+
+
+The equation without gel for $(\mu_t)_{t<T}$ is that, for all $t<T$
+\begin{equation}
+    \tag{E-G}\label{eq: E} \langle f, \mu_t\rangle =\langle f, \mu_0 \rangle +\int_0^t \langle f, L(\mu_s)\rangle ds. 
+\end{equation}
+
+stochastic coagulants, which are Marcus--Lushnikov processes on $S$, 
+
+
+We define first of all the limiting, deterministic evolution for the cluster process on $S$, this is a `$K$-coagulant' in the language of \cite{N00} and a generalisation of the Smoluchowski coagulation equations \cite{vS16}.
+
+
+\begin{definition}[Conservative Solutions] As argued in \cite{N00}, the functions $t\mapsto \langle \pi_n, \mu_t\rangle$ and $t\mapsto \langle \pi_e, \mu_t\rangle$ are non-increasing, whenever $\mu_t$ is a solution to either (\ref{eq: E}, \ref{eq: E+G}). We say that a solution is \emph{conservative} if it preserves both $\pi_n$ and $\pi_e$, or, equivalently, preserves $\pi_n+\pi_e$. \end{definition}
+ Thus, any solution to (\ref{eq: E+G}) is conservative up to some time $t_\text{gel}\leq \infty$, and non-conservative thereafter.
+ 
+\begin{definition}[Metrisation of Convergence] Let $\mathcal{M}=\mathcal{M}_{\le 1}(S)$ be the space of measures on $S$ with total mass at most 1. We equip $\mathcal{M}$ with the \emph{vague} topology $\mathcal{F}(\mathcal{M}, C_c(S))$ induced by continuous, compactly supported functions on $S$. Let $\mathcal{M}^\star$ be the space $\mathcal{M}\times [0,\infty)\times \mathbb{R}^d\times [0, \infty)$, and define the complete, separable metric \begin{equation} d^\star\left((\mu, m, p, e), (\mu', m',p',e')\right):=d_0(\mu, \mu')+|m-m'|+\|p-p'\|+|e-e'|. \end{equation} \end{definition}
+\subsection{Statement of Results}
+
+We make the following basic symmetry assumption on the initial data.
+\\\textbf{A1.} The initial data $\mu_0$ (a measure on $S$) is equal to its pushforward under $R$, that is, $\mu_0 = \mu_0 \circ R^{-1}$.
+\\ \textbf{A2.} The initial data is given in terms of a distribution $m$ of particle velocities, by pushforward under the map
+\begin{equation}
+    \iota: \RR^d \rightarrow S; \hspace{1cm} v\mapsto (1, v, |v|^2).
+\end{equation}
+\\ \textbf{A3.} For $0\leq k\leq 6$, we have
+\begin{equation}
+    \sigma_k(m)=\langle \|v\|^k, m\rangle <\infty.
+\end{equation}
+\\ \textbf{A4.} The support of $m$ is not concentrated on 2 disjoint spheres. More precisely, \begin{equation}
+    \#\{|v|: \hspace{0.2cm} v\in \text{supp}(m)\} \ge 3.
+\end{equation} It may be more natural to assume that $\text{supp}(m)$ has full Hausdorff dimension \begin{equation} \text{dim}_\mathcal{H}(\text{supp}(m))=d \end{equation} or that $m$ has a density with respect to the underlying Lebesgue measure. Either of these are also sufficient for our purposes.
+\medskip \\ The main case of interest will be the case where $m$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
+
 We summarise our results on the analysis of the Smoluchowski equation (\ref{eq: E+G}) as follows.
 \begin{theorem}
 Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}), and let $t_\text{gel}$ be given by 
@@ -63,29 +97,13 @@ Moreover, $P_t=0$ for all $t.$
 \end{equation}
 
 
-The main case of physical interest is when we take $m_0$ to be a Gaussian density $N_d(0, \sigma I)$. In this case, these evaluate to \begin{equation}
+The main case of physical interest is when we take $m$ to be a Gaussian density $N_d(0, \sigma I)$. In this case, these evaluate to \begin{equation}
     \label{eq: formula of tgel} t_\text{gel} = \frac{1}{2\gamma \sigma^2(d+\sqrt{d^2+2d})}
 \end{equation} and \begin{equation}
     \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}d\sigma^2\sqrt{1+\frac{2}{d}}.
 \end{equation} \end{theorem}
 
-\begin{theorem} \label{thrm: convergence of stochastic coagulent}
-\textcolor{red}{\textbf{Uniform} convergence of the stochastic coagulant in vague topology.}
+\begin{theorem} \label{thrm: convergence of stochastic coagulent} Let $\mu_0$ be a probability measure on $S$ satisfying (\textbf{A1-4}), for some measure $m$, and let $(\mu_t)_{t\ge 0}$ be the associated solution to (\ref{eq: E+G}). For $N\ge 1$, let $\mu^N_t$ be the stochastic coagulant, where the initial velocities of particles are sampled independently from the distribution $m$ given by (\textbf{A4}). Let $M^N_t, P^N_t, E^N_t$ be the mass, energy and momentum of the gel in the stochastic system, and let $M_t, P_t, E_t$ be the mass, energy and gel appearing in the limit equation. Then \begin{equation} \label{eq: convergence of stochastic system}
+    \sup_{t\ge 0}\hspace{0.1cm}d\left((\mu^N_t, M^N_t, P^N_t, E^N_t),(\mu_t, M_t, P_t, E_t)\right) \rightarrow 0
+\end{equation} in probability. Moreover, if $\xi_N$ is any sequence with $\xi_N\rightarrow \infty$ and $\frac{\xi_N}{N}\rightarrow 0$, then we may define $\widetilde{M}^N_t, \widetilde{P}^N_t, \widetilde{E}^N_t$ by summing the mass, momentum and energy of all clusters with mass at least $\xi_N$, and normalising by $N$. Then the same result holds when we replace $M^N_t, P^N_t, E^N_t$ by $\widetilde{M}^N_t, \widetilde{P}^N_t, \widetilde{E}^N_t$ in (\ref{eq: convergence of stochastic system}).
 \end{theorem}
-
-\begin{theorem}[Convergence of the Gel]\label{thrm: convergence of gel} Let $M^N_t, P^N_t, E^N_t$ be the mass, momentum and energy of the gel in the stochastic system, given as the data of the largest cluster divided by $N$. Let $M_t, P_t(=0), E_t$ be the mass, momentum and energy of the gel at infinity for the limiting equation (\ref{eq: E+G}). Then \begin{equation}
-    M^N_t \rightarrow M_t; \hspace{1cm} P^N_t \rightarrow P_t=0; \hspace{1cm} E^N_t \rightarrow E_t
-\end{equation}
- uniformly, in probability, as $N\rightarrow \infty.$ \end{theorem} \begin{theorem}[Convergence of Large Clusters] \label{thrm: convergence of large clusters} Let $\xi_N$ be any sequence with \begin{equation}
-     \xi_N\rightarrow \infty;\hspace{1cm} \frac{\xi_N}{N}\rightarrow 0.
- \end{equation} Now, define \begin{equation}
-    \widetilde{M}^N_t=\langle \pi_n 1_{B_N}, \mu^N_t\rangle;\hspace{1cm}  \widetilde{P}^N_t=\langle \pi_p 1_{B_N}, \mu^N_t\rangle;\hspace{1cm} \widetilde{E}^N_t=\langle \pi_e 1_{B_N}, \mu^N_t\rangle;
-\end{equation} \begin{equation}
-    B_N=\{x\in S: \pi_n(x)\geq \xi_N\}.
-\end{equation} Then we have the convergence \begin{equation}
-    \widetilde{M}^N_t \rightarrow M_t 
-\hspace{1cm}
-    \widetilde{P}^N_t \rightarrow P_t=0;
-\hspace{1cm}
-    \widetilde{E}^N_t \rightarrow E_t 
-\end{equation} uniformly, in probability, as $N\rightarrow \infty$.  \end{theorem}

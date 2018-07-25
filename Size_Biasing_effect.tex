@@ -1,11 +1,11 @@
-\section{Size-Biasing Effect}
+\section{Size-Biasing Effect} \iffalse
 We also have the following result, which describes the average energy of a particle in the early gel. Intuitively, since highly energetic particles are more likely to become part of the gel, we would expect that the average energy of a particle, conditional on being in the gel, is strictly greater than the average energy of the initial distribution:  \begin{equation}
     \lim_{t\downarrow t_\text{gel}} \frac{E_t}{M_t}>\frac{1}{2}d\sigma^2.
 \end{equation}We show that there is a \emph{finite biasing} effect: that this limit exists, and is finite. 
-\begin{theorem} Let $\mu_0$ be the initial data for a Gaussian $m_0=N(0, \sigma^2 I_d)$ distribution. Then \begin{equation}
+\begin{theorem} Let $\mu_0$ be the initial data for a Gaussian $m=N(0, \sigma^2 I_d)$ distribution. Then \begin{equation}
     \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}d\sigma^2
 \sqrt{1+\frac{2}{d}}.
-\end{equation} \end{theorem}  We make the following claim on the behaviour of the coefficients $a_t$, $b_t$ near the critical point $t_\text{gel}$: \begin{lemma}\label{lemma: a and b}\begin{enumerate}[label=\roman{*}).]
+\end{equation} \dhcomment{To Finalise} \end{theorem}  We make the following claim on the behaviour of the coefficients $a_t$, $b_t$ near the critical point $t_\text{gel}$: \begin{lemma}\label{lemma: a and b}\begin{enumerate}[label=\roman{*}).]
     \item For $t>t_\text{gel}$, $a_t>0$;
     \item As $t\downarrow t_\text{gel}$, \begin{equation}
         a_t \rightarrow 0 \hspace{0.5cm} \text{and} \hspace{0.5cm} b_t\rightarrow 0;
@@ -39,4 +39,4 @@ We also have the following result, which describes the average energy of a parti
         c=\frac{1}{\sigma^2 \sqrt{d(d+2)}}=\frac{1}{\sigma^2 d\sqrt{1+\frac{2}{d}}}
     \end{equation} which proves the claimed convergence.
 \end{enumerate}\end{proof}
- 
+ \fi
