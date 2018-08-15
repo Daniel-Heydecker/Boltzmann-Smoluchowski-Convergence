@@ -118,51 +118,26 @@ It follows immediately that $(\mu'_t)_{t<T}$ is a  conservative solution to (\re
     \langle \pi_e^2, \mu_t\rangle =
     \langle \pi_e^2, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n\pi_e, \mu_s\rangle^2+8\gamma\langle \pi_n\pi_e, \mu_t\rangle\langle\pi_e^2, \mu_s \rangle \right] ds.
 \end{equation} Since the integrands appearing on the right-hand side are bounded on compact subsets of $[0,T)$, we may view this as a differential equation for the three moments $\langle \pi_n^2, \mu_t\rangle, \langle \pi_n \pi_e, \mu_t\rangle, \langle \pi_e^2, \mu_t\rangle$ and, from the construction of $T$, this solution blows up precisely at $T$. An identical argument holds for $\mu^\epsilon_t$, which blows up at $t^\epsilon_\mathrm{gel}$. We now use the following lemma:
-\begin{lemma} Consider the ordinary differential equation $\dot{x}_t=b(x)$ in $\mathbb{R}^3$, where $b$ is the locally Lipschitz field given by \begin{equation} \label{eq: system of ODEs} b(x_1,x_2,x_3)=\begin{pmatrix}2\kappa x_1^2+8\gamma x_1x_2 \\ 2\kappa x_1x_2+4\gamma x_2^2+4\gamma x_1x_3 \\ 2\kappa x_2^2 + 8\gamma x_2x_3 \end{pmatrix}. \end{equation} Then, for all $x_0\in \mathbb{R}^3$, there exists a unique maximal solution $\phi(x_0, t)$ starting at $x_0$, defined until time $\zeta(x_0)\in (0, \infty]$. Consider the set \begin{equation} E=\{x\in (\mathbb{R}_+)^3: x_2\le \sqrt{x_1x_3}\}.\end{equation} Then, if $x_0 \in E$, then the solution $(\phi(x_0,t))_{t<\zeta(x_0)} \subset E$. We have the following continuity properties: \begin{enumerate}[label=\roman{*}).] \item $x^n_0 \in E$ and $x^n_0 \rightarrow x_0$, then $\zeta(x^n_0)\rightarrow \zeta(x_0).$ \item Suppose the map $t\mapsto x_0(t) \in E$ is continuous, and such that $t<\zeta(x_0(t))$ for all $t\ge 0.$ Then the map $t\mapsto \phi(x_0(t), t)$ is continuous.  \end{enumerate} \end{lemma} \dhcomment{Restricting to E may be unnecessary. If we don't need it for the continuity result, feel free to omit}
+\begin{lemma}\label{lemma: ODE considerations} Consider the ordinary differential equation $\dot{x}_t=b(x)$ in $\mathbb{R}^3$, where $b$ is the locally Lipschitz field given by \begin{equation} \label{eq: system of ODEs} b(x_1,x_2,x_3)=\begin{pmatrix}2\kappa x_1^2+8\gamma x_1x_2 \\ 2\kappa x_1x_2+4\gamma x_2^2+4\gamma x_1x_3 \\ 2\kappa x_2^2 + 8\gamma x_2x_3 \end{pmatrix}. \end{equation} Then, for all $x_0\in \mathbb{R}^3$, there exists a unique maximal solution $\phi(x_0, t)$ starting at $x_0$, defined until time $\zeta(x_0)\in (0, \infty]$. Consider the set \begin{equation} E=\{x\in (\mathbb{R}_+)^3: x_2\le \sqrt{x_1x_3}\}.\end{equation} Then, if $x_0 \in E$, then the solution $(\phi(x_0,t))_{t<\zeta(x_0)} \subset E$. We have the following continuity properties: \begin{enumerate}[label=\roman{*}).] \item $x^n_0 \in E$ and $x^n_0 \rightarrow x_0$, then $\zeta(x^n_0)\rightarrow \zeta(x_0).$ \item Suppose the map $t\mapsto x_0(t) \in E$ is continuous, and such that $t<\zeta(x_0(t))$ for all $t\ge 0.$ Then the map $t\mapsto \phi(x_0(t), t)$ is continuous.  \end{enumerate} \end{lemma} \dhcomment{Restricting to E may be unnecessary. If we don't need it for the continuity result, feel free to omit}
 
 \begin{proof}
-\rpcomment{The lower semi-continuity of explosion times such as $\zeta$ is standard}
+\rpcomment{The lower semi-continuity of explosion times such as $\zeta$ is standard --- I will find a reference.}
 To establish i) it is sufficient to prove upper semi-continuity for $\zeta$.
 Suppose the converse then one has a $\delta>0$ and a sequence $x^n \rightarrow \overline{x} \in \RR^3$ such that
 $\zeta(x^n) > \tau + \delta $ for all $n\in \NN$ and where $\tau := \zeta(\overline{x})$.
 Thus $\zeta\left(\phi(x^n,\tau)\right) > \delta $, which we will now show leads to a contradiction unless $\kappa = \gamma = 0$.
 
-If $\kappa > 0$ then $\dot x_1 \geq 2\kappa x_1^2$ and so $\zeta(x) \leq 1 / 2\kappa x_1(0)$ and thus $\lim_n \zeta\left(\phi(x^n,\tau)\right) = 0$ yielding the required contradiction.
+Note first that if any one component of $\phi(x_0,t)$ diverges to $+\infty$, then so do the other two components.
+If $\kappa > 0$ then $\dot x_1 \geq 2\kappa x_1^2$ and so $\zeta(x) \leq 1 / 2\kappa x_1(0)$, whereas if $\gamma > 0$ then $\dot x_2 \geq 4\gamma x_2^2$ thus in both cases $\lim_n \zeta\left(\phi(x^n,\tau)\right) = 0$ yielding the required contradiction.
 
-If $\gamma > 0$ then we can get an upper bound for $\zeta$ by setting $\kappa = 0$ and in this case
-\begin{equation}\label{eq:proportional}
-    x_3(t) = x_1(t)
-    \frac{x_3(0)}{x_1(0)}
-\end{equation}
-and then one easily checks that
-\begin{equation}
-    f(t) := x_1(t)
-           + \sqrt{\frac{x_1(0)}{x_3(0)}} x_2(t)
-\end{equation}
-satisfies
-\begin{equation*}
-    \frac{\dd }{\dd t}f(t) = 4\gamma 
-    \sqrt{\frac{x_1(0)}{x_3(0)}}f(t)^2,
-\end{equation*}
-which has the solution
-\begin{equation}\label{eq:quadmoment-ode}
-    f(t) = \left(\frac{1}{f(0)} - 4\gamma 
-    \sqrt{\frac{x_3(0)}{x_1(0)}}t \right)^{-1}
-\end{equation}
-and so
-\begin{equation*}
-    \zeta\left(\phi\left(x^n,t\right)\right)
-    =
-    .
-\end{equation*}
-Thus $\lim_n \zeta\left(\phi(x^n,\tau)\right) = 0$ yielding the required contradiction in this case too.
-
-\rpcomment{ii)}
+For part ii) fix $t>0$, then one can find a $\delta > 0$ such that $\abs{t-s} < \delta$ implies $s < \min \left(\zeta\left(x_0(s)\right), \zeta\left(x_0(t)\right)\right)$.
+Thus $s \mapsto \phi\left(x_0(t), s\right)$ is continuous on $\left[0,t+\delta/2\right]$ and $\lim_{s \rightarrow t} \abs{\phi\left(x_0(t),t\right) - \phi\left(x_0(t),s\right)} = 0$
+\rpcomment{...}
 \end{proof}
 
 From this, we deduce the claimed result that $t_\mathrm{gel}=T$. Indeed, the argument above characterises $t_\mathrm{gel}^\epsilon$ as the time of existence \begin{equation}
-    t_\mathrm{gel}^\epsilon=\zeta(\langle \pi_n^2, \mu^\epsilon_0\rangle, \langle \pi_n \pi_e, \mu^\epsilon_0\rangle, \langle pi_e^2, \mu_0^\epsilon\rangle)
-\end{equation} and similarly \begin{equation}  T=\zeta(\langle \pi_n^2, \mu_0\rangle, \langle \pi_n \pi_e, \mu_0\rangle, \langle pi_e^2, \mu_0\rangle). \end{equation} As $\epsilon \downarrow 0$, the quadratic moments of $\mu^\epsilon_0$ converge to those of $\mu_0$ by dominated convergence, and so by point i)., it follows that $t^\epsilon_\mathrm{gel}\rightarrow T$. However, by Lemma \ref{lemma: connecting mu-epsilon and mu}, we also have that $t_\mathrm{gel}^\epsilon\rightarrow t_\mathrm{gel}$, which implies the claimed equality.
+    t_\mathrm{gel}^\epsilon=\zeta(\langle \pi_n^2, \mu^\epsilon_0\rangle, \langle \pi_n \pi_e, \mu^\epsilon_0\rangle, \langle \pi_e^2, \mu_0^\epsilon\rangle)
+\end{equation} and similarly \begin{equation}  T=\zeta(\langle \pi_n^2, \mu_0\rangle, \langle \pi_n \pi_e, \mu_0\rangle, \langle \pi_e^2, \mu_0\rangle). \end{equation} As $\epsilon \downarrow 0$, the quadratic moments of $\mu^\epsilon_0$ converge to those of $\mu_0$ by dominated convergence, and so by point i)., it follows that $t^\epsilon_\mathrm{gel}\rightarrow T$. However, by Lemma \ref{lemma: connecting mu-epsilon and mu}, we also have that $t_\mathrm{gel}^\epsilon\rightarrow t_\mathrm{gel}$, which implies the claimed equality.
 
 \begin{remark} We remark that at this point, we know that the phase transition coincides with the blowup of the second moment $\mathcal{E}(t)$ at some time $t_\mathrm{gel}$, but \emph{not} that this occurs at the time identified by the formula (\ref{eq: formula of tgel}). In the special cases $\kappa=0$ or $\gamma=0$, the characterisation as a blowup time of the differential equation (\ref{eq: system of ODEs}) allows an explicit computation, which agrees with the claimed formula, but this appears to be intractable in general. We will prove the claimed equality later, using the connection to random graph processes. \end{remark}
 

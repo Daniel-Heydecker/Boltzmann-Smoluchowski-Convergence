@@ -26,15 +26,17 @@ In this section, we will review the theory of Inhomogenous Random Graphs develop
     \end{enumerate}
 \end{definition}  \begin{definition}
  Given a graph $G$, we write $\mathcal{C}_j(G): j=1, 2...$ for the connected components of $G$, in decreasing order of their sizes $\#\mathcal{C}_j(G)=C_j(G)$. If there are fewer than $j$ connected components, then $\mathcal{C}_j(G)=\emptyset$ and $C_j(G)=0$.
-\end{definition}The phase transition is given in terms of the following convolution operator:
+\end{definition}The phase transition is given in terms of the convolution operator
 \begin{equation}\label{eq: T}
-       T: L^2(m)\rightarrow L^2(m); \hspace{1cm} (T f)(v)=\int_{\mathbb{R}^d} k(v,w)f(w)m(dw). 
-   \end{equation}  We write $\|T\|$ for the operator norm of $T$.  The analysis of the random graphs uses a branching process, similar to that used in the standard analysis of Erd\"os-Renyi graphs. Many quantities of the graph can be expressed in terms of the `survival probability' $\rho(K, v)$ when the data $v$ of the first vertex is given. To avoid the unnecessary complication of making this into a precise definition, we use the following characterisation, which is equivalent by \cite[Theorem 6.2]{BJR07}.
+       (T f)(v)=\int_{\mathbb{R}^d} k(v,w)f(w)m(dw). 
+   \end{equation}  It is straightforward to see that $T$ maps $L^2(m)$ into itself; we write $\|T\|$ for the operator norm of $T$ in this sense.  The analysis of the random graphs uses a branching process, similar to that used in the standard analysis of Erd\"os-Renyi graphs. Many quantities of the graph can be expressed in terms of the `survival probability' $\rho(k, v)$ when the data $v$ of the first vertex is given. To avoid the unnecessary complication of making this into a precise definition, we use the following characterisation, which is equivalent by \cite[Theorem 6.2]{BJR07}.
    \begin{lemma}\label{lemma: survival function}
-       Let $k$ be an irreducible kernel on a generalised vertex space $\mathcal{V}$, such that $k \in L^1(\mathcal{S}\times \mathcal{S}, m \times m)$. Consider the nonlinear fixed-point equation 
+       Let $k$ be an irreducible kernel on a generalised vertex space $\mathcal{V}$, such that $k \in L^1(\mathcal{S}\times \mathcal{S}, m \times m)$, and such that, for all $v,$ \begin{equation} \label{eq: BJR 51}
+           \int_S k(v,w)m(dw)<\infty.
+       \end{equation} Consider the nonlinear fixed-point equation 
       \begin{equation} \label{eq: nonlinear fixed point equation} 
-          \tilde{\rho}(v)=1-e^{-(T\tilde{\rho})(v)}; \hspace{1cm} \tilde{\rho}\in L^2(m)
-      \end{equation} where $T$ is the operator (\ref{eq: T}). Then (\ref{eq: nonlinear fixed point equation}) has a maximal solution $\rho_k(v)=\rho(k;v)$; that is, for any other solution $\tilde{\rho}$, \begin{equation}
+        \forall v\hspace{1cm}  {\rho}(v)=1-e^{-(T{\rho})(v)}
+      \end{equation} where $T$ is the convolution operator (\ref{eq: T}). Then (\ref{eq: nonlinear fixed point equation}) has a maximal solution $\rho_k(v)=\rho(k;v)$; that is, for any other solution $\tilde{\rho}$, \begin{equation}
           \forall v \hspace{0.2cm} \tilde{\rho}(v)\leq \rho(k,v).
       \end{equation} It therefore follows that $0\leq \rho_k(v)\leq 1$ for all $v$. The maximal solution is necessarily unique, and so this uniquely defines $\rho_k.$ Moreover, we have the following dichotomy:
       \begin{enumerate}[label=\roman{*}).]
@@ -47,7 +49,7 @@ In this section, we will review the theory of Inhomogenous Random Graphs develop
       \end{itemize}
       
    \end{lemma} We can now state the main results on the phase transition, given by \cite[Theorem 3.1 and Corollary 3.2]{BJR07}.
-   \begin{theorem}[Phase Transition]\label{thrm: RG1} Let $K$ be a graphical and irreducible kernel for a vertex space $\mathcal{V}$, with $0<\|T\|< \infty.$ Let $G^N\sim \mathcal{G}^\mathcal{V}(N, k)$ be random graphs on a common probability space. Then we have the convergence \begin{equation}
+   \begin{theorem}[Phase Transition]\label{thrm: RG1} Let $k$ be a graphical and irreducible kernel for a vertex space $\mathcal{V}$, with $0<\|T\|< \infty.$ Let $G^N\sim \mathcal{G}^\mathcal{V}(N, k)$ be random graphs on a common probability space. Then we have the convergence \begin{equation}
        \frac{1}{N}C_1(G^N_t)\rightarrow \int_{\mathcal{S}} \rho(tk, v) m(dv) \hspace{1cm} \text{in probability.}
    \end{equation}
    Therefore, if $(G^N_t)_{t\geq 0}$ is a dynamic family of random graphs $
@@ -70,7 +72,7 @@ In this section, we will review the theory of Inhomogenous Random Graphs develop
    \end{equation} Then \begin{equation}
        \frac{1}{N}\sum_{j\geq 2: \#C_j(G^N)\geq \xi_N}\#C_j(G^N) \rightarrow 0
    \end{equation} in probability. \end{theorem}   We will also make use of the following monotonicity and continuity properties: \cite[Theorem 6.4]{BJR07}
-   \begin{theorem}\label{thrm: continuity of rho} Let $K$ be a kernel on a vertex space $\mathcal{V}$, and let $\rho_t$ be the survival function defined above. Then the map $t\mapsto \rho(tk, .)$ is monotonically increasing, in the sense that for all $0\leq s \leq t$, \begin{equation}
+   \begin{theorem}\label{thrm: continuity of rho} Let $k$ be a kernel on a vertex space $\mathcal{V}$, and let $\rho_t$ be the survival function defined above. Then the map $t\mapsto \rho(tk, .)$ is monotonically increasing, in the sense that for all $0\leq s \leq t$, \begin{equation}
           \rho(sk, v) \leq \rho(tk, v) \hspace{1cm} \text{for almost every } v.
       \end{equation}In this case, we use the abuse of notation $\rho_t(v)=\rho(t,v)$ for $\rho(tk,v).$ We also have the following continuity property. Let $t_n\rightarrow t$ be a monotone sequence, either increasing or decreasing. Then \begin{equation}
        \rho_{t_n}(v)\rightarrow \rho_t(v) \hspace{1cm} \text{for almost all }v;

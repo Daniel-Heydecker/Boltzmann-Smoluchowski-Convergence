@@ -12,7 +12,7 @@ We write $\pi_n, \pi_p, \pi_e$ for projection onto the first (mass), second (mom
 
 
 The rate at which pairs of clusters $\left\{ x,y \right\}$ merge to form a new cluster $z$ is given using an interaction kernel $K$:
-\begin{equation}
+\begin{equation}\label{eq: smoluchowski kernel}
     K(x,y,dz)=\overline{K}(x,y)\delta_{x+y}(dx);
     \end{equation} \begin{equation} \overline{K}(x,y)=\kappa \pi_n(x)\pi_n(y)+2\gamma\left(\pi_n(x)\pi_e(y)-\pi_p(x)\cdot \pi_p(y)+\pi_e(x)\pi_n(y)\right),
 \end{equation}
@@ -63,35 +63,29 @@ We make the following basic symmetry assumption on the initial data.
 \end{equation}
 \\ \textbf{A3.} For $0\leq k\leq 6$, we have
 \begin{equation}
-    \sigma_k(m)=\langle \|v\|^k, m\rangle <\infty.
-\end{equation}
-\\ \textbf{A4.} The support of $m$ is not concentrated on 2 disjoint spheres. More precisely, \begin{equation}
-    \#\{|v|: \hspace{0.2cm} v\in \text{supp}(m)\} \ge 3.
-\end{equation} It may be more natural to assume that $\text{supp}(m)$ has full Hausdorff dimension \begin{equation} \text{dim}_\mathcal{H}(\text{supp}(m))=d \end{equation} or that $m$ has a density with respect to the underlying Lebesgue measure. Either of these are also sufficient for our purposes.
-\medskip \\ The main case of interest will be the case where $m$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
+    \sigma_k(m)=\langle |v|^k, m\rangle <\infty.
+\end{equation}  The main case of interest will be the case where $m$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
 
 We summarise our results on the analysis of the Smoluchowski equation (\ref{eq: E+G}) as follows.
 \begin{theorem}
-Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}), and let $t_\text{gel}$ be given by 
-    \begin{equation} \label{eq: def of tgel} t_\text{gel}=\textbf{\textcolor{red}{Something extremely clever here.}}
-\end{equation} Then the equation (\ref{eq: E+G}) has a unique solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$, with the following properties.
-\paragraph{1. Phase Transition.} We have the following dichotomy: \begin{enumerate}[label=\roman{*}).]
+Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}). Then the equation (\ref{eq: E+G}) has a unique solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$, with the following properties.
+\paragraph{1. Phase Transition.} There exists a gelation time $t_\text{gel}\in(0,\infty)$ with the following dichotomy: \begin{enumerate}[label=\roman{*}).]
     \item If $t\leq t_\text{gel}$, then $M_t=E_t=0$.
     \item If $t>t_\text{gel}$, then $M_t>0$ and $E_t>0.$
-\end{enumerate}
+\end{enumerate} The gelation time is given explicitly in terms of the moments of $m$ as \begin{equation}
+       t_\text{gel}= \frac{1}{\kappa +2\gamma\sigma_2(m) + \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}}.
+   \end{equation}
 Moreover, $P_t=0$ for all $t.$
 \paragraph{2. Behaviour of the Second Moment.} Consider the second moment \begin{equation} \mathcal{E}(t)=\langle \pi_n^2+ \pi_e^2, \mu_t\rangle. \end{equation} Then \begin{enumerate}[label=\roman{*}).]
-    \item If $K$ is a compact subset of $[0, \infty)\setminus\{t_\text{gel}\}$, then \begin{equation}
-        \sup_{t\in K}\mathcal{E}(t)<\infty.
-    \end{equation}
-    \item At the critical point, $\mathcal{E}(t_\text{gel})=\infty$, and $\mathcal{E}(t)\rightarrow \infty$ as $t\rightarrow t_\text{gel}.$ 
+    \item $\mathcal{E}(t)$ is finite and continuous, and so locally bounded, on $[0, \infty)\setminus\{t_\text{gel}\}.$ 
+    \item At the gelation time, $\mathcal{E}(t_\text{gel})=\infty$, and $\mathcal{E}(t)\rightarrow \infty$ as $t\rightarrow t_\text{gel}.$ 
     \item On $[0, t_\text{gel})$, $\mathcal{E}$ is monotonically increasing. 
 \end{enumerate}
-\paragraph{3. Dynamics beyond the Critical Point.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\text{gel}$, we have 
+\paragraph{3. Dynamics beyond the Gelation Time.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\text{gel}$, we have 
 \begin{equation}
     M_t=\int_{t_\text{gel}}^t ds
     \left(
-      \kappa \left<\pi_n^2,\mu_s\right> +
+      \kappa \left<\pi_n^2,\mu_s\right>M_s +
       2\gamma \left[
         \left<\pi_n \pi_e,\mu_s \right>M_s +
         \left<\pi_n^2,\mu_s \right>E_s \right]
@@ -100,25 +94,25 @@ Moreover, $P_t=0$ for all $t.$
 \begin{equation}
     E_t=\int_{t_\text{gel}}^t ds
     \left(
-      \kappa \left<\pi_n \pi_e,\mu_s\right> +
+      \kappa \left<\pi_n \pi_e,\mu_s\right>M_s +
       2\gamma \left[
         \left<\pi_e^2,\mu_s \right>M_s +
         \left<\pi_n \pi_e,\mu_s \right>E_s \right]
     \right).
 \end{equation}
 \paragraph{4. Size-Biasing Effect.} As $t\downarrow t_\text{gel}$, we have the convergence \begin{equation}
-    \frac{E_t}{M_t}\rightarrow \text{Something here}.
+    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}\frac{\sigma_2(m)+\lambda\sigma_4(m)}{1+\sigma_2(m)\lambda}
+\end{equation} where $\lambda$ is given by \begin{equation} \lambda=\frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m)}.\end{equation} In particular, unless $\gamma=0$ or $|v|$ is constant $m$-almost everywhere, we have a positive bias \begin{equation}
+    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv).
 \end{equation}
 
-
-The main case of physical interest is when we take $m$ to be a Gaussian density $N_d(0, \sigma I)$. In this case, these evaluate to \rpcomment{$\kappa > 0$}
+The main case of physical interest is when we take $m$ to be a Gaussian density $N_d(0, \sigma I)$. In this case, the gelation time evaluates to
 \begin{equation}
-    \label{eq: formula of tgel} t_\text{gel} = \frac{1}{2\gamma \sigma^2(d+\sqrt{d^2+2d})}
-\end{equation} and \begin{equation}
-    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}d\sigma^2\sqrt{1+\frac{2}{d}}.
+    \label{eq: formula of tgel} t_\text{gel} = \frac{1}{\kappa+2\gamma d \sigma^2+
+    \sqrt{(\kappa+2\gamma d \sigma^2)^2+8\gamma^2 d \sigma^2}}.
 \end{equation} \end{theorem}
-
-\begin{theorem} \label{thrm: convergence of stochastic coagulent} Let $\mu_0$ be a probability measure on $S$ satisfying (\textbf{A1-4}), for some measure $m$, and let $(\mu_t)_{t\ge 0}$ be the associated solution to (\ref{eq: E+G}). For $N\ge 1$, let $\mu^N_t$ be the stochastic coagulant, where the initial velocities of particles are sampled independently from the distribution $m$ given by (\textbf{A4}). Let $M^N_t, P^N_t, E^N_t$ be the mass, energy and momentum of the gel in the stochastic system, and let $M_t, P_t, E_t$ be the mass, energy and gel appearing in the limit equation. Then \begin{equation} \label{eq: convergence of stochastic system}
+We also prove the following convergence theorem, relating the stochastic coagulant to the solution of the limit equation.  
+\begin{theorem} \label{thrm: convergence of stochastic coagulent} Let $\mu_0$ be a probability measure on $S$ satisfying (\textbf{A1-4}), for some measure $m$, and let $(\mu_t)_{t\ge 0}$ be the associated solution to (\ref{eq: E+G}). For $N\ge 1$, let $\mu^N_t$ be the stochastic coagulant, where the initial velocities of particles are sampled independently from the distribution $m$. Let $M^N_t, P^N_t, E^N_t$ be the mass, energy and momentum of the gel in the stochastic system, and let $M_t, P_t, E_t$ be the mass, energy and gel appearing in the limit equation. Then \begin{equation} \label{eq: convergence of stochastic system}
     \sup_{t\ge 0}\hspace{0.1cm}d\left((\mu^N_t, M^N_t, P^N_t, E^N_t),(\mu_t, M_t, P_t, E_t)\right) \rightarrow 0
 \end{equation} in probability. Moreover, if $\xi_N$ is any sequence with $\xi_N\rightarrow \infty$ and $\frac{\xi_N}{N}\rightarrow 0$, then we may define $\widetilde{M}^N_t, \widetilde{P}^N_t, \widetilde{E}^N_t$ by summing the mass, momentum and energy of all clusters with mass at least $\xi_N$, and normalising by $N$. Then the same result holds when we replace $M^N_t, P^N_t, E^N_t$ by $\widetilde{M}^N_t, \widetilde{P}^N_t, \widetilde{E}^N_t$ in (\ref{eq: convergence of stochastic system}).
 \end{theorem}
