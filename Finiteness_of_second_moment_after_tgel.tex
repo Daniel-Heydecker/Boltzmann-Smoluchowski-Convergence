@@ -1,71 +1,111 @@
-\section{Finiteness of the second moment in the Supercritical Regime}
+\section{Duality of the Subcritical and Supercritical Phases}
+\label{sec: finiteness of second moment} In this section, we will develop a \emph{duality argument} for the subcritical and supercritical phases of the Smoluchowski dynamics (\ref{eq: E+G}), based on Theorem \ref{thrm: coupling supercritical and subcritical}, which itself generalises well-known duality results for Erd\"os-Reyni graphs \cite{BB84}. This allows us to establish the remaining parts of part 2 in Theorem \ref{thrm: Smoluchowski equation}, which in turn allow us to deduce part 3. This section is structured as follows: \begin{enumerate}[label=\roman{*}).] \item Firstly, we will complete the proof of item 2i) of Theorem \ref{thrm: Smoluchowski equation}, showing that the second moment  $\mathcal{E}(t)= \langle \pi_n^2+\pi_e^2, \mu_t\rangle$ is finite and continuous on $(t_\mathrm{gel},\infty)$. In the course of proving this, we introduce the duality construction. \item Having introduced the duality construction, we use it to prove the representation formula for $M_t$ and $E_t$ in point 4 of Theorem \ref{thrm: Smoluchowski equation}. From this, we deduce that $\mathcal{E}(t_\mathrm{gel})=\infty$, and prove point 2iii). \item Finally, we prove point 3 of Theorem \ref{thrm: Smoluchowski equation}, concerning the dynamics of $M_t$ and $E_t$ in the supercritical phase. This follows as a straightforward consequence of point 2i).  \end{enumerate}
+\subsection{Finiteness of Second Moment in the Supercritical Regime} The main goal of this subsection is to prove the following result. \begin{lemma}\label{lemma: second moment finite after tgel} Let $\mu_0$ be a measure on $S$ satisfying (\textbf{A1}-\textbf{4}), and let $(\mu_t)_{t\ge 0}$ be the solution to (\ref{eq: E+G}) starting at $\mu_0$ and $t_\mathrm{gel}$ the corresponding gelation time. Writing $\mathcal{E}(t)$ for the second moment $\langle \pi_n^2+\pi_e^2, \mu_t\rangle$, the map $t\mapsto \mathcal{E}(t)$ is finite and continuous, and therefore locally bounded, on  $(t_\mathrm{gel},\infty)$. \end{lemma} 
 
-\begin{theorem}\label{lemma: second moment finite after tgel} For $t>t_\text{gel}$, we have \begin{equation}
-    \langle \pi_n^2+\pi_e^2, \mu_t\rangle <\infty.
-\end{equation} Moreover, the map \begin{equation}
-    t\mapsto \langle \pi_n^2+\pi_e^2, \mu_t \rangle
-\end{equation} is continuous on $(t_\text{gel},\infty)$, and so is bounded on compact subsets of this interval. \end{theorem}
-\begin{lemma}\label{lemma: dynamics after tgel} Let $t_\text{gel}<s<t$. Then we have \begin{equation}
-    M_t=\int_{t_\text{gel}}^t ds
-    \left(
-      \kappa \left<\pi_n^2,\mu_s\right>M_s +
-      2\gamma \left[
-        \left<\pi_n \pi_e,\mu_s \right>M_s +
-        \left<\pi_n^2,\mu_s \right>E_s \right]
-    \right);
-\end{equation}
-\begin{equation}
-    E_t=\int_{t_\text{gel}}^t ds
-    \left(
-      \kappa \left<\pi_n \pi_e,\mu_s\right>M_s +
-      2\gamma \left[
-        \left<\pi_e^2,\mu_s \right>M_s +
-        \left<\pi_n \pi_e,\mu_s \right>E_s \right]
-    \right).
-\end{equation}\end{lemma} \begin{remark} We interpret Lemma \ref{lemma: dynamics after tgel} as follows. There are two mechanisms by which matter can enter the gel at infinity: \begin{enumerate}[label=\roman{*}).]
-    \item A blowup of finite mass;
-    \item Direct absorption into an existing gel.
-\end{enumerate} In view of Lemma \ref{lemma: dynamics after tgel}, we know that the first mechanism is responsible for the initial formation of the gel, and the second is responsible for the behaviour of the gel thereafter.  \end{remark}
-\begin{proof}[Proof of Theorem \ref{lemma: second moment finite after tgel}] Let $(G^N_t)_{t\geq 0}$ be the usual random graph processes, and fix $t>t_\text{gel}$. Let $\widetilde{G}^N_{t}$ be the graph $G^N_{t}$ with the giant component deleted. \medskip \\ Let $\rho_{t}(v)=\rho(t, v)$ be the survival function defined in Lemma \ref{lemma: survival function}, and let $\widehat{m}^t(dv)=(1-\rho_{t}(v))m(dv)$. Let $\widehat{\mu}^t_0$ be the corresponding measure on $S$ under pushforward by $v\mapsto (1, v, \frac{1}{2}|v|^2)$; by Lemma \ref{lemma: E and U}, there exists a unique solution $(\widehat{\mu}^t_s)_{s\geq 0}$ to the equation (\ref{eq: E+G}) starting at $\widehat{\mu}^t_0$. We write $\widehat{t_\text{gel}}(t)$ for the gelation time of the process $(\widehat{\mu}^t_s)_{s\geq 0}$. \medskip \\ By Theorem \ref{thrm: coupling supercritical and subcritical}, we can construct a generalised vertex space $\widehat{\mathcal{V}}=(\mathbb{R}^d, \widehat{m}, (\mathbf{w}_n)_n)$ and a graph $\widehat{G}^N_{t}\sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,tK)$ such that 
-\begin{equation}
-    \mathbb{P}\left(\mu^N(\widehat{G}^N_{t})=\mu^N(\widetilde{G}^N_{t})\right)\rightarrow 1.
-\end{equation} From Lemma \ref{lemma: convergence of random graphs}, we have the convergences 
+\begin{proof} Let $(G^N_t)_{t\geq 0}$ be the random graph processes described in Section  \ref{sec: coupling_to_random_graph}, and fix $t>t_\mathrm{gel}$. Let $\widetilde{G}^N_{t}$ be the graph $G^N_{t}$ with the giant component deleted. \medskip \\ Let $\rho_{t}(v)=\rho(t, v)$ be the survival function defined in Lemma \ref{lemma: survival function}, and let $\widehat{m}^t(dv)=(1-\rho_{t}(v))m(dv)$. Let $\widehat{\mu}^t_0$ be the corresponding measure on $S$ under pushforward by $v\mapsto (1, v, \frac{1}{2}|v|^2)$; by Lemma \ref{lemma: E and U}, there exists a unique solution $(\widehat{\mu}^t_s)_{s\geq 0}$ to the equation (\ref{eq: E+G}) starting at $\widehat{\mu}^t_0$. We write $\widehat{t_\mathrm{gel}}(t)$ for the gelation time of the process $(\widehat{\mu}^t_s)_{s\geq 0}$. \medskip \\ By Theorem \ref{thrm: coupling supercritical and subcritical}, we can construct a generalised vertex space $\widehat{\mathcal{V}}=(\mathbb{R}^d, \widehat{m}, (\mathbf{w}_N)_{N\ge 1})$ and a graph $\widehat{G}^N_{t}\sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,tK)$ such that $
+    \mathbb{P}(\mu^N(\widehat{G}^N_{t})=\mu^N(\widetilde{G}^N_{t}))\rightarrow 1.
+$ From Lemma \ref{lemma: convergence of random graphs}, we have the convergences 
 \begin{equation}
     \mu^N(G^N_{t})\rightarrow {\mu}_{t}
 \end{equation}
 \begin{equation}
     \mu^N(\widehat{G}^N_{t})\rightarrow \widehat{\mu}^t_{t}
 \end{equation} in the vague topology, in probability.  Moreover, the difference \begin{equation}
-    \mu^N(G^N_{t})-\mu^N(\widetilde{G}^N_{t})=\frac{1}{N}\delta(C_1(G^N_{t}))
+    \mu^N(G^N_{t})-\mu^N(\widetilde{G}^N_{t})=\frac{1}{N}\delta(\mathcal{C}_1(G^N_{t}))
 \end{equation} converges to $0$ in the vague topology in probability, since the support is eventually disjoint from any compact set, with high probability. It follows that \begin{equation}
     \mu^N(\widetilde{G}^N_{t})\rightarrow \mu_{t}
-\end{equation} in the vague topology, in probability, and by uniqueness of limits, we have $\widehat{\mu}^t_{t}=\mu_{t}$. However, using assumption (\textbf{A3.}), we can see that $t k\in L^2(\mathcal{S}\times\mathcal{S}, m\times m)$, and so it follows from Theorem \ref{thrm: coupling supercritical and subcritical} that the graphs $\widehat{G}^N_{t}$ are subcritical. By Lemma \ref{lemma: connect critical times}, it follows that that  $t<\widehat{t_\text{gel}}(t)$, and so by Lemma \ref{lemma: second moment before tgel}, we have \begin{equation}
+\end{equation} in the vague topology, in probability, and by uniqueness of limits, we have $\widehat{\mu}^t_{t}=\mu_{t}$. However, using assumption (\textbf{A3.}), we can see that $t k\in L^2(\mathcal{S}\times\mathcal{S}, m\times m)$, and so it follows from Theorem \ref{thrm: coupling supercritical and subcritical} that the graphs $\widehat{G}^N_{t}$ are subcritical. By Lemma \ref{lemma: connect critical times}, it follows that that  $t<\widehat{t_\mathrm{gel}}(t)$, and so by Lemma \ref{lemma: second moment before tgel}, we have \begin{equation}
    \langle \pi_n^2+ \pi_e^2, \mu_t\rangle = \langle \pi_n^2+\pi_e^2, \widehat{\mu}^t_{t}\rangle <\infty.
-\end{equation} Recall, from the discussion in Section \ref{sec:SE}, that the quadratic moments \begin{equation} x^t(s)=\left(\langle \pi_n^2, \widehat{\mu}^t_s\rangle,\langle \pi_n\pi_e, \widehat{\mu}^t_s\rangle,\langle \pi_e^2, \widehat{\mu}^t_s\rangle\right) \end{equation} are given as the solution to an ODE (\ref{eq: system of ODEs}) for $s<\widehat{t_\text{gel}}(t)$. We recall also the notation $\zeta(x)$ for the time of existence to the ODE solutions, and $(\phi_s(x))_{s<\zeta(x)}$ for the ODE solution, starting at $x$. Using Theorem \ref{thrm: continuity of rho} and dominated convergence, the map \begin{equation}
-    t\mapsto x^t_0=\left(\left\langle \pi_n^2, \widehat{\mu}^t_0\right\rangle,\left\langle \pi_n\pi_e, \widehat{\mu}^t_0\right\rangle,\left\langle \pi_e^2, \widehat{\mu}^t_0\right\rangle\right)=\left(\left\langle 1-\rho_t,m\right\rangle,\left\langle \frac{1}{2}|v|^2(1-\rho_t),m\right\rangle,\left\langle \frac{1}{4}|v|^4(1-\rho_t),m\right\rangle\right)
-\end{equation} is continuous. Therefore, by the general ODE considerations in Lemma \ref{lemma: ODE considerations} point ii)., it follows that the map \begin{equation}
-    t\mapsto x^t(t)= \left(\langle \pi_n^2, \widehat{\mu}^t_t\rangle,\langle \pi_n\pi_e, \widehat{\mu}^t_t\rangle,\langle \pi_e^2, \widehat{\mu}^t_t\rangle\right)
-\end{equation} is finite and continuous on $(t_\text{gel}, \infty).$  Since $\widehat{\mu}^t_t=\mu_t$, this implies that $t\mapsto \mathcal{E}(t)$ is finite and continuous on $(t_\text{gel}, \infty)$, which implies that it is bounded on compact subsets. \end{proof}
+\end{equation} Recall, from the discussion in Section \ref{sec:SE}, that the quadratic moments \begin{equation} q^t(s)=\left(\langle \pi_n^2, \widehat{\mu}^t_s\rangle,\langle \pi_n\pi_e, \widehat{\mu}^t_s\rangle,\langle \pi_e^2, \widehat{\mu}^t_s\rangle\right) \end{equation} are given as the solution to an ODE (\ref{eq: system of ODEs}) for $s<\widehat{t_\mathrm{gel}}(t)$. We recall also the notation $\zeta(x)$ for the time of existence to the ODE solutions, and $(\phi_s(x))_{s<\zeta(x)}$ for the ODE solution, starting at $x$. Using Theorem \ref{thrm: continuity of rho} and dominated convergence, the map \begin{equation}
+    t\mapsto q^t_0=\left(\left\langle \pi_n^2, \widehat{\mu}^t_0\right\rangle,\left\langle \pi_n\pi_e, \widehat{\mu}^t_0\right\rangle,\left\langle \pi_e^2, \widehat{\mu}^t_0\right\rangle\right)=\left(\left\langle 1-\rho_t,m\right\rangle,\left\langle \frac{1}{2}|v|^2(1-\rho_t),m\right\rangle,\left\langle \frac{1}{4}|v|^4(1-\rho_t),m\right\rangle\right)
+\end{equation} is continuous, and it is clear that it takes values in $E=(0,\infty)^3$. Therefore, by the general ODE considerations in Lemma \ref{lemma: ODE considerations} point iii)., it follows that the map \begin{equation}
+    t\mapsto q^t(t)= \left(\langle \pi_n^2, \widehat{\mu}^t_t\rangle,\langle \pi_n\pi_e, \widehat{\mu}^t_t\rangle,\langle \pi_e^2, \widehat{\mu}^t_t\rangle\right)
+\end{equation} is finite and continuous on $(t_\mathrm{gel}, \infty).$  Since $\widehat{\mu}^t_t=\mu_t$, this implies that $t\mapsto \mathcal{E}(t)$ is finite and continuous on $(t_\mathrm{gel}, \infty)$, which implies that it is bounded on compact subsets. \end{proof}
 
-\begin{remark} This construction also shows that the map $t\mapsto \widehat{t_\text{gel}}(t)$ is continuous. Indeed, from the discussion in Section \ref{sec:SE}, $\widehat{t_\text{gel}}(t)$ is given as the explosion time $\zeta(x^t(0))$ of a system of ODEs \ref{eq: system of ODEs}, with initial data given by the quadratic moments $x^t(0)=(\langle \pi_n^2, \widehat{\mu}^t_0\rangle,\langle \pi_n\pi_e, \widehat{\mu}^t_0\rangle,\langle \pi_e^2, \widehat{\mu}^t_0\rangle)$. The map $x\mapsto \zeta(x)$ is continuous by Lemma \ref{lemma: ODE considerations}, and $t\mapsto x^t(0)$ is continuous, as in the proof above. Together, these imply the continuity of $t\mapsto \widehat{t_\text{gel}}(t)$. \end{remark}
+\begin{remark} This construction also shows that the map $t\mapsto \widehat{t_\mathrm{gel}}(t)$ is continuous. Indeed, from the discussion in Section \ref{sec:SE}, $\widehat{t_\mathrm{gel}}(t)$ is given as the explosion time $\zeta(q^t(0))$ of a system of ODEs \ref{eq: system of ODEs}, with initial data given by the quadratic moments $q^t(0)=(\langle \pi_n^2, \widehat{\mu}^t_0\rangle,\langle \pi_n\pi_e, \widehat{\mu}^t_0\rangle,\langle \pi_e^2, \widehat{\mu}^t_0\rangle) \in E$. The map $q\mapsto \zeta(q)$ is continuous by Lemma \ref{lemma: ODE considerations}, and $t\mapsto q^t(0)$ is continuous, as in the proof above. Together, these imply the continuity of $t\mapsto \widehat{t_\mathrm{gel}}(t)$, by item iii). of Lemma \ref{lemma: ODE considerations}. \end{remark}
 
-We remark that this construction gives us a natural way to identify $M_t, E_t$ in terms of the survival function $\rho_t$. \begin{lemma}\label{lemma: representation of M, E} Let $\rho_t$ be the survival function. Then we have \begin{equation}\label{eq: formula for M, E}
+\subsection{Representation Formula, and Second Moment at Criticality} 
+
+The duality construction used in the proof of Lemma \ref{lemma: second moment finite after tgel} gives us a natural way to identify $M_t, E_t$ in terms of the survival function $\rho_t$. This is the content of the following lemma. \begin{lemma}\label{lemma: representation of M, E} Let $\rho_t$ be the survival function. Then we have \begin{equation}\label{eq: formula for M, E}
     M_t = \int_{\mathbb{R}^d} \rho_t(v)m(dv); \hspace{1cm} E_t=\int_{\mathbb{R}^d} \frac{1}{2}|v|^2\rho_t(v)m(dv).
 \end{equation} In particular, both $M_t$ and $E_t$ are continuous, and \begin{equation}
-    M_{t_\text{gel}}=E_{t_\text{gel}}=0.
-\end{equation} \end{lemma} \begin{proof} We deal with the supercritical, critical, and subcritical cases $t>t_\text{gel}, t=t_\text{gel}, t<t_\text{gel}$ separately. 
-\paragraph{1. Supercritical Case $t>t_\text{gel}$.}  Let $(\widehat{\mu}^t_s)_{s\geq 0}$ and $\widehat{t_\text{gel}}(t)$ be as in the proof of Theorem \ref{lemma: second moment finite after tgel}. Then, since $(\widehat{\mu}^t_s)_{s\geq 0}$ is conservative on $[0, \widehat{t_\text{gel}})$, and $t<\widehat{t_\text{gel}}(t)$, we have \begin{equation}
+    M_{t_\mathrm{gel}}=E_{t_\mathrm{gel}}=0.
+\end{equation} \end{lemma} Together with the identification of $\rho_t$ in Lemma \ref{lemma: form of rho-t}, this proves item 4 of Theorem \ref{thrm: Smoluchowski equation}. \begin{proof} We deal with the supercritical, critical, and subcritical cases $t>t_\mathrm{gel}, t=t_\mathrm{gel}, t<t_\mathrm{gel}$ separately. 
+\paragraph{1. Supercritical Case $\mathbf{t>t_\mathrm{gel}}$.}  Let $(\widehat{\mu}^t_s)_{s\geq 0}$ and $\widehat{t_\mathrm{gel}}(t)$ be as in the proof of Theorem \ref{lemma: second moment finite after tgel}. Then, since $(\widehat{\mu}^t_s)_{s\geq 0}$ is conservative on $[0, \widehat{t_\mathrm{gel}})$, and $t<\widehat{t_\mathrm{gel}}(t)$, we have \begin{equation}
     \langle \pi_n, \widehat{\mu}^t_t\rangle =\langle \pi_n, \widehat{\mu}^t_0\rangle = \int_{\mathbb{R}^d} (1-\rho(t,v))m(dv).
 \end{equation} But since $\mu_t=\widehat{\mu}^t_t$, we have \begin{equation}
     M_t:=\langle \pi_n, \mu_0\rangle -\langle \pi_n, \mu_t\rangle =\langle \pi_n, \mu_0\rangle - \int_{\mathbb{R}^d} (1-\rho(t,v))m(dv)
 \end{equation} which implies the result for $M_t$. The argument for $E_t$ is identical. 
-\paragraph{2. Critical Case $t=t_\text{gel}$.} We recall  that the functions $t\mapsto \langle \pi_n, \mu_t\rangle; t\mapsto \langle \pi_e, \mu_t\rangle$ are nonincreasing, by subadditivity. Therefore, both \begin{equation}
+\paragraph{2. Critical Case $\mathbf{t=t_\mathrm{gel}}$.} We recall  that the functions $t\mapsto \langle \pi_n, \mu_t\rangle; t\mapsto \langle \pi_e, \mu_t\rangle$ are nonincreasing, by subadditivity; see \cite{N00} for a proof. Therefore, both \begin{equation}
     t\mapsto M_t=\langle \pi_n, \mu_0-\mu_t\rangle;\hspace{1cm}  t\mapsto E_t=\langle \pi_e, \mu_0-\mu_t\rangle 
-\end{equation} are nondecreasing. Now, using Theorem \ref{thrm: continuity of rho} and dominated convergence, we see that as $t\downarrow t_\text{gel},$ $\rho_t\downarrow 0$ and so \begin{equation}
+\end{equation} are nondecreasing. Using Theorem \ref{thrm: continuity of rho} and dominated convergence, we see that as $t\downarrow t_\mathrm{gel},$ $\rho_t\downarrow 0$ and so \begin{equation}
     M_t =\int_{\mathbb{R}^d} \rho_t(v)m(dv) \downarrow 0. 
 \end{equation} Therefore, \begin{equation}
-    0 \leq M_{t_\text{gel}} \leq \inf_{t>t_\text{gel}} M_t = 0. 
-\end{equation} Since $\rho_{t_\text{gel}}=0$, this proves the claimed result. The case for energy is identical.
-\paragraph{3. Subcritical Case $t<t_\text{gel}$.} For $t<t_\text{gel}$, the result is immediate: we have $M_t=E_t=0$ by definition of $t_\text{gel}$, and $\rho_t=0$ by Theorem \ref{lemma: survival function}. \medskip \\ Continuity follows from Theorem \ref{thrm: continuity of rho} by using dominated convergence. \end{proof}
+    0 \leq M_{t_\mathrm{gel}} \leq \inf_{t>t_\mathrm{gel}} M_t = 0. 
+\end{equation} Since $\rho_{t_\mathrm{gel}}=0$, this proves the claimed result. The case for energy is identical.
+\paragraph{3. Subcritical Case $\mathbf{t<t_\mathrm{gel}}$.} For $t<t_\mathrm{gel}$, the result is immediate: we have $M_t=E_t=0$ by definition of $t_\mathrm{gel}$, and $\rho_t=0$ by Theorem \ref{lemma: survival function}. \medskip \\ Continuity follows from Theorem \ref{thrm: continuity of rho} by using dominated convergence. \end{proof}
 
+This now allows us to deduce the properties of the second moment $\mathcal{E}(t)$ at the critical time $t_\mathrm{gel}$. \begin{lemma} In the notation of Lemma \ref{lemma: second moment finite after tgel}, we have \begin{equation} \mathcal{E}(t_\mathrm{gel})=\infty \end{equation} and \begin{equation} \mathcal{E}(t)\rightarrow \infty \hspace{1cm} \text{ as } t\rightarrow t_\mathrm{gel}. \end{equation}  \end{lemma} This then concludes the proof of point 2 of Theorem \ref{thrm: Smoluchowski equation}.
+\begin{proof}We first show that $\mathcal{E}(t_\mathrm{gel})=\infty$. Suppose, for a contradiction, that $\mathcal{E}(t_\mathrm{gel})<\infty.$ Then, applying \cite[Proposition 2.7]{N00} as in Lemma \ref{lemma: strong solutions}, we see that, for some positive $\delta>0$, there exists a strong solution $(\nu_t)_{t<\delta}$ to (\ref{eq: E}), starting at $\mu_{t_\mathrm{gel}}.$ This solution is conservative, so is an initial segment of the solution $(\nu_t)_{t\ge 0}$ to (\ref{eq: E+G}) starting at $\mu_{ t_\mathrm{gel}}$. By uniqueness, \begin{equation}
+    \nu_t=\mu_{t_\mathrm{gel}+t} \hspace{1cm} \text{ for all }t\in[0, \delta).
+\end{equation} However, from Lemma \ref{lemma: representation of M, E}, it follows that $\langle \pi_n, \mu_{t_\mathrm{gel}+t}\rangle < \langle \pi_n, \mu_{t_\mathrm{gel}}\rangle$ for all $t>0$. This contradicts the fact that $(\nu_t)_{t<\delta}$ is strong, which therefore shows that $\mathcal{E}(t)=\infty$. \medskip \\ To deduce the second point, fix $C>0$. Recalling the notation $S_R=\{x\in S: \pi_n(x)\le R, \pi_e(x)\le R\}$, there exists $R$ such that \begin{equation} \langle \pi_n^2 +\pi_e^2, 1_{S_R}\mu_{t_\mathrm{gel}}\rangle >C+1. \end{equation} We now observe, from the construction in Lemma \ref{lemma: E and U}, that the measures $(1_{S_R}\mu_t)_{t\ge 0}$ satisfy the restricted dynamics (\ref{eq:rE1}, \ref{eq: rE2}), and so are continuous in total variation norm. Therefore, there exists $\epsilon>0$ such that, for $t \in (t_\mathrm{gel}-\epsilon, t_\mathrm{gel}+\epsilon)$, we have \begin{equation} |\langle \pi_n^2 +\pi_e^2, 1_{S_R}(\mu_{t_\mathrm{gel}}-\mu_t)\rangle|<1 \end{equation} which implies that, for all $t\in (t_\mathrm{gel}-\epsilon, t_\mathrm{gel}+\epsilon)$, \begin{equation} \langle \pi_n^2 +\pi_e^2, 1_{S_R}\mu_{t}\rangle >C. \end{equation}  \end{proof}
 
+\subsection{Gel Dynamics Beyond the Critical Time} We now obtain point 3 of Theorem \ref{thrm: Smoluchowski equation}  as a consequence of the previous results. We have already proven the continuity of $M_t, E_t$ on the whole time interval $[0,\infty)$, and so it is sufficient to prove the following result.
+\begin{lemma}\label{lemma: dynamics after tgel} In the notation of Lemma \ref{lemma: second moment finite after tgel}, let $(M_t, E_t)$ be the mass and energy of the gel associated to $(\mu_t)_{t\ge 0}$. Then, for  $t\ge t_\mathrm{gel}$, we have \begin{equation}
+    M_t=\int_{t_\mathrm{gel}}^t 
+    \left(
+      \kappa \left<\pi_n^2,\mu_s\right>M_s +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu_s \right>M_s +
+        \left<\pi_n^2,\mu_s \right>E_s \right]
+    \right)ds;
+\end{equation}
+\begin{equation}
+    E_t=\int_{t_\mathrm{gel}}^t 
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu_s\right>M_s +
+      2\gamma \left[
+        \left<\pi_e^2,\mu_s \right>M_s +
+        \left<\pi_n \pi_e,\mu_s \right>E_s \right]
+    \right)ds.
+\end{equation}\end{lemma} \begin{remark}\label{rmk: continuity of tgelt} We interpret Lemma \ref{lemma: dynamics after tgel} as follows. There are two mechanisms by which matter can enter the gel at infinity: \begin{enumerate}[label=\roman{*}).]
+    \item A blowup of finite mass escaping to infinity;
+    \item Direct absorption into an existing gel.
+\end{enumerate} In view of Lemma \ref{lemma: dynamics after tgel}, we know that the first mechanism is responsible for the initial formation of the gel, and the second is responsible for the behaviour of the gel thereafter.  \end{remark}
+\begin{proof} We return to the truncated dynamics (\ref{eq:rE1}, \ref{eq: rE2}) used in the proof of Lemma \ref{lemma: E and U}. We recall that, starting at \begin{equation} \mu^R_0 = 1_{S_R}\mu_0; \hspace{1cm} g^R_0=\int_{x\not\in S_R} x\mu_0(dx)\end{equation} the solution $(\mu^R_t, g^R_t)$ to (\ref{eq:rE1}, \ref{eq: rE2}) exists and is unique, and as $R\uparrow \infty$, we have \begin{equation} \label{eq: convergence to E+G}
+    \mu^R_t\uparrow \mu_t; \hspace{1cm} (M^R_t, E^R_t)\downarrow (M_t, E_t)
+\end{equation} where $(\mu_t)_{t\ge 0}$ is the solution to (\ref{eq: E+G}) starting at $\mu_0$, and $(M_t, E_t)$ are the associated gel data. \medskip \\ Fix $s, t$ such that $t_\mathrm{gel}<s<t$. It is immediate from (\ref{eq: rE2}) that \begin{equation}
+    M^R_t-M^R_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n^2,\mu^R_u\right>M^R_u +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu^R_u \right>M^R_u +
+        \left<\pi_n^2,\mu^R_u \right>E^R_u \right]
+    \right)du;
+\end{equation}
+\begin{equation}
+    E^R_t-E^R_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu^R_u\right>M^R_u +
+      2\gamma \left[
+        \left<\pi_e^2,\mu^R_u \right>M^R_u +
+        \left<\pi_n \pi_e,\mu^R_u \right>E^R_u \right]
+    \right)du.
+\end{equation} By the monotonicity $\mu^R_u \le \mu_u$, and local boundedness in Lemma \ref{lemma: second moment finite after tgel},  $\langle \pi_n^2+ \pi_e^2, \mu^R_u\rangle $ is bounded, uniformly in $R<\infty$ and $u\in [s,t]$. It is also  straightforward to see that the truncated gel data are bounded by $M^R_u \le 1;\hspace{0.2cm} E^R_u \le \langle \pi_e, \mu_u\rangle.$ Together, these imply that the integrands are bounded; using (\ref{eq: convergence to E+G}) and bounded convergence, we obtain  \begin{equation}
+    M_t-M_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n^2,\mu_u\right>M^R_u +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu_u \right>M_u +
+        \left<\pi_n^2,\mu_u \right>E_u \right]
+    \right)du;
+\end{equation}
+\begin{equation}
+    E_t-E_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu_u\right>M_u +
+      2\gamma \left[
+        \left<\pi_e^2,\mu_u \right>M_u +
+        \left<\pi_n \pi_e,\mu_u \right>E_u \right]
+    \right)du.
+\end{equation} Taking $s\downarrow t_\mathrm{gel}$, and using the continuity $(M_s, E_s)\downarrow (0,0)$ established in Lemma \ref{lemma: representation of M, E}, we obtain the claimed result. \end{proof}

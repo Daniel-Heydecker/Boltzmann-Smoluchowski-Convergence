@@ -1,7 +1,310 @@
 \section{Convergence of the Stochastic Coalescent}
 For stochastic coalescent \cite{A99}, this has jump rate $N$ times larger than for the stochastic coagulant (Marcus--Lushnikov process \cite{L78}) see \cite{N00}.
 
-We recall that $d_0$ is a metric inducing the vague topology $\mathcal{F}(C_c(S))$ on $\mathcal{M}=\mathcal{M}_{\le 1}(S)$ 
-\begin{lemma}\label{lemma: local uniform convergence of stochastic coagulent} Use ideas of \cite{N99} to show that \begin{equation}
-\sup_{t\le t} d_0(\mu^N_s, \mu_s)\rightarrow 0\end{equation} in probability, for any $t\geq 0$.\end{lemma} \begin{proof} To be done later \end{proof}
+We recall that $d_0$ is a metric inducing the vague topology $\mathcal{F}(C_c(S))$ on $\mathcal{M}=\mathcal{M}_{\le 1}(S)$, which makes $\mathcal{M}$ into a complete metric space.
+\medskip \\ We now state the main result of this section, which concerns the convergence of the stochastic processes $\mu^N_t$ to the solution $\mu_t$ to (\ref{eq: E+G}). 
+\begin{lemma}\label{lemma: local uniform convergence of stochastic coagulent}
+Suppose $\mu_0$ satisfies (\textbf{A1}-{4.}), and let $(\mu_t)_{t\ge 0}$ be the solution to (\ref{eq: E+G}) starting at $\mu_0$. Let $(\mu^N_t)_{t\ge 0}$ be stochastic coalescents, where the initial velocities $(v_i(0))_{i=1}^N$ are sampled initially from the underlying distribution $m$ given by (\textbf{A3}.). Then we have the local uniform convergence
+\begin{equation*}
+\forall t\ge 0 \hspace{0.5cm} \sup_{s\le t} d_0(\mu^N_s, \mu_s)\rightarrow 0 \text{ in probability.}
+\end{equation*}
+\end{lemma} \begin{remark}
+We will later upgrade the \emph{local} uniform convergence to \emph{true} uniform convergence in Lemma \ref{lemma: uniform convergence of coagulant}. We also remark that this does not immediately imply the convergence of the gel terms in Theorem \ref{thrm: convergence of stochastic coagulent}, as the test functions involved are neither bounded nor even compactly supported. This will be dealt with in Sections \ref{sec: ECT}, \ref{sec: COG}.
+\end{remark} The proof proceeds as follows. Firstly, we will argue that for any $t\ge 0$, the processes $(\mu^N_s)_{0\le s\le t}$ are tight in the Skorohod topology of $\mathbb{D}([0,t],(\mathcal{M},d_0))$.  Then, we will argue that if $\overline{\mu}$ is any subsequential limit point, then for any $\xi$ satisfying a certain regularity condition, the restricted measures $\overline{\mu}_t^\xi(dx)=1[x\in S_\xi]\overline{\mu}_t(dx)$ solve the restricted dynamics (\ref{eq:rE1}, \ref{eq: rE2}) and that $\overline{\mu}^\xi_0=\mu^\xi_0$. By uniqueness in Lemma \ref{lemma: restricted dynamics}, it follows that $\overline{\mu}^\xi$ coincides with the solution $\mu^\xi$ found in Lemma \ref{lemma: restricted dynamics}. We will then argue that the required regularity condition holds for sufficiently many cutoff $\xi$ to allow a limit $\xi \rightarrow \infty$ to conclude that $(\overline{\mu}_s)_{0\le s\le t}=(\mu_s)_{0\le s\le t}$, which implies that, writing $d_\mathrm{Sk}$ for the Skorohod metric on $\mathbb{D}([0,t],(\mathcal{M},d_0))$,  \begin{equation} d_\mathrm{Sk}\left((\mu^N_s)_{s=0}^t, (\mu_s)_{s=0}^t\right) \rightarrow 0 \hspace{0.5cm} \text{in probability.} \end{equation} Since the limit process $(\mu_s)_{0\le s\le t}$ is continuous in the vaugue topology $(\mathcal{M},d_0)$, it follows that we may upgrade to uniform convergence: \begin{equation} \sup_{s\le t}\hspace{0.1cm}d_0\left(\mu^N_s, \mu_s\right) \rightarrow 0 \hspace{0.5cm} \text{in probability} as claimed. \end{equation}
+\begin{proof}
+Firstly we need to argue from \textbf{A4.} that any limit point satisfies
+\begin{equation*}
+    \overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right) + 
+    \overline{\mu}_t \otimes \overline{\mu}_t \left(\left\{(x,y) \colon \varphi(x+y) = \xi\right\}\right) = 0
+\end{equation*}
+for almost all $t$.  (Perhaps the Portmanteau theorem applied to a small open neighbourhood).
 
+Then by Lemma~\ref{lem: sseq converg} we have convergence in distribution for fixed $R = \xi \sqrt{\kappa + 2\gamma}$ of the $\mu^{N,\xi}$ to the unique, continuous $\mu^R$ from Lemma~\ref{lemma: E and U}, which themselves converge to $\mu$ as $R\rightarrow \infty$ so
+\begin{equation*}
+    \lim_N \PP\left(\sup_{t<T} d_0\left(\mu^{N,\xi}_t,\mu^R_t\right) \geq \epsilon/2 \right) = 0.
+\end{equation*}
+
+Finally for $\epsilon> 0$ and fixed $s$ one may choose $R$ large enough that $d_0\left(\mu_s^N,\mu_s^{N,\xi}\right) +d_0\left(\mu_s^R,\mu_s\right) < \epsilon / 2$.
+The $\mu^N$ have subsequences convergent in distribution by Lemma~\ref{lemma: tight processes} and we have now shown that the limit is a deterministic process with a continuous path, namely $\mu$.
+\end{proof}
+%\rpcomment{At the moment I think there is a small gap in the proof of \cite[Thrm 4.1]{N99}, because only compact containment is checked and nothing is done to get an estimate on the modified variation of the paths.  This actual or imagined gap is covered here in Lemma~\ref{lemma: tight processes}.}
+
+Note that $\overline{K}(x,y)\leq (\kappa + 2\gamma) \left(\pi_n(x)+2\pi_e(x)\right) \left(\pi_n(y)+2\pi_e(y)\right)$ and write $\varphi(x) = \sqrt{\kappa + 2\gamma}\left(\pi_n(x)+2\pi_e(x)\right)$ so that $\overline{K}(x,y)\leq \varphi(x)\varphi(y)$ and for any $x \in S$ one has $\abs{x} \leq 2 \varphi(x) /\sqrt{\kappa + 2\gamma} $.
+
+
+\begin{definition}[Initial distribution]
+\begin{equation*}
+    \mu^N_0 := \frac1N \sum_{i=1}^N \delta_{\left(1,V_i, \frac12 \abs{V_i}^2\right)}
+\end{equation*}
+where the $V_i$ are iid samples from $m$ (as introduced in Section~\ref{sec: results}).
+\end{definition}
+Using Assumptions~\textbf{A2.}\&\textbf{A3.} it is then easy to see that these initial distributions converge in probability to $\mu_0 = m\circ \iota^{-1}$ and using Assumption~\textbf{A4.} that $\mu_0^{N,\xi}$ converges in probability to $\mu_0 1\left\{\varphi \leq \xi\right\}$.
+
+For $N\in\NN$ and $\xi \in \RR_+$ we consider $\mu^N, \mu^{N,\xi} \in \mathbb{D}\left([0,\infty); \left(\mathcal{M}, d_0\right)\right)$ where
+$\mu^{N,\xi}_t := \mu^N_t 1\left\{\varphi \leq \xi\right\}$
+and $G^{N,\xi} \in \mathbb{D}\left([0,\infty); S_\mathrm{gel}\right)$ where
+$G^{N,\xi}_t = \left(\left<\pi_n, \mu_0^N -\mu^{N,\xi}_t\right>, \left<\pi_p, \mu_0^N -\mu^{N,\xi}_t\right>, \left<\pi_e, \mu_0^N -\mu^{N,\xi}_t\right>\right)$ so that
+$\left(\mu^{N,\xi}, G^{N,\xi}\right) \in \mathbb{D}\left([0,\infty); \left(\mathcal{M}^\ast, d^\ast\right)\right)$.
+In a slight abuse of notation we will also allow $\xi = + \infty$ with the convention that $\mu^{N,\infty} \equiv \mu^N$.
+
+
+\begin{lemma}\label{lemma: cpct contain}
+Assume \textbf{A2.} \& \textbf{A3.}, then there exist compact sets $B_\epsilon \subset \mathcal{M}$ and $\widetilde{B}_\epsilon \subset \mathcal{M}^\ast$ such that
+\begin{equation*}
+    \lim_N \PP\left(\exists t \in [0,\infty) \colon \mu^N_t \notin B_\epsilon \right) = 0,
+\end{equation*}
+and
+\begin{equation*}
+    \lim_N \PP\left(\exists (t,\xi) \in [0,\infty)\times (0,\infty) \colon \left({\mu}^{N,\xi}_t, G^{N,\xi}_t\right) \notin \widetilde{B}_\epsilon \right) = 0.
+\end{equation*}
+\end{lemma}
+\begin{proof}
+Define compact subsets of $S$ by $A_k = \left\{x\in S \colon \pi_n(x) \leq 2k, \pi_e(x) \leq k \sigma_2(m)\right\}$ so that
+\begin{equation*}
+    \sup_t \mu_t^N\left(A_k^c\right) \leq \frac{1}{2k} + \frac{\left<\pi_e, \mu_0^N\right>}{2k \sigma_2(m)}.
+\end{equation*}
+Then $A:= \left\{\nu\in \mathcal{M} \colon \nu\left(A_k^c\right) < 1/k \right\}$ is a relatively compact subset of $\mathcal{M}$ in the weak ($\mathcal{F}(C_\mathrm{b}(S))$) topology and also trivially compact in the vague topology.
+Assumption \textbf{A3.} ensures that for $N$ large enough $\left<\pi_e, \mu_0^N\right> < \sigma_2(m)$ and so $\lim_N \PP\left(\exists t \colon \mu_t^N \notin A\right) = 0$.
+This result carries over immediately to $\mu^N 1_{\left\{\pi_n \leq \xi\right\}}$ and then noting $\pi_n\left(G^{N,\xi}_t\right) \leq 1$, and $\pi_e\left(G^{N,\xi}_t\right) \leq \left<\pi_e, \mu_0^N \right> \rightarrow \frac12 \sigma_2(m)$ in probability the proof can be completed.
+\end{proof}
+
+\begin{lemma}\label{lemma: bdd jump rate}
+Assume \textbf{A2.} \& \textbf{A3.}, then the following two statements apply to both $\mu^N$ and $\left({\mu}^{N,\xi}, G^{N,\xi}\right)$:
+\begin{enumerate}
+    \item There are at most $N-1$ jumps in $[0,\infty)$.
+    \item The jump rate at time $t$ is at most
+    \begin{equation*}
+        \lambda^N_t := N\left\{\kappa \left<\pi_n, \mu_t^N\right> \left<\pi_n, \mu_0^N\right>
+        +4 \gamma  \left<\pi_n, \mu_t^N\right> \left<\pi_e, \mu_0^N\right>
+        +4 \gamma  \left<\pi_n, \mu_0^N\right> \left<\pi_e, \mu_t^N\right>\right\},
+    \end{equation*}
+    which is independent of $\xi$ and non-increasing.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first claim is obvious---after $N-1$ jumps precisely one cluster remains.  The second claim is a simple calculation.
+\end{proof}
+
+\begin{lemma}\label{lemma: tight processes}
+Assume \textbf{A2.} \& \textbf{A3.}, then:
+\begin{enumerate} 
+    \item For each $f \in C_c(S)$ the distributions of $\left<f, \mu_\cdot^N \right>$ are tight in the space of probability measures on $\mathbb{D}\left([0,\infty); \RR\right)$.
+    \item The distributions of $\mu_\cdot^N$ are tight in the space of probability measures on $\mathbb{D}\left([0,\infty);  \left(\mathcal{M}, d_0\right)\right)$.
+    \item The distributions of $\left({\mu}^{N,\xi}, G^{N,\xi}\right)\ N\in\NN$ form a tight subset of the probability measures on $\mathbb{D}\left([0,\infty);  \left(\mathcal{M}^\ast, d^\ast\right)\right)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+    \item Compact containment for this real valued process is trivial since $\abs{\left<f,\mu_t^N\right>} \leq \norm{f}_\infty$; the proof of tightness is completed by checking \cite[Ch. 3, Thrm. 8.6 part c)]{EK86} using the boundedness of $\lambda_t^N$ from Lemma~\ref{lemma: bdd jump rate} since the jump size is bounded by $\frac32 \norm{f}_\infty / N$
+    \item Compact containment for the $\mu^N$ is the content of Lemma~\ref{lemma: cpct contain}.  Since $C_c(S)$ is dense in the space of bounded continuous functions on $S$ in the topology of locally uniform convergence we can apply \cite[Ch. 3, Lem. 9.1]{EK86}.
+    \item Part 2. of this result also applies to $\mu^{N,\xi}$ and so it is sufficient to prove tightness for the laws of $G_t^{N,\xi}$ seen as processes taking values in $\RR^{d+2}$.
+    For all $t\geq 0$ we have $\abs{G_t^{N,\xi}} \leq 1 + \sqrt{2\left<\pi_e, \mu_0^N\right>} + \left<\pi_e, \mu_0^N\right>$ and $\left<\pi_e, \mu_0^N \right> \rightarrow \frac12 \sigma_2(m)$ in probability.
+    Therefore one can establish compact containment uniformly in time.
+    The jumps of $G^{N,\xi}$ have size at most $(2+\sqrt{2})\xi/\sqrt{\kappa + 2 \gamma}$ and we can argue as in part 1.
+
+\end{enumerate}
+\end{proof}
+\begin{remark}
+Using Lemma~\ref{lemma: cpct contain} we can in fact argue that 2. holds when $\mathcal{M}$ is given the weak topology and that for $\xi$ in a bounded set there is a common tight subset in part 3.
+\end{remark}
+
+\begin{definition}
+For $f\in C_c(S)$ let
+\begin{multline*}
+M_t^{f,N,\xi} := \left<f, \mu_t^{N,\xi}\right> - \left<f, \mu_0^{N,\xi}\right> 
+- \int_0^t \int_{S}f(x) \overline{K}\left(x,G^{N,\xi}_t\right)\mu^{N,\xi}_s(\dd x)\dd s\\
+- \frac12 \int_0^t \iint_{S^2}\left[f(x+y)1\left\{\varphi(x+y) \leq \xi \right\} - f(x) - f(y)\right]
+      \overline{K}(x,y)\mu^{N,\xi}_s(\dd x)\mu^{N,\xi}_s(\dd y) ds \\
+      + \frac{1}{2N}\int_0^t \int_S \left[f(2x)1\left\{\varphi(2x) \leq \xi \right\} - 2f(x)\right]\overline{K}(x,x)\mu^{N,\xi}_s(d x) d s
+\end{multline*}
+and
+\begin{multline*}
+\widehat{M}_t^{N,\xi} := G_t^{N,\xi} - G_0^{N,\xi} 
+- \int_0^t \int_{S}x \overline{K}\left(x,G^{N,\xi}_t\right)\mu^{N,\xi}_s(\dd x)\dd s\\
+- \frac12 \int_0^t \iint_{S^2}(x+y)1\left\{\varphi(x+y) \leq \xi \right\}
+      \overline{K}(x,y)\mu^{N,\xi}_s(\dd x)\mu^{N,\xi}_s(\dd y) ds \\
+      + \frac{1}{2N}\int_0^t \int_S 2x 1\left\{\varphi(2x) \leq \xi \right\}\overline{K}(x,x)\mu^{N,\xi}_s(d x) d s.
+\end{multline*}
+\end{definition}
+
+\begin{lemma}\label{lemma: qvar}
+Assume \textbf{A2.} \& \textbf{A3.}, then $M_t^{f,N,\xi}$ and $\widehat{M}_t^{N,\xi}$ are martingales with respect to the filtration generated by $\mu^N$ (independently of $\xi$) and writing $[\cdot]_t$ for the quadratic variation of a stochastic process
+\begin{equation*}
+    \left[\left<f, \mu^{N,\xi}\right>\right]_t
+    = \left[M^{f,N,\xi}\right]_t
+    \leq \frac{9 \norm{f}_\infty^2}{N} \qquad \forall t \in [0,\infty), \xi \in [0,\infty]
+\end{equation*}
+and
+\begin{equation*}
+    \left[G^{N,\xi}\right]_t
+    = \left[\widehat{M}_t^{N,\xi}\right]_t
+    \leq \frac{2}{N}\left<\pi_e, \mu^N_0\right> + \frac{8\xi}{N}1\left\{\xi < \infty \right\} \qquad \forall t \in [0,\infty), \xi \in [0,\infty].
+\end{equation*}
+\end{lemma}
+\begin{proof}
+The Martingale property is a standard, see for example \cite[Ch. 4, Prop 1.7]{EK86} or \cite[Lem. 19.21]{K02}.
+Absolutely continuous processes have zero quadratic variation and for pure jump processes the quadratic variation is the sum of the squares of the jumps, which can be bounded using Lemma~\ref{lemma: bdd jump rate} for the first claim and by simple maximisation arguments for the second.
+Note that $G^{N,\infty}_t \equiv 0$.
+\end{proof}
+
+
+\begin{lemma}
+If a subsequence of the $\mu^{N,\xi}$ converges in distribution to some $\overline{\mu}$ such that, for almost all $t$
+\begin{equation*}
+    \overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right) + 
+    \overline{\mu}_t \otimes \overline{\mu}_t \left(\left\{(x,y) \colon \varphi(x+y) = \xi\right\}\right) = 0,
+\end{equation*}
+then for any $f\in C_c(S)$ and $T> 0$
+\begin{multline*}
+    \int_0^T \iint_{S^2}\left[f(x+y)1\left\{\varphi(x+y) \leq \xi \right\} - f(x) - f(y)\right]
+      \overline{K}(x,y)\mu^{N,\xi}_t(\dd x)\mu^{N,\xi}_t(\dd y)\dd t
+    \\\rightarrow
+    \int_0^T \iint_{S^2}\left[f(x+y)1\left\{\varphi(x+y) \leq \xi \right\} - f(x) - f(y)\right]
+      \overline{K}(x,y)\overline{\mu}_t(\dd x)\overline{\mu}_t(\dd y)\dd t
+\end{multline*}
+and
+\begin{multline*}
+    \int_0^T \iint_{S^2}(x+y)1\left\{\varphi(x+y) > \xi \right\}
+      \overline{K}(x,y)\mu^{N,\xi}_t(\dd x)\mu^{N,\xi}_t(\dd y)\dd t
+    \\\rightarrow
+    \int_0^T \iint_{S^2}(x+y)1\left\{\varphi(x+y) > \xi \right\}
+      \overline{K}(x,y)\overline{\mu}_t(\dd x)\overline{\mu}_t(\dd y)\dd t
+\end{multline*}
+both in the sense of distributional convergence.
+\end{lemma}
+\begin{proof}
+The function $(x,y) \mapsto f(x)\overline{K}(x,y)1\left\{\varphi(y) \leq \xi\right\}$ is compactly supported and continuous except where $\varphi(y) = \xi$.
+If a (deterministic) sequence $\nu^N \in \mathbb{D}\left([0,\infty);  \left(\mathcal{M}, d_0\right)\right)$ converges to $\nu$ in the same space then, $d_0\left(\nu^N_t, \nu_t\right) \rightarrow 0$ except on the at most countable set of $t$ where $\nu$ has a discontinuity.
+Thus, provided $\nu_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right) = 0$ one has
+\begin{equation}
+    \lim_N \iint_{S^2}\left[f(x) + f(y)\right]\overline{K}(x,y)\nu^N_t(\dd x)\nu^N_t(\dd y)
+    = \iint_{S^2}\left[f(x) + f(y)\right]\overline{K}(x,y)\nu_t(\dd x)\nu_t(\dd y)
+\end{equation}
+and provided $\nu_t \otimes \nu_t \left(\left\{(x,y) \colon \varphi(x+y) = \xi\right\}\right) = 0$
+\begin{equation}
+    \lim_N \iint_{S^2}f(x+y)1\left\{\varphi(x+y) = \xi\right\}\overline{K}(x,y)\nu^N_t(\dd x)\nu^N_t(\dd y)
+    = \iint_{S^2} f(x+y)1\left\{\varphi(x+y) = \xi\right\}\overline{K}(x,y)\nu_t(\dd x)\nu_t(\dd y)
+\end{equation}
+for all $t$ at which $\nu$ is continuous.
+Since $\abs{f(x+y) - f(x) - f(y)}\overline{K}(x,y) \leq \frac32\norm{f\varphi}_\infty \left(\varphi(x) + \varphi(y)\right)$ and
+\begin{equation*}
+    \iint_{S^2}\frac32\norm{f\varphi}_\infty \left(\varphi(x) + \varphi(y)\right) \mu^{N,\xi}_t(\dd x) \mu^{N,\xi}_t(\dd y)
+    \leq 3 \norm{f\varphi}_\infty \left<\varphi, \mu^{N,\xi}_t\right>
+    \leq 3 \norm{f\varphi}_\infty \left<\varphi, \mu^{N}_0\right>
+\end{equation*}
+almost surely, the first claim follows.
+A similar argument using $\abs{x+y}1\left\{\varphi(x+y) > \xi \right\} \leq 2\xi / \sqrt{\kappa + 2\gamma}$ since $\mu^{N,\xi}_t$ is only supported on $\varphi \leq \xi$ proves the second claim.
+\end{proof}
+
+\begin{lemma}
+If a sub-sequence of the $\left(\mu^{N,\xi}, G^{N,\xi}\right)$ converges in distribution to some $\left(\overline{\mu}, \overline{G}\right)$ such that, for almost all $t$
+\begin{equation*}
+    \overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right) + 
+    \overline{\mu}_t \otimes \overline{\mu}_t \left(\left\{(x,y) \colon \varphi(x+y) = \xi\right\}\right) = 0,
+\end{equation*}
+then for any $f\in C_c(S)$ and $T> 0$
+\begin{equation*}
+    \int_0^T \int_{S}f(x) \overline{K}\left(x,G^{N,\xi}_t\right)\mu^{N,\xi}_t(\dd x)\dd t
+    \rightarrow
+    \int_0^T \int_{S}f(x) \overline{K}\left(x,\overline{G}_t\right)\overline{\mu}_t(\dd x)\dd t
+\end{equation*}
+and
+\begin{equation*}
+    \int_0^T \int_{S}x \overline{K}\left(x,G^{N,\xi}_t\right)\mu^{N,\xi}_t(\dd x)\dd t
+    \rightarrow
+    \int_0^T \int_{S}x \overline{K}\left(x,\overline{G}_t\right)\overline{\mu}_t(\dd x)\dd t
+\end{equation*}
+both in the sense of distributional convergence.
+\end{lemma}
+\begin{proof}
+This closely follows the proof of the previous lemma, with the additional observation that $\varphi\left(G^{N,\xi}_t\right) \leq \left<\varphi, \mu_0^N\right>$.
+\end{proof}
+
+\begin{definition}[Drift operators]
+\begin{equation*}
+    \left<f,L^\xi_\mathrm{gel}(\nu, G)\right> =
+    \frac12\iint_{S^2}\left[f(x+y)1\left\{\varphi(x+y) \leq \xi \right\} - f(x) - f(y)\right]
+      \overline{K}(x,y)\nu(\dd x)\nu(\dd y)
+  -  \int_{S}f(x) \overline{K}\left(x,G\right)\nu(\dd x)
+\end{equation*}
+\begin{equation*}
+    \widehat{L}^\xi_\mathrm{gel}(\nu, G) =
+    \frac12 \iint_{S^2}(x+y)1\left\{\varphi(x+y) \leq \xi \right\}
+      \overline{K}(x,y)\nu(\dd x)\nu(\dd y)
+  +  \int_{S}x \overline{K}\left(x,G\right)\nu(\dd x).
+\end{equation*}
+\end{definition}
+
+\begin{lemma}\label{lem: mild}
+Assume \textbf{A2.} \& \textbf{A3.}, if a sub-sequence of the $\left(\mu^{N,\xi}, G^{N,\xi}\right)$ converges in distribution to some $\left(\overline{\mu}, \overline{G}\right)$ such that for almost all $t$
+\begin{equation*}
+  \overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right) + 
+  \overline{\mu}_t \otimes \overline{\mu}_t \left(\left\{(x,y) \colon \varphi(x+y) = \xi\right\}\right) = 0,
+\end{equation*}
+then for any $f\in C_c(S)$ and $T> 0$
+\begin{equation*}
+    \sup_{t\in[0,T)} \abs{\left<f, \overline{\mu}_t\right> - \left<f1\left\{\varphi \leq \xi\right\}, \mu_0\right> - \int_0^t \left<f, L^\xi_\mathrm{gel}\left(\overline{\mu}_s, \overline{G}_s\right) \right> ds} = 0
+    \qquad \text{a.s.}.
+\end{equation*}
+and
+\begin{equation*}
+    \sup_{t\in[0,T)} \abs{\overline{G}_t - \overline{G}_0 - \int_0^t \widehat{L}^\xi_\mathrm{gel}\left(\overline{\mu}_s, \overline{G}_s\right) \dd s} = 0
+    \qquad \text{a.s.}.
+\end{equation*}
+%If $\kappa = 0$, one may even take $T=+\infty$.
+\end{lemma}
+\begin{proof}
+By \cite[Thrm. 26.12]{K02} and Lemma~\ref{lemma: qvar} one has for some universal constant $c$
+\begin{equation*}
+    \EE\left[\sup_{t\in[0,\infty)} \left(M_t^{f,N,\xi}\right)^2\right]
+    \leq c \EE\left[\sup_{t\in[0,\infty)} \left[M^{f,N,\xi}\right]_t\right]
+    \leq \frac{9c \norm{f}_\infty^2}{N}.
+\end{equation*}
+Also with probability 1 and using the linearity of $\pi_n$
+\begin{equation*}
+   \abs{\frac{1}{2N}\int_0^t \int_S \left[f(2x)1\left\{\varphi(2x)\leq \xi\right\} - 2f(x)\right]\overline{K}(x,x)\mu^{N,\xi}_s(d x) d s}
+   \leq \frac{9\kappa t}{8N}\norm{f\pi_n^2}_\infty.
+\end{equation*}
+Thus for $T> 0$ we have convergence to 0 in distribution for $\int_0^T M^{f,N,\xi}_t \dd t$ and also in distribution
+\begin{equation}\label{eq: limit1}
+\int_0^T M^{f,N,\xi}_t \dd t \rightarrow
+     \int_0^T \left[ \left<f,\overline{\mu}_t\right> -\left<f1\left\{\varphi \leq \xi\right\},\mu_0\right> - \int_0^t \left<f, L^\xi_\mathrm{gel}(\overline{\mu}_s, \overline{G}_s)\right>\right] \dd s \dd t.
+\end{equation}
+The additional layer of integration ensures that we are considering functionals that are continuous in the Skorohod topology even though $\overline{\mu}$ does not a priori have continuous paths.
+However we now know that the right hand side of \eqref{eq: limit1} is almost surely 0, differentiating with respect to $T$ one sees that $\overline{\mu}$ is $d_0$-continuous which means that Skorohod convergence implies locally uniform convergence.
+We argue analogously to establish the second claim of this lemma.
+\end{proof}
+
+\begin{lemma}\label{lem: xi gel}
+Assume \textbf{A2.},\textbf{A3.} \& \textbf{A4.}, and suppose that a sub-sequence of the $\left(\mu^{N,\xi}, G^{N,\xi}\right)$ converges in distribution to some $\left(\overline{\mu}, \overline{G}\right)$, such that for almost all $t$
+\begin{equation*}
+  \overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right) + 
+  \overline{\mu}_t \otimes \overline{\mu}_t \left(\left\{(x,y) \colon \varphi(x+y) = \xi\right\}\right) = 0,
+\end{equation*}
+then  $\left(\overline{\mu}, \overline{G}\right)$ is $d^\ast$-absolutely continuous and
+  \begin{align*}
+      \pi_n\left(\overline{G}_t\right) &= \left<\pi_n, \mu_0\right> - \left<\pi_n, \overline{\mu}_t\right>\\
+      \pi_p\left(\overline{G}_t\right) &= \left<\pi_p, \mu_0\right> - \left<\pi_p, \overline{\mu}_t\right>\\
+      \pi_e\left(\overline{G}_t\right) &= \left<\pi_e, \mu_0\right> - \left<\pi_e, \overline{\mu}_t\right>
+  \end{align*}
+\end{lemma}
+\begin{proof}
+Absolute continuity is a trivial consequence of the representation in Lemma~\ref{lem: mild}.
+For the second point it is sufficient to show $\left<\varphi, \mu^{N,\xi}_t\right> \rightarrow \left<\varphi, \overline{\mu}_t\right>$, which is immediate under the assumption that $\overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi\right\}\right)= 0$. 
+\end{proof}
+
+\begin{lemma}\label{lem: sseq converg}
+Under the same conditions as Lemma~\ref{lem: xi gel} the limit point $\left(\overline{\mu}, \overline{G}\right)$ is the unique solution of Equations~\ref{eq:rE1}\&\ref{eq: rE2} starting from $\overline{\mu}_0 = \mu_01\left\{\varphi \leq \xi\right\}$ if one takes $R = \xi \sqrt{\kappa + 2\gamma}$.
+\end{lemma}
+\rpcomment{I should probably taken the factor $ \sqrt{\kappa + 2\gamma}$ out of $\varphi$ for compatibility with \S2. }
+
+\begin{remark}
+In order to extend the results in this section to the case where $\xi = \xi_N$ with $\xi_N / N \rightarrow 0$ it would be necessary 
+\begin{itemize}
+    \item to adapt the proof of part 3 of Lemma~\ref{lemma: tight processes}, and
+    \item to use Theorem~\ref{thrm: RG2} to characterise the limit as the unique solution of 
+\begin{equation*}
+    \frac{\dd}{\dd t} \overline{\mu}_t = L_\mathrm{gel}(\overline{\mu}_t).
+\end{equation*}
+\end{itemize}
+\end{remark}

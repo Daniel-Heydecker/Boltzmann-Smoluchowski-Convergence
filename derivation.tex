@@ -2,34 +2,34 @@
 In this section, we will show that the interaction clusters of the Kac Process, with a quadratic interaction kernel, follow a Smolouchowski-type equation involving mass, energy, and momentum. \medskip \\ We consider the following dynamics of the underlying Kac process, with collision kernel $B$ on $\mathbb{S}^{d-1}:$
 \begin{itemize}
     \item Consider $N$ particles with velocities $V_1, ..., V_N$ taking values in $\mathbb{R}^d.$ Each particle is considered to be of mass $\frac{1}{N}.$
-    \item Each pair of particles, with velocities $V_i, V_j$, collides at rate $\frac{2}{N}B(V_i-V_j, \mathbb{S}^{d-1})$. \item A direction of separation $\sigma$ is chosen according to the collision kernel $B(V_i-V_j,d\sigma)$. The velocities change to $V'_i, V'_j$, given by conservation of energy and momentum as: \begin{equation*} V'_i=\frac{V_i+V_j}{2}+\frac{1}{2}|V_i-V_j|\sigma;\end{equation*}  \begin{equation*} V'_j=\frac{V_i+V_j}{2}-\frac{1}{2}|V_i-V_j|\sigma.\end{equation*}
+    \item Each pair of particles, with velocities $V_i, V_j$, collides at rate $\frac{2}{N}B(V_i-V_j, \mathbb{S}^{d-1})$. \item A direction of separation $\sigma$ is chosen according to the collision kernel $B(V_i-V_j,d\sigma)$. The velocities change to $V'_i, V'_j$, given by conservation of energy and momentum as: \begin{equation} V'_i=\frac{V_i+V_j}{2}+\frac{1}{2}|V_i-V_j|\sigma;\end{equation}  \begin{equation} V'_j=\frac{V_i+V_j}{2}-\frac{1}{2}|V_i-V_j|\sigma.\end{equation}
 \end{itemize} We assume, throughout, that the kernel $B$ is of the form\begin{equation}
     \label{eq: form of B} B(v, \mathbb{S}^{d-1})=\kappa+\gamma|v|^2.
 \end{equation}We define the associated cluster process as follows. Write $\mathcal{P}_N$ for the set of partitions of $\{1, 2,...,N\}$, and consider the following dynamic partition $\Pi_t:$ \begin{itemize}
     \item Initially, each particle $V_i$ is in a singleton cluster: $\Pi_0=\{\{1\},..,\{N\}\}$.
-    \item When two particles $i,j$, belonging respectively to $C, C'$, collide, we merge the two clusters: \begin{equation*}
+    \item When two particles $i,j$, belonging respectively to $C, C'$, collide, we merge the two clusters: \begin{equation}
         \Pi_t \mapsto \Pi_t \cup \{C\cup C'\}\setminus \{C,C'\}.
-    \end{equation*}
+    \end{equation}
 \end{itemize} For an element $C$ of a partition $\Pi\in\mathcal{P}_N$, we write $n_C=\#C$, $\mathcal{e}_C=\frac{1}{2}\sum_{i\in C} |V_i|^2$, $p_C=\sum_{i\in C}V_i$ for the number, unnormalised energy, and unnormalised momentum of particles belonging to the cluster $C$. Using the form (\ref{eq: form of B}), we compute the rate of merge of two clusters $X, Y$: \begin{multline*}
     \sum_{i\in X, j\in Y} \frac{2}{N}B(V_i-V_j, \mathbb{S}^{d-1})=\sum_{i\in X, j\in Y} \frac{2}{N}(\kappa+\gamma|V_i-V_j|^2) \\ = \frac{2}{N}(\kappa n_Xn_{Y}+\gamma\sum_{i\in X, j\in Y} |V_i|^2-2V_i\cdot V_j+|V_j|^2 \\= \frac{2}{N}(\kappa n_Xn_{Y} +2\gamma(e_{X}n_{Y}-p_X\cdot p_{Y}+e_{X}n_{Y}).
 \end{multline*} Moreover, we observe that each of the quantatities $n_X, p_X, e_X$ are unchanged when $X$ undergoes an internal collision. Therefore, the dynamics of the cluster process therefore only depend on the quantities $n_X, e_X, p_X.$
 
 To appeal to results from (ref), we consider the state space $$E=\{(n,e,p)\in\mathbb{N}\times \mathbb{R}_+\times \mathbb{R}^d: |p|\leq(2ne)^{1/2}\}.$$We consider the coagulation equation on $E$ with kernel $K$ given by (\ref{eq: kernel}). It is straightforward to verify the bound 
-\begin{equation*} K(X,Y)\leq C(\alpha\pi_n(X)+\beta\pi_e(X))(\alpha\pi_n(Y)+\beta\pi_e(Y)) \end{equation*} for any $\alpha, \beta>0$, and for some constant $C=C(\alpha, \beta, \kappa,\gamma)$. We can therefore apply (N, Theorem 2.1), with $m=\alpha \pi_n+\beta \pi_e$, $\phi(x)=C^{1/2}x$, to conclude that there exists a unique maximal strong solution $(\mu_t)_{t<T}$, for suitable initial data $\mu_0$. Moreover, from (N, Prop 2.7) this solution also has the property that, for $t<T$, \begin{equation*}
-\langle (\alpha \pi_n+\beta \pi_e)^2, \pi_t\rangle = \langle (\alpha \pi_n+\beta \pi_e)^2, \pi_0\rangle+\int_0^t \int_E (\alpha \pi_n(X)+\beta \pi_e(X))(\alpha \pi_n(Y)+\beta \pi_e(Y))K(X,Y)\mu_s(dX)\mu_s(dY).\end{equation*}Moreover, this must hold for any $\alpha, \beta>0$, as these were arbitrary in our choice of the mass function $m$, and this therefore holds as a polynomial identity in $\alpha, \beta$. Equating coefficients, we obtain the following relations: \begin{lemma} \label{lemma: integral equation} Let $(\mu_t)_{t<T}$ be the strong solution. Then, for $t<T$, we have \begin{equation*}
+\begin{equation} K(X,Y)\leq C(\alpha\pi_n(X)+\beta\pi_e(X))(\alpha\pi_n(Y)+\beta\pi_e(Y)) \end{equation} for any $\alpha, \beta>0$, and for some constant $C=C(\alpha, \beta, \kappa,\gamma)$. We can therefore apply (N, Theorem 2.1), with $m=\alpha \pi_n+\beta \pi_e$, $\phi(x)=C^{1/2}x$, to conclude that there exists a unique maximal strong solution $(\mu_t)_{t<T}$, for suitable initial data $\mu_0$. Moreover, from (N, Prop 2.7) this solution also has the property that, for $t<T$, \begin{equation}
+\langle (\alpha \pi_n+\beta \pi_e)^2, \pi_t\rangle = \langle (\alpha \pi_n+\beta \pi_e)^2, \pi_0\rangle+\int_0^t \int_E (\alpha \pi_n(X)+\beta \pi_e(X))(\alpha \pi_n(Y)+\beta \pi_e(Y))K(X,Y)\mu_s(dX)\mu_s(dY).\end{equation}Moreover, this must hold for any $\alpha, \beta>0$, as these were arbitrary in our choice of the mass function $m$, and this therefore holds as a polynomial identity in $\alpha, \beta$. Equating coefficients, we obtain the following relations: \begin{lemma} \label{lemma: integral equation} Let $(\mu_t)_{t<T}$ be the strong solution. Then, for $t<T$, we have \begin{equation}
     \langle \pi_n^2, \mu_t\rangle =
     \langle \pi_n^2, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n^2, \mu_s\rangle^2+8\gamma\langle \pi_n\pi_e, \mu_t\rangle\langle\pi_n^2, \mu_s\rangle \right] ds;
-\end{equation*} 
+\end{equation} 
 
-\begin{equation*}
+\begin{equation}
     \langle \pi_n \pi_e, \mu_t\rangle =
     \langle \pi_n\pi_e, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n^2, \mu_s\rangle\langle \pi_n\pi_e, \mu_s\rangle+4\gamma\langle \pi_n\pi_e, \mu_t\rangle^2+4\gamma\langle\pi_n^2, \mu_s\rangle\langle \pi_e^2, \mu_s \rangle \right] ds;
-\end{equation*}
+\end{equation}
 
-\begin{equation*}
+\begin{equation}
     \langle \pi_e^2, \mu_t\rangle =
     \langle \pi_e^2, \mu_0\rangle + \int_0^t \left[2\kappa\langle \pi_n\pi_e, \mu_s\rangle+8\gamma\langle \pi_n\pi_e, \mu_t\rangle\langle\pi_e^2, \mu^t\rangle \right] ds.
-\end{equation*}\end{lemma}
-\dhcomment{If more appropriate, I can prove these directly by following the proof of N, Prop 2.7} Letting $\mu_0$ be the pushforward of the standard Gaussian under the map $v\mapsto (1,v,\frac{1}{2}|v|^2)$, we also need to argue that $\langle \pi_p, \mu_t\rangle=0$ for all times $t$. We argue by the following uniqueness argument: let $F: E\rightarrow E$ be the parity map $(n,e,p)\mapsto(n,e,-p)$, and for $0\leq t<T$, let $\nu_t=F_\star\mu_t$ be the pushforward of $\mu_t$ under parity reversal. By symmetry of the Gaussian, we have $\mu_0=\nu_0$, and $\langle m^2, \mu_t\rangle=\langle m^2, \nu_t\rangle.$ It is straightforward to check that $\nu_t$ solves the same coagulation equation with the same initial data, and is a strong solution defined up to the maximal time $T$. By uniqueness of the maximal strong solution $(\mu_t)_{t<T}$, this implies that $\mu_t=\nu_t.$ Now, \begin{equation*}
+\end{equation}\end{lemma}
+\dhcomment{If more appropriate, I can prove these directly by following the proof of N, Prop 2.7} Letting $\mu_0$ be the pushforward of the standard Gaussian under the map $v\mapsto (1,v,\frac{1}{2}|v|^2)$, we also need to argue that $\langle \pi_p, \mu_t\rangle=0$ for all times $t$. We argue by the following uniqueness argument: let $F: E\rightarrow E$ be the parity map $(n,e,p)\mapsto(n,e,-p)$, and for $0\leq t<T$, let $\nu_t=F_\star\mu_t$ be the pushforward of $\mu_t$ under parity reversal. By symmetry of the Gaussian, we have $\mu_0=\nu_0$, and $\langle m^2, \mu_t\rangle=\langle m^2, \nu_t\rangle.$ It is straightforward to check that $\nu_t$ solves the same coagulation equation with the same initial data, and is a strong solution defined up to the maximal time $T$. By uniqueness of the maximal strong solution $(\mu_t)_{t<T}$, this implies that $\mu_t=\nu_t.$ Now, \begin{equation}
     -\langle \pi_p, \mu_t\rangle = \langle \pi_p\circ F, \mu_t\rangle = \langle \pi_p, \nu_t \rangle = \langle \pi_p, \mu_t\rangle
-\end{equation*} which implies the desired claim.
+\end{equation} which implies the desired claim.

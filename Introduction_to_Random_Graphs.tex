@@ -1,19 +1,19 @@
 
 \section{Introduction to Inhomogenous Random Graphs}
 In this section, we will review the theory of Inhomogenous Random Graphs developed in \cite{BJR07}. We will introduce the relevant definitions and state, without proof, the main results which we use in our work.
-\begin{definition} \label{def: Generalised vertex space} A \emph{Generalised Vertex Space} is a triple $\mathcal{V}=(\mathcal{S}, m, (\mathbf{v}_N)_{N\geq 1})$, consisting of \begin{itemize}
+\begin{definition} \label{def: Generalised vertex space} A \emph{generalised vertex space} is a triple $\mathcal{V}=(\mathcal{S}, m, (\mathbf{v}_N)_{N\geq 1})$, consisting of \begin{itemize}
     \item A separable metric space $\mathcal{S}$, equipped with its Borel $\sigma$-algebra;
     \item A measure $m$ on $\mathcal{S}$, with $m(\mathcal{S}) \in (0, \infty)$; 
-    \item A family $\mathbf{v_n}=(v^{(n)}_1,...,v^{(N)}_N) \in \mathcal{S}^{l_N}$, with $l_N\rightarrow \infty$,  such that the empirical measures \begin{equation}
-        \nu_N=\frac{1}{N}\sum_{k=1}^{l_N} \delta_{v^{(N)}_k} \end{equation} converge to $m$ in the weak topology $\mathcal{F}(C_b(\mathcal{S})).$
+    \item A family of random variables $\mathbf{v_N}=(v^{(N)}_1,...,v^{(N)}_N)$ taking values in $\mathcal{S}$, and of random length $l_N$,  such that the empirical measures \begin{equation}
+        m_N=\frac{1}{N}\sum_{k=1}^{l_N} \delta_{v^{(N)}_k} \end{equation} converge to $m$ in the weak topology $\mathcal{F}(C_b(\mathcal{S}))$, in probability.
 
-\end{itemize} In the special case where $m(\mathcal{S})=1$ and $l_n=n$, we say that $(\mathcal{S}, m, (\mathbf{v}_n)_{n\geq 1})$ is a \emph{Vertex Space}. \end{definition}  
+\end{itemize} In the special case where $m(\mathcal{S})=1$ and $l_n=n$, we say that $(\mathcal{S}, m, (\mathbf{v}_n)_{n\geq 1})$ is a \emph{vertex apace}. \end{definition}  
 \begin{definition}
-    A \emph{Kernel} is a symmetric, measurable map $k: \mathcal{S}\times \mathcal{S} \rightarrow [0, \infty).$ We say that $k$ is \emph{irreducible} if, whenever $A\subset \mathcal{S}$ is such that $k=0$ almost everywhere on $A\times (\mathcal{S}\setminus A)$, then $m(A)=0$ or $m(\mathcal{S}\setminus A)=0$. 
-    \end{definition} \begin{definition}[Inhomogenous Random Graphs]\label{definition of GN} Given a kernel $k$ and a generalised vertex space $\mathcal{V}$, we let
-    $G^N$ be a random graph on $\{1, 2,..,N\}$, with an edge $ij$ included with probability \begin{equation}
+    A \emph{kernel} is a symmetric, measurable map $k: \mathcal{S}\times \mathcal{S} \rightarrow [0, \infty).$ We say that $k$ is \emph{irreducible} if, whenever $A\subset \mathcal{S}$ is such that $k=0$ almost everywhere on $A\times (\mathcal{S}\setminus A)$, then $m(A)=0$ or $m(\mathcal{S}\setminus A)=0$. 
+    \end{definition} \begin{definition}[Inhomogenous random graphs]\label{definition of GN} Given a kernel $k$ and a generalised vertex space $\mathcal{V}$, we let
+    $G^N$ be a random graph on $\{1, 2,..,N\}$. Conditional on the values of $\mathbf{v}_N$, the edge $e=(ij)$ is included with probability \begin{equation}
         p_{ij}=1-\exp\left(-\frac{k(v^{(N)}_i,v^{(N)}_j)}{N} \right)
-    \end{equation} and such that the presence of different edges is independent. We write $G^N\sim\mathcal{G}^\mathcal{V}(N,k)$, and we call $(v^{(N)}_i)_{i=1}^N$ the \emph{vertex data} of $G^N_t.$
+    \end{equation} and such that the presence of different edges is (conditionally) independent. We write $G^N\sim\mathcal{G}^\mathcal{V}(N,k)$. We also consider the \emph{vertex data}  $(v^{(N)}_i)_{i=1}^N$ to be part of the data of $G^N_t$, so that an equality of random graphs $G=G'$ includes the equality of the vertex data.
 \end{definition} To treat a general class of kernels $k$, additional regularity is required, to prevent pathologies. This is the content of the following defintion: \begin{definition}[Graphical Kernel]
     We say that a kernel $k$ on a vertex space $\mathcal{V}=(\mathcal{S}, m, (\mathbf{v}_N)_{N\geq 1})$ is \emph{graphical} if the following hold. 
     \begin{enumerate}[label=\roman{*}).]
@@ -22,14 +22,14 @@ In this section, we will review the theory of Inhomogenous Random Graphs develop
         \item If $G^N \sim \mathcal{G}^\mathcal{V}(N,k)$, then
         \begin{equation}
             \frac{1}{N}\mathbb{E}\left[e\left(G^N\right)\right]\rightarrow \frac{1}{2}\int_{\mathcal{S}\times \mathcal{S}} k(v,w)m(dv)m(dw)
-        \end{equation} where $e()$ denotes the number of edges of the graph.
+        \end{equation} where $e(\cdot)$ denotes the number of edges of the graph.
     \end{enumerate}
 \end{definition}  \begin{definition}
  Given a graph $G$, we write $\mathcal{C}_j(G): j=1, 2...$ for the connected components of $G$, in decreasing order of their sizes $\#\mathcal{C}_j(G)=C_j(G)$. If there are fewer than $j$ connected components, then $\mathcal{C}_j(G)=\emptyset$ and $C_j(G)=0$.
 \end{definition}The phase transition is given in terms of the convolution operator
 \begin{equation}\label{eq: T}
        (T f)(v)=\int_{\mathbb{R}^d} k(v,w)f(w)m(dw). 
-   \end{equation}  It is straightforward to see that $T$ maps $L^2(m)$ into itself; we write $\|T\|$ for the operator norm of $T$ in this sense.  The analysis of the random graphs uses a branching process, similar to that used in the standard analysis of Erd\"os-Renyi graphs. Many quantities of the graph can be expressed in terms of the `survival probability' $\rho(k, v)$ when the data $v$ of the first vertex is given. To avoid the unnecessary complication of making this into a precise definition, we use the following characterisation, which is equivalent by \cite[Theorem 6.2]{BJR07}.
+   \end{equation}  It is straightforward to see that, if $k$ is graphical, then $T$ maps $L^2(m)$ into itself; we write $\|T\|$ for the operator norm of $T$ in this sense.  The analysis of the random graphs uses a branching process, similar to that used in the standard analysis of Erd\"os-Renyi graphs. Many quantities of the graph can be expressed in terms of the `survival probability' $\rho(k, v)$ when the data $v$ of the first vertex is given. To avoid the unnecessary complication of making this into a precise definition, we use the following characterisation, which is equivalent by \cite[Theorem 6.2]{BJR07}.
    \begin{lemma}\label{lemma: survival function}
        Let $k$ be an irreducible kernel on a generalised vertex space $\mathcal{V}$, such that $k \in L^1(\mathcal{S}\times \mathcal{S}, m \times m)$, and such that, for all $v,$ \begin{equation} \label{eq: BJR 51}
            \int_S k(v,w)m(dw)<\infty.
@@ -42,10 +42,10 @@ In this section, we will review the theory of Inhomogenous Random Graphs develop
       \begin{enumerate}[label=\roman{*}).]
           \item If $\|T\|\leq 1$, then $\rho(k, v)=0$ almost everywhere;
           \item If $\|T\|> 1$, then $\rho(k, v)>0$ almost everywhere.
-      \end{enumerate} This can be stated dynamically as follows. Consider the survival function `at time $t$', given by $\rho(tk,v)$. Then 
+      \end{enumerate} This can be stated dynamically as follows. Consider the survival function `at time $t$', given by $\rho(tk,v)$, which we will write throughout as $\rho_t(v)$. Then 
       \begin{itemize}
-          \item If $t\leq \|T\|^{-1}$, then $\rho(tk, v)=0$ almost everywhere;
-          \item If $t>\|T\|^{-1}$, then $\rho(tk, v)>0$ almost everywhere.
+          \item If $t\leq \|T\|^{-1}$, then $\rho_t=0$ everywhere;
+          \item If $t>\|T\|^{-1}$, then $\rho_t>0$ $m$- almost everywhere.
       \end{itemize}
       
    \end{lemma} We can now state the main results on the phase transition, given by \cite[Theorem 3.1 and Corollary 3.2]{BJR07}.
@@ -55,32 +55,32 @@ In this section, we will review the theory of Inhomogenous Random Graphs develop
    Therefore, if $(G^N_t)_{t\geq 0}$ is a dynamic family of random graphs $
        G^N_t \sim \mathcal{G}^\mathcal{V}(N, tk)$, then we have the following dichotomy:  \begin{enumerate}[label=\roman{*}).]
        \item If $t\leq \|T\|^{-1}$, then there is no giant component: \begin{equation}
-           \frac{\#C_1(G^N_t)}{N} \rightarrow 0
+           \frac{C_1(G^N_t)}{N} \rightarrow 0
        \end{equation} in probability.
        \item If $t>\|T\|^{-1}$, then there is a giant component: there exists $c=c(t)>0$ such that
        \begin{equation}
-           \mathbb{P}(\#C_1(G^N_t)>cN)\rightarrow 1.
+           \mathbb{P}(C_1(G^N_t)>cN)\rightarrow 1.
        \end{equation}
    \end{enumerate}\end{theorem}
    \begin{remark} Based on this dichotomy, we say that \begin{enumerate}[label=\roman{*}).]
        \item $G^N$ is \emph{subcritical} if $\|T\|<1;$
        \item $G^N$ is \emph{critical} if $\|T\|=1;$
        \item $G^N$ is \emph{supercritical} if $\|T\|>1.$
-   \end{enumerate} \end{remark} We also have the following result, which implies the uniqueness of the giant component \cite[Theorem 3.6]{BJR07}.
+   \end{enumerate} \end{remark} We also have the following result, which implies the uniqueness of the giant component \cite[Theorem 3.6]{BJR07}. This result considers clusters of a scale $\xi_N\ll N$, excluding the largest; we think of these as \emph{anomalous} clusters.
    \begin{theorem}\label{thrm: RG2} Let $G^N\sim \mathcal{G}^\mathcal{V}(N, k)$, for a (generalised) vertex space $\mathcal{V}$ and an irreducible graphical kernel $k$. Let $\xi_N$ be a sequence with  \begin{equation}
        \xi_N\rightarrow \infty; \hspace{1cm} \frac{\xi_N}{N}\rightarrow 0.
    \end{equation} Then \begin{equation}
-       \frac{1}{N}\sum_{j\geq 2: \#C_j(G^N)\geq \xi_N}\#C_j(G^N) \rightarrow 0
+       \frac{1}{N}\sum_{j\geq 2: C_j(G^N)\geq \xi_N}C_j(G^N) \rightarrow 0
    \end{equation} in probability. \end{theorem}   We will also make use of the following monotonicity and continuity properties: \cite[Theorem 6.4]{BJR07}
    \begin{theorem}\label{thrm: continuity of rho} Let $k$ be a kernel on a vertex space $\mathcal{V}$, and let $\rho_t$ be the survival function defined above. Then the map $t\mapsto \rho(tk, .)$ is monotonically increasing, in the sense that for all $0\leq s \leq t$, \begin{equation}
-          \rho(sk, v) \leq \rho(tk, v) \hspace{1cm} \text{for almost every } v.
-      \end{equation}In this case, we use the abuse of notation $\rho_t(v)=\rho(t,v)$ for $\rho(tk,v).$ We also have the following continuity property. Let $t_n\rightarrow t$ be a monotone sequence, either increasing or decreasing. Then \begin{equation}
-       \rho_{t_n}(v)\rightarrow \rho_t(v) \hspace{1cm} \text{for almost all }v;
+          \rho_s \leq \rho_t \hspace{1cm}m \text{- almost everywhere}.
+      \end{equation} We also have the following continuity property. Let $t_n\rightarrow t$ be a monotone sequence, either increasing or decreasing. Then \begin{equation}
+       \rho_{t_n}(v)\rightarrow \rho_t(v) \hspace{1cm} \text{for $m$- almost all }v, \text{ and}
    \end{equation} \begin{equation}
        \int_{\mathcal{S}}\rho_{t_n}(v)m(dv)\rightarrow \int_{\mathcal{S}}\rho_t(v)m(dv).
-   \end{equation} \end{theorem} The final result which we will need is a `duality' result, connecting the supercritical and subcritical behaviours.
-   \begin{theorem}\label{thrm: coupling supercritical and subcritical} Let $k$ be an irreducible graphical kernel on a generalised vertex space $\mathcal{V}$, with $\|T\|>1$. Let $G^N \sim \mathcal{G}^\mathcal{V}(N, k)$, and form $\widetilde{G}^N$ by deleting all vertexes in the giant component $C_1(G^N).$ Then there is a generalised vertex space $\widehat{\mathcal{V}}=(\mathcal{S}, \widehat{m}, (\mathbf{w}_N)_{N\geq 1})$ with \begin{equation}
+   \end{equation} \end{theorem} The final result which we will need is a `duality' result, connecting the supercritical and subcritical behaviours. This is given by \cite[Theorem 12.1]{BJR07}.
+   \begin{theorem}\label{thrm: coupling supercritical and subcritical} Let $k$ be an irreducible graphical kernel on a generalised vertex space $\mathcal{V}$, with $\|T\|>1$. Let $G^N \sim \mathcal{G}^\mathcal{V}(N, k)$, and form $\widetilde{G}^N$ by deleting all vertexes in the largest component $\mathcal{C}_1(G^N).$ Then there is a generalised vertex space $\widehat{\mathcal{V}}=(\mathcal{S}, \widehat{m}, (\mathbf{w}_N)_{N\geq 1})$ with \begin{equation}
        \widehat{m}(dv)=(1-\rho(k;v))m(dv)
-   \end{equation} and such that $\mathbf{w}_N$ is an enumeration of those $v^{(i)}_N$ not belonging to the giant component $C_1(G^N)$, and a random graph $\widehat{G}^N \sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,k)$ such that \begin{equation}
+   \end{equation} and such that $\mathbf{w}_N$ is an enumeration of those $v^{(i)}_N$ not belonging to the component $\mathcal{C}_1(G^N)$, and a random graph $\widehat{G}^N \sim \mathcal{G}^{\widehat{\mathcal{V}}}(N,k)$ such that \begin{equation}
        \mathbb{P}(\widetilde{G}^N=\widehat{G}^N)\rightarrow 1.
-   \end{equation}  Furthermore, if $k\in L^2(\mathcal{S}\times \mathcal{S}, m\times m)$, then $\widehat{G}^N$ is subcritical.\end{theorem} 
+   \end{equation}  Furthermore, if $k\in L^2(\mathcal{S}\times \mathcal{S}, m\times m)$, then $\widehat{G}^N$ is subcritical.\end{theorem} This generalises the standard `duality result' of Bollob\'as \cite{BB84} for Erd\"os-Renyi graphs. 

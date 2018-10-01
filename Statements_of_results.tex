@@ -3,7 +3,7 @@ From \eqref{e:cluster-merge-rate} one sees that Kac interaction cluster dynamics
 Therefore the interaction cluster size dynamics can be replicated by considering coagulation of particles in a state space
 \footnote{The inequality arises because clusters satisfy $\sum_{i=1}^n v_i = p$ and $\frac12 \sum_{i=1}^n \abs{v_i}^2 = e$ for some $v_i \in \mathbb{R}^d$.}
 \begin{equation}
-    S=\{x=(n, p, e) \in \mathbb{N}\times \mathbb{R}^d\times (0,\infty): |p|\leq \sqrt{2ne} \}.
+    S=\{x=(n, p, e) \in \mathbb{N}\times \mathbb{R}^d\times [0,\infty): |p|\leq \sqrt{2ne} \}.
 \end{equation}
 
 We write $\pi_n, \pi_p, \pi_e$ for projection onto the first (mass), second (momentum) and third (kinetic energy) factors respectively and identify the masses of these particles with the sizes of the Kac interaction clusters. We equip $S$ with the parity map \begin{equation*}
@@ -13,47 +13,45 @@ We write $\pi_n, \pi_p, \pi_e$ for projection onto the first (mass), second (mom
 
 The rate at which pairs of clusters $\left\{ x,y \right\}$ merge to form a new cluster $z$ is given using an interaction kernel $K$:
 \begin{equation}\label{eq: smoluchowski kernel}
-    K(x,y,dz)=\overline{K}(x,y)\delta_{x+y}(dx);
+    K(x,y,dz)=\overline{K}(x,y)\delta_{x+y}(dz);
     \end{equation} \begin{equation} \overline{K}(x,y)=\kappa \pi_n(x)\pi_n(y)+2\gamma\left(\pi_n(x)\pi_e(y)-\pi_p(x)\cdot \pi_p(y)+\pi_e(x)\pi_n(y)\right),
 \end{equation}
-where delta stands for the Dirac point measure and $\kappa, \gamma\ge 0$. 
+where delta stands for the Dirac point measure and $\kappa, \gamma\ge 0$.
 
-Jump processes
-
- We write $L$ for the drift operator, given by specifying for all bounded measurable $f\colon S \rightarrow \RR$, \begin{equation} \label{eq: drift wo gel}
-    \langle f,L(\mu)\rangle=\int_{S\times S}\{f(x+y)-f(x)-f(y)\}\overline{K}(x,y)\mu(dx)\mu(dy).
-\end{equation}
-This captures the effects of coagulations between finite clusters. However, as discussed above, we wish to include the possibility of a macroscopic component, which we term \emph{gel}. To include this effect, we define $L_\text{gel}(\mu)$ by \begin{equation}
-    \langle f, L_\text{gel}(\mu)\rangle = \langle f, L(\mu)\rangle -\int_S f(x) 2\gamma\left(\pi_n(x)E_t-\pi_p(x)\cdot P_t + \pi_e(x)M_t\right) \mu(dx)
-\end{equation} where \begin{equation}
-    M_t:=\langle \pi_n, \mu_0-\mu_t\rangle;
-\end{equation}
+ We write $L$ for the drift operator, given by specifying for all bounded measurable $f\colon S \rightarrow \RR$, \dhcomment{I've standardised so that we're consistent with \cite{N00}} \begin{equation} \label{eq: drift wo gel}
+    \langle f,L(\mu)\rangle=\frac{1}{2}\int_{S\times S}\{f(x+y)-f(x)-f(y)\}\overline{K}(x,y)\mu(dx)\mu(dy).
+\end{equation} The associated evolution equation for $(\mu_t)_{t<T}$ is that, for all $t<T$,
 \begin{equation}
-    P_t:=\langle \pi_p, \mu_0-\mu_t\rangle;
-\end{equation}\begin{equation}
-    E_t:=\langle \pi_e, \mu_0-\mu_t\rangle
-\end{equation} are the mass, momentum and energy of the gel
-A coagulant is then a solution $(\mu_t)_{t<T}$ to \begin{equation} \tag{E+G} \label{eq: E+G}
-    \mu_t= \mu_0 + \int_0^t L_\text{gel}(\mu_s)ds
-\end{equation}.
+    \tag{E-G}\label{eq: E} \mu_t =  \mu_0 +\int_0^t L(\mu_s) ds.
+\end{equation} Following \cite{N00}, we say that a family $(\mu_t)_{t<T}$ of positive measures is a solution to (\ref{eq: E}) if: \begin{enumerate}[label=\roman{*}).] \item For all Borel sets $A\subset S$, the map $t\mapsto \mu_t(A)$ is measurable; \item For all bounded, measurable functions $f:S\rightarrow \RR_+$ of compact support, $\langle f, \mu_0\rangle<\infty$; \item For all compact subsets $S'\subset S$ and all $t<T$, \begin{equation} \int_0^t ds \int_{S'\times S}\overline{K}(x,y)\mu_s(dx)\mu_s(dy)<\infty; \end{equation}  \item For all bounded, compactly supported functions $f:S\rightarrow \RR$, and $t<T$, \begin{equation}
+    \langle f, \mu_t \rangle =  \langle f,\mu_0\rangle +\int_0^t \langle f, L(\mu_s)\rangle ds
+\end{equation} \end{enumerate} 
+This captures the effects of coagulations between finite clusters. However, as discussed above, we wish to include the possibility of a macroscopic component, which we term \emph{gel}. To include this effect, we define the gel data by  \begin{equation}
+   g_t= (M_t, P_t, E_t)=\left(\langle \pi_n, \mu_0-\mu_t\rangle,\langle \pi_p, \mu_0-\mu_t\rangle,\langle \pi_e, \mu_0-\mu_t\rangle\right).
+\end{equation} It is straightforward to check that $g_t$ takes values in a continum analogue $S_\mathrm{gel}$ of the state space $S$, given by \begin{equation}
+    S_\mathrm{gel}=\{(m,p,e)\in [0,\infty)\times \RR^{d}\times [0,\infty): |p|\le \sqrt{2me}\}.
+\end{equation} We write $\pi_n, \pi_p, \pi_e$ for the projections onto the factors of $S_\mathrm{gel}$, as for $S$. For $x \in S$ and $g\in S_\mathrm{gel}$, we use the notation $\overline{K}(x,g)$ for the absorption rate into the gel, arising from the kernel (\textcolor{blue}{\textbf{....}}) \begin{equation}
+    \overline{K}(x,g)= \kappa \pi_n(x)\pi_n(g)+ 2\gamma\left(\pi_n(x)\pi_e(g)-\pi_p(x)\cdot \pi_p(g) + \pi_e(x)\pi_n(g)\right).
+\end{equation} Including the effect of gel at infinity, the drift is given by $L_\mathrm{gel}(\mu_t)$, given by \begin{equation} \langle f,L_\mathrm{gel}(\mu_t)\rangle =\langle f, L(\mu_t)\rangle -\int_{S}f(x)\overline{K}(x,g_t)\mu_t(dx).\end{equation} 
+We note that this tacitly depends on $\mu_t$ and $\mu_0$ through the dependence on the gel. A \emph{coagulant} is then a solution $(\mu_t)_{t<T}$ to \begin{equation} \tag{E+G} \label{eq: E+G}
+    \mu_t= \mu_0 + \int_0^t L_\mathrm{gel}(\mu_s)ds.
+\end{equation} This may be interpreted concretely in a similar sense to  (\ref{eq: E}) above.
 
 
-The equation without gel for $(\mu_t)_{t<T}$ is that, for all $t<T$
-\begin{equation}
-    \tag{E-G}\label{eq: E} \langle f, \mu_t\rangle =\langle f, \mu_0 \rangle +\int_0^t \langle f, L(\mu_s)\rangle ds. 
-\end{equation}
 
-stochastic coagulants, which are Marcus--Lushnikov processes on $S$, 
+
+%stochastic coagulants, which are Marcus--Lushnikov processes on $S$, 
 
 
 We define first of all the limiting, deterministic evolution for the cluster process on $S$, this is a `$K$-coagulant' in the language of \cite{N00} and a generalisation of the Smoluchowski coagulation equations \cite{vS16}.
 
 
 \begin{definition}[Conservative Solutions] As argued in \cite{N00}, the functions $t\mapsto \langle \pi_n, \mu_t\rangle$ and $t\mapsto \langle \pi_e, \mu_t\rangle$ are non-increasing, whenever $\mu_t$ is a solution to either (\ref{eq: E}, \ref{eq: E+G}). We say that a solution is \emph{conservative} if it preserves both $\pi_n$ and $\pi_e$, or, equivalently, preserves $\pi_n+\pi_e$. \end{definition}
- Thus, any solution to (\ref{eq: E+G}) is conservative up to some time $t_\text{gel}\leq \infty$, and non-conservative thereafter.
+ Thus, any solution to (\ref{eq: E+G}) is conservative up to some time $t_\mathrm{gel}\leq \infty$, and non-conservative thereafter.
  
-\begin{definition}[Metrisation of Convergence] Let $\mathcal{M}=\mathcal{M}_{\le 1}(S)$ be the space of measures on $S$ with total mass at most 1. We equip $\mathcal{M}$ with the \emph{vague} topology $\mathcal{F}(\mathcal{M}, C_c(S))$ induced by continuous, compactly supported functions on $S$. Let $\mathcal{M}^\star$ be the space $\mathcal{M}\times [0,\infty)\times \mathbb{R}^d\times [0, \infty)$, and define the complete, separable metric \begin{equation} d^\star\left((\mu, m, p, e), (\mu', m',p',e')\right):=d_0(\mu, \mu')+|m-m'|+\|p-p'\|+|e-e'|. \end{equation} \end{definition}
-\subsection{Statement of Results}
+\begin{definition}[Metrisation of Convergence] Let $\mathcal{M}=\mathcal{M}_{\le 1}(S)$ be the space of measures on $S$ with total mass at most 1. We equip $\mathcal{M}$ with the \emph{vague} topology $\mathcal{F}(\mathcal{M}, C_c(S))$ induced by continuous, compactly supported functions on $S$. Let $\mathcal{M}^\star$ be the space $\mathcal{M}\times [0,\infty)\times \mathbb{R}^d\times [0, \infty)$, and define the complete, separable metric \begin{equation} d^\star\left((\mu, m, p, e), (\mu', m',p',e')\right):=d_0(\mu, \mu')+|m-m'|+|p-p'|+|e-e'|. \end{equation} \end{definition}
+
+\subsection{Statement of Results}\label{sec: results}
 
 We make the following basic symmetry assumption on the initial data.
 \\\textbf{A1.} The initial data $\mu_0$ (a measure on $S$) is equal to its pushforward under $R$, that is, $\mu_0 = \mu_0 \circ R^{-1}$.
@@ -64,26 +62,37 @@ We make the following basic symmetry assumption on the initial data.
 \\ \textbf{A3.} For $0\leq k\leq 6$, we have
 \begin{equation}
     \sigma_k(m)=\langle |v|^k, m\rangle <\infty.
-\end{equation}  The main case of interest will be the case where $m$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
+\end{equation}
+\\ \textbf{A4.} Some kind of continuity assumption, \rpcomment{to deduce that $\overline{\mu}_t\left(\left\{x\colon \varphi(x) = \xi \right\}\right)=0$ a.s..}
+
+The main case of interest will be the case where $m$ is a $d$-dimensional Gaussian distribution $N_d(0, \sigma^2I)$, which satisfies all of these requirements.
 
 We summarise our results on the analysis of the Smoluchowski equation (\ref{eq: E+G}) as follows.
-\begin{theorem}
-Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}). Then the equation (\ref{eq: E+G}) has a unique solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$, with the following properties.
-\paragraph{1. Phase Transition.} There exists a gelation time $t_\text{gel}\in(0,\infty)$ with the following dichotomy: \begin{enumerate}[label=\roman{*}).]
-    \item If $t\leq t_\text{gel}$, then $M_t=E_t=0$.
-    \item If $t>t_\text{gel}$, then $M_t>0$ and $E_t>0.$
-\end{enumerate} The gelation time is given explicitly in terms of the moments of $m$ as \begin{equation}
-       t_\text{gel}= \frac{1}{\kappa +2\gamma\sigma_2(m) + \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}}.
+\begin{theorem}\label{thrm: Smoluchowski equation}
+Let $\mu_0$ be an initial measure on $S$ satisfying (\textbf{A1-3}). Then the equation (\ref{eq: E+G}) has a unique solution $(\mu_t)_{t\geq 0}$ starting at $\mu_0$, and this solution has the following properties.
+\paragraph{1. Phase Transition.} Let $t_\mathrm{gel}$ be the first time at which the solution $\mu_t$ fails to be conservative, that is:
+\begin{equation} t_\mathrm{gel}:=\inf\{t\ge 0: \langle \pi_n, \mu_t\rangle < \langle \pi_n, \mu_0\rangle \text{  or  } \langle \pi_e, \mu_t\rangle < \langle \pi_e, \mu_0\rangle\}.
+\end{equation}
+Then
+\begin{enumerate}[label=\roman{*}).]
+    \item $t_\mathrm{gel}\in(0,\infty)$;
+    \item For all $t>t_\mathrm{gel}$ $M_t>0$ and $E_t>0$;
+    \item For all $t\ge 0$, $P_t=0$ for all $t.$
+    \item The gelation time is given explicitly in terms of the moments of $m$ as \begin{equation}
+       t_\mathrm{gel}= \frac{2}{\kappa +2\gamma\sigma_2(m) + \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}}.
    \end{equation}
-Moreover, $P_t=0$ for all $t.$
-\paragraph{2. Behaviour of the Second Moment.} Consider the second moment \begin{equation} \mathcal{E}(t)=\langle \pi_n^2+ \pi_e^2, \mu_t\rangle. \end{equation} Then \begin{enumerate}[label=\roman{*}).]
-    \item $\mathcal{E}(t)$ is finite and continuous, and so locally bounded, on $[0, \infty)\setminus\{t_\text{gel}\}.$ 
-    \item At the gelation time, $\mathcal{E}(t_\text{gel})=\infty$, and $\mathcal{E}(t)\rightarrow \infty$ as $t\rightarrow t_\text{gel}.$ 
-    \item On $[0, t_\text{gel})$, $\mathcal{E}$ is monotonically increasing. 
 \end{enumerate}
-\paragraph{3. Dynamics beyond the Gelation Time.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\text{gel}$, we have 
+\paragraph{2. Behaviour of the Second Moment.} Consider the second moment \begin{equation} \mathcal{E}(t)=\langle \pi_n^2+ \pi_e^2, \mu_t\rangle. \end{equation} Then \begin{enumerate}[label=\roman{*}).]
+    \item $\mathcal{E}(t)$ is finite and continuous, and so locally bounded, on $[0, \infty)\setminus\{t_\mathrm{gel}\}.$ 
+
+    \item On $[0, t_\mathrm{gel})$, $\mathcal{E}$ is monotonically increasing.
+    
+    \item At the gelation time, $\mathcal{E}(t_\mathrm{gel})=\infty$, and $\mathcal{E}(t)\rightarrow \infty$ as $t\rightarrow t_\mathrm{gel}.$ 
+\end{enumerate}
+
+\paragraph{3. Dynamics beyond the Gelation Time.} The mass $M_t$ and energy $E_t$ of the gel are continuous functions of time. Moreover, for $t\geq t_\mathrm{gel}$, we have 
 \begin{equation}
-    M_t=\int_{t_\text{gel}}^t ds
+    M_t=\int_{t_\mathrm{gel}}^t ds
     \left(
       \kappa \left<\pi_n^2,\mu_s\right>M_s +
       2\gamma \left[
@@ -92,7 +101,7 @@ Moreover, $P_t=0$ for all $t.$
     \right);
 \end{equation}
 \begin{equation}
-    E_t=\int_{t_\text{gel}}^t ds
+    E_t=\int_{t_\mathrm{gel}}^t ds
     \left(
       \kappa \left<\pi_n \pi_e,\mu_s\right>M_s +
       2\gamma \left[
@@ -100,15 +109,18 @@ Moreover, $P_t=0$ for all $t.$
         \left<\pi_n \pi_e,\mu_s \right>E_s \right]
     \right).
 \end{equation}
-\paragraph{4. Size-Biasing Effect.} As $t\downarrow t_\text{gel}$, we have the convergence \begin{equation}
-    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}=\frac{1}{2}\frac{\sigma_2(m)+\lambda\sigma_4(m)}{1+\sigma_2(m)\lambda}
-\end{equation} where $\lambda$ is given by \begin{equation} \lambda=\frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m)}.\end{equation} In particular, unless $\gamma=0$ or $|v|$ is constant $m$-almost everywhere, we have a positive bias \begin{equation}
-    \lim_{t\downarrow t_\text{gel}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv).
+\paragraph{4. Representation of Gel Data.} Let $m$ be the underlying distribution of initial velocities, given by (\textbf{A3}.) For $t\ge 0$, there exist a unique maximal pair $(a_t, b_t) \ge 0$ such that, for all $v\in \mathbb{R}^d$, \begin{equation}\label{eq: NLFP 1} a_t+b_t|v|^2=t \int_{\mathbb{R}^d} (1-e^{-a_t-b_t|w|^2})(\kappa+\gamma|v-w|^2)m(dw). \end{equation} Moreover, the maps $t\mapsto a_t$ and $t\mapsto b_t$ are continuous. The mass $M_t$ and energy $E_t$ of the gel are given in terms of $a_t, b_t$ by \begin{equation}\label{eq: formula for M, E_0}
+    M_t = \int_{\mathbb{R}^d} (1-e^{-a_t-b_t|v|^2})m(dv); \hspace{1cm} E_t=\int_{\mathbb{R}^d} \frac{1}{2}|v|^2(1-e^{-a_t-b_t|v|^2})m(dv).
+\end{equation}
+\paragraph{5. Size-Biasing Effect.} As $t\downarrow t_\mathrm{gel}$, we have the convergence \begin{equation}
+    \lim_{t\downarrow t_\mathrm{gel}}\frac{E_t}{M_t}=\frac{1}{2}\frac{\sigma_2(m)+\lambda\sigma_4(m)}{1+\sigma_2(m)\lambda}
+\end{equation} where $\lambda$ is given by \begin{equation} \lambda=\frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m))}.\end{equation} In particular, unless $\gamma=0$ or $|v|$ is constant $m$-almost everywhere, we have a positive bias \begin{equation}
+    \lim_{t\downarrow t_\mathrm{gel}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv).
 \end{equation}
 
 The main case of physical interest is when we take $m$ to be a Gaussian density $N_d(0, \sigma I)$. In this case, the gelation time evaluates to
 \begin{equation}
-    \label{eq: formula of tgel} t_\text{gel} = \frac{1}{\kappa+2\gamma d \sigma^2+
+    \label{eq: formula of tgel} t_\mathrm{gel} = \frac{2}{\kappa+2\gamma d \sigma^2+
     \sqrt{(\kappa+2\gamma d \sigma^2)^2+8\gamma^2 d \sigma^2}}.
 \end{equation} \end{theorem}
 We also prove the following convergence theorem, relating the stochastic coagulant to the solution of the limit equation.  
