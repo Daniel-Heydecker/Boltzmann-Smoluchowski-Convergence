@@ -1,35 +1,52 @@
-\section{Introduction and Main Result}
+\section{Introduction and Main Results}
 
-Kac \cite{K56} introduced a model for the velocities of molecules undergoing collisions in which deterministic collisions based on trajectory intersection were replaced by a stochastic collision rule and position could be ignored.
-In the large particle number limit (since particles do not have positions the hydrodynamic and thermodynamic limits are the same) the single particle marginal converges to the solution of the Boltzmann equation ?Wagner.
-Interaction clusters for the Kac model (equivalence classes of particles that have collided by a given time) were introduced in \cite{GKSZ08} ...
+Boltzmann \cite{B96} pictured gases as collections of  billiard balls, moving in straight lines except when they ``randomly'' come close to one another or to the wall of a container. 
+Under the intuition that particles should be `unordered at the molecular level', he then derived the Boltzmann equation for the molecular velocity distribution; justifying this intuition, which became known as `molecular chaos', has been an active area of research since. 
+Grad helped clarify in exactly which limit a result should be possible, the Boltzmann--Grad limit, and the first result was due to Lanford \cite{L75} three quarters of a century after Boltzmann.
+Lanford's result is restricted to a fraction of the mean free time, so that a positive fraction of the molecules have not collided with any other molecule; a convergence result for arbitrary finite time intervals and a wide range of initial conditions is still not available. For more detailed discussion and references to more recent results see \cite{PS17}.
 
-In \cite{PSW17} it was formally shown that the sizes, of these interaction clusters can be understood as the cluster sizes of a stochastic coagulation process---the Marcus--Lushnikov process \cite{L78}---until a critical time at which a macroscopic cluster forms.
-In the standard case the clusters in a Marcus--Lushnikov clusters are completely described by their size (or mass), however for Kac interaction clusters kinetic energy and momentum have to be included.
-The resulting coagulation rates are a generalisation of the multiplicative coagulation kernel, which is the classic example of a coagulation rate definition that leads to macroscopic cluster formation \cite{L78,A99}.
+Three quarters of a century is a long time to wait, and during this time Kac \cite{K56} introduced a simplified model for the velocities of gas molecules.
+In this model, position is ignored and deterministic collisions based on trajectory intersections are replaced by a stochastic collision rule, an idea also introduced by Leontovich \cite{L35}.
+For this simplified model, a wide body of literature \cite{McKean,Grunbaum,Sznitman,MischlerMouhot,N16} has shown propagation of chaos, and that the single particle marginal converges to the solution of the spatially homogeneous Boltzmann equation.
 
-Norris
+The principal challenge in analysing the full billiard model are the dependencies that arise between the molecular velocities as a result of pairs of particles either having collided or not collided.
+These dependencies are suppressed in the Kac model.
+The Lanford proof looks backward in time from a pair of molecules to the most recent collision involving either molecule, and then recursively builds a tree-like structure. For this argument, a restriction to a short, finite time is necessary, in order to guarantee that the branching process is subcritical and no infinite trees occur. 
 
-Random graphs
+The trees appearing in the Lanford proof may be extended to a partition of the molecules into \emph{interaction clusters} \cite{PSW16}, such that any two molecules which have collided belong to the same cluster.  
+The concept of interaction clusters was introduced by Gabrielov et al.~\cite{GKSZ08}, who show interesting properties of the interaction cluster size distribution by molecular dynamics simulation and in particular the formation of a giant cluster in a phase transition. We refer to this phenomenon as \emph{gelation}. 
 
-Kac process with parameter $N$.
-$N$ molecules each with mass 1 and a momentum in $\RR^d$.
-State $\left(V_i^N(t)\right)_{i=1}^N$.
-Elastic collisions.
-Boltzmann limit.
-Maxwell, hard sphere, very hard sphere.
-\dhcomment{O Lanford III's derivation of Boltzmann equation - tree expansion, which I believe is \cite{Lanford}}
-\dhcomment{Omit, for obvious reasons, $\kappa=\gamma=0$}
-For $i,j\in \{1,2,\dotsc, N \}$ write $i \sim_t j$ if the molecules $i$ and $j$ have collided prior to time $t$.
-The (Kac-$N$) interaction clusters at time $t$ are the equivalence classes of $\sim_t$.
-If $I$ and $J$ are two distinct, unordered (Kac-$N$) interaction clusters at time $t$ then their instantaneous merger rate is
-\begin{multline}\label{e:cluster-merge-rate}
-    \frac2N\sum_{i\in I}\sum_{j\in J}
-     \left(\kappa + \gamma \norm{V_i^N(t) - V_j^N(t)}^2 \right)\\
-    =
-    \frac2N\kappa \abs{I}\abs{J}
-    +\frac2N\gamma \abs{I} \sum_{j\in J}\norm{V_j^N(t)}^2
-    +\frac2N\gamma \abs{J} \sum_{i\in I}\norm{V_i^N(t)}^2
-    -\frac4N\gamma \left(\sum_{i\in I}V_i^N(t)\right)\cdot
-    \left(\sum_{j\in J}V_j^N(t)\right).
-\end{multline}
+
+
+The distributions of the sizes of the interaction clusters are formally derived up to the critical time in \cite{PSW16} in terms of the solution of the Boltzmann equation.
+Reducing to the case of cutoff Maxwell molecules for the spatially homogeneous Boltzmann equation, the phase transition observed in \cite{GKSZ08} can be identified precisely and the cluster size distributions observed to match those arising from the Smoluchowski coagulation equation with product kernel \cite{L78,A99,PSW16}. Heuristically, when a collision occurs, the corresponding clusters merge, which may be represented as a coagulation event at the level of interaction clusters.
+
+In \cite{PSW17} the clusters were studied in the Kac setting and the restriction to Maxwell molecules was lifted.
+This allowed a general collision rate including the hard sphere case and it was formally shown in a large particle number limit that the distribution of the cluster sizes converges to a version of the Smoluchowski coagulation equation with a time-dependent product kernel. 
+
+In this work, we will consider a class of Kac processes for which the kernel is sufficiently tractable to allow a detailed analysis of the convergence and the limiting process, including the effects of a `gel' formed when interaction clusters become macroscopic beyond the critical time. Our techniques rely on the properties \emph{bilinear} coagulation kernels, generalising the notion of the product kernel \cite{N00}, and on exploiting a random graph representation of the particle system, in the form considered by \cite{BJR07}.
+
+The study of gelation as the formation of a very large connected structure by joining basic building blocks goes back at least to Flory \cite{Flo41} whose motivation was hydrocarbon polymerisation in the manufacture of plastics.
+Flory understood polymerisation as the formation of a random graph, rather than in terms of coagulation, and was aware of a sharp phase transition at the emergence of a giant connected structure, which he termed `gel'.
+A rigorous proof of the random graph phase transition was provided by Erd\H{o}s and R\'enyi \cite{ER60}.
+The existence of a phase transition corresponding to the formation of a giant particle in a coagulation model is first discussed by Lushnikov \cite{L78}, who uses this to explain the explosion of the second moment and the failure of mass conservation for the solution of the Smoluchowski equation with the product coagulation kernel.
+The first connection between random graph and particle approaches appears in \cite{BP91}, where the phase transition is proved for the particle coagulation process and an interpretation as a new proof for a phase transition in the Erd\H{o}s-R\'enyi random graph is noted; this is also discussed in the survey article \cite{A99}.
+We extend this connection, and show that the bilinear form of the merger rate allows us to couple the stochastic coagulant process to \emph{inhomogenous} random graphs as considered by \cite{BJR07}.
+
+For particles with integer masses coagulating according to a kernel bounded above by the product kernel and below by its square root Jeon \cite{J98} proved the existence of a gelation phase transition and provided an upper bound on the gelation time and presents a number of different definitions of the gelation time for coagulation--fragmentation models.
+The product coagulation kernel is the product of the masses of the coagulation partners, which have no properties other than mass.
+Norris \cite{N99,N00} replaced mass with a general function growing no more than linearly in particle mass and suitable for use in models where particles have internal structure, a step that is important for the present work.
+A lower bound for the gelation time was proved in \cite{N99} and an upper bound was added under appropriate assumptions in \cite{N00}; however, these bounds do not coincide in general. Normand \cite{Nm09} obtained explicit results concerning the blowup of a second moment for a sexed model which gives a lower bound on the gelation time, and in a later work \cite{Nm11} finds explicit expressions for the gelation time for a selection of models with arms.  Consequently, ours is one of the first models for which the gelation time can be found exactly; moreover, several aspects of our analysis extend what was previously known about the Smoluchowski equation, using the connection to random graphs \cite{BJR07}. We also propose a notion of \emph{bilinear} coagulation kernels, which would also be amenable to our analysis.
+
+%For the Kac model with Maxwell molecules the interaction cluster size process is a realisation of the Markus--Lushnikov process \cite{L78} for particle coagulation.
+%In the standard Marcus--Lushnikov process clusters are completely described by their size (or mass), however to generalise beyond Maxwell molecules the cluster description has to be augmented by information about the velocities of the molecules in the cluster.
+%Generalising to hard spheres seems to require the cluster description to be the list of velocities of all its component molecules and so the state space is no simpler than for the full Kac model.
+%However, in \cite{PSW17} a velocity dependent collision rate was introduced, which is simply the square of the hard sphere collision rate and for which the interaction clusters can be described by mass, kinetic energy and momentum, the latter two simply as sums over the constituent molecules, which do not have to be tracked individually.
+%This is a very hard sphere model; it will be referred to as the quadratic model and it yields a quantitatively tractable cluster coagulation model, which is numerically seen to exhibit the qualitative features of the hard sphere model \cite{PSW17}.
+
+%The quadratic model from \cite{PSW17} is tractable because it preserves most of the structure of the Marcus--Lushnikov process with the product coagulation kernel.
+%Macroscopic cluster formation (also known as gelation) was studied rigorously for coagulation rates given by related generalisations of the product kernel in \cite{N00}.
+%The present work builds on \cite{N00} in order to prove the rigorously the convergence of the interaction cluster distribution derived formally in \cite{PSW17} for linear combinations of the Maxwell and quadratic models for molecular collision rates.
+%Results from the theory of random graphs play an important role in the analysis presented here and in particular are used to derive the main results, namely the exact time of the emergence of giant cluster, confirming the dimension dependence observed numerically in \cite{PSW17}.
+
+%\dhcomment{Perhaps a more complete literature review, talking about (say) what is already known for Smoluchowski equations. I believe we are the first to rigorously compute a gelation time other than the (trivial) case of the multiplicative kernel}

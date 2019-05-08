@@ -1,0 +1,72 @@
+\section{Representation and Dynamics of the Gel} \label{sec: gel dynamics}
+\subsection{Representation Formula} 
+
+The duality construction used in the proof of Lemma \ref{lemma: second moment finite after tgel} gives us a natural way to identify $M_t, E_t$ in terms of the survival function $\rho_t$ from Sections \ref{sec: IRG}, \ref{sec: coupling_to_random_graph}. This is the content of the following lemma. \begin{lemma}\label{lemma: representation of M, E} Let $\mu_0$ be an initial data satisfying (A1-4.) for some measure $m$, and let $M_t, E_t$ be the gel data for the corresponding solution to (\ref{eq: E+G}). Let $\rho_t(\cdot)$ be the corresponding survival function defined in Sections \ref{sec: IRG}, \ref{sec: coupling_to_random_graph}. Then we have the equalities \begin{equation}\label{eq: formula for M, E}
+    M_t = \int_{\mathbb{R}^d} \rho_t(v)m(dv); \hspace{1cm} E_t=\int_{\mathbb{R}^d} \frac{1}{2}|v|^2\rho_t(v)m(dv).
+\end{equation} In particular, both $M_t$ and $E_t$ are continuous, and if $t>t_\mathrm{g}$ then $M_t>0$ and $E_t>0$. \end{lemma} It is immediate from the symmetry (A1.), or from Lemma \ref{lemma: E and U of Restricted}, that $P_t=0$. Together with the identification of $\rho_t$ in Lemma \ref{lemma: form of rho-t}, this proves part 3 of Theorem \ref{thrm: Smoluchowski equation}. \begin{proof} We deal with the supercritical and subcritical/critical cases, $t>t_\mathrm{g}, t\le t_\mathrm{g}$ separately. 
+\paragraph{1. Supercritical Case $\mathbf{t>t_\mathrm{g}}$.}  Let $(\widehat{\mu}^t_s)_{s\geq 0}$ and $\widehat{t_\mathrm{g}}(t)$ be as in the proof of Theorem \ref{lemma: second moment finite after tgel}. Then, since $(\widehat{\mu}^t_s)_{s\geq 0}$ is conservative on $[0, \widehat{t_\mathrm{g}})$, and $t<\widehat{t_\mathrm{g}}(t)$, we have \begin{equation}
+    \langle \pi_n, \widehat{\mu}^t_t\rangle =\langle \pi_n, \widehat{\mu}^t_0\rangle = \int_{\mathbb{R}^d} (1-\rho(t,v))m(dv).
+\end{equation} But since $\mu_t=\widehat{\mu}^t_t$, we have \begin{equation}
+    M_t:=\langle \pi_n, \mu_0\rangle -\langle \pi_n, \mu_t\rangle =\langle \pi_n, \mu_0\rangle - \int_{\mathbb{R}^d} (1-\rho(t,v))m(dv)
+\end{equation} which implies the result for $M_t$. The argument for $E_t$ is identical. 
+
+\paragraph{2. Subcritical and Critical Cases $\mathbf{t\le t_\mathrm{g}}$.} For $t<t_\mathrm{g}$, the result is immediate: we have $M_t=E_t=0$ by definition of $t_\mathrm{g}$, and $\rho_t=0$ by Theorem \ref{lemma: survival function}. The critical case is identical, recalling from Corollary \ref{corr: gel at tgel} that $M_{t_\mathrm{g}}=E_{t_\mathrm{g}}=0.$ \medskip \\ Continuity follows from Theorem \ref{thrm: continuity of rho} by using dominated convergence. For the final claim, if $t>t_\mathrm{g}$ then at least one of $M_t, E_t$ is strictly positive. If $M_t>0$, then by (\ref{eq: formula for M, E}), $\rho_t$ is not $0$ $m$-almost everywhere, and by (A4.), \begin{equation} m\left(v: \frac{1}{2}|v|^2\rho_t(v)>0\right)>0 \end{equation} and it follows that $E_t>0$. The case where $E_t>0$ is identical.   \end{proof}
+
+
+\subsection{Gel Dynamics Beyond the Critical Time} We now obtain point 4 of Theorem \ref{thrm: Smoluchowski equation}  as a consequence of the previous results. We have already proven the continuity of $M_t, E_t$ on the whole time interval $[0,\infty)$ and the finiteness of the second moments $q_t=(\langle  \pi_n^2, \mu_t\rangle, \langle  \pi_n\pi_e, \mu_t\rangle, \langle  \pi_e^2, \mu_t\rangle)$ in the supercritical regime. Therefore, it is sufficient to prove the following result.
+\begin{lemma}\label{lemma: dynamics after tgel} In the notation of Lemma \ref{lemma: second moment finite after tgel}, let $(M_t, E_t)$ be the mass and energy of the gel associated to $(\mu_t)_{t\ge 0}$. Then, for  $t\ge t_\mathrm{g}$, we have
+\begin{equation}
+    M_t=\int_{t_\mathrm{g}}^t 
+    \left(
+      \kappa \left<\pi_n^2,\mu_s\right>M_s +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu_s \right>M_s +
+        \left<\pi_n^2,\mu_s \right>E_s \right]
+    \right)ds;
+\end{equation}
+\begin{equation}
+    E_t=\int_{t_\mathrm{g}}^t 
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu_s\right>M_s +
+      2\gamma \left[
+        \left<\pi_e^2,\mu_s \right>M_s +
+        \left<\pi_n \pi_e,\mu_s \right>E_s \right]
+    \right)ds.
+\end{equation}\end{lemma} \begin{remark}\label{rmk: continuity of tgelt} We interpret Lemma \ref{lemma: dynamics after tgel} as as saying that the growth of the gel away from $t_\mathrm{g}$ is due entirely to the absorption of finite clusters, rather than an additional blow-up due to coagulation of small particles. This may be expected following the relationship between gelation and blowup of the second moment $\mathcal{E}(t)$ in Lemma \ref{lemma: second moment before tgel}, and the finiteness of $\mathcal{E}$ in the supercritical regime. \end{remark}
+\begin{proof} We return to the truncated dynamics (\ref{eq:rE1}, \ref{eq: rE2}) used in the proof of Lemma \ref{lemma: E and U}. We recall that, starting at \begin{equation} \mu^\xi_0 = 1_{S_\xi}\mu_0; \hspace{1cm} g^\xi_0=\int_{x\not\in S_\xi} x\mu_0(dx)\end{equation} the solution $(\mu^\xi_t, g^\xi_t)$ to (\ref{eq:rE1}, \ref{eq: rE2}) exists and is unique, and as $\xi\uparrow \infty$, we have \begin{equation} \label{eq: convergence to E+G}
+    \mu^\xi_t\uparrow \mu_t; \hspace{1cm} (M^\xi_t, E^\xi_t)\downarrow (M_t, E_t)
+\end{equation} where $(\mu_t)_{t\ge 0}$ is the solution to (\ref{eq: E+G}) starting at $\mu_0$, and $(M_t, E_t)$ are the associated gel data. \medskip \\ Fix $s, t$ such that $t_\mathrm{g}<s<t$. It is immediate from (\ref{eq: rE2}) that \begin{equation}
+    M^\xi_t-M^\xi_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n^2,\mu^\xi_u\right>M^\xi_u +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu^\xi_u \right>M^\xi_u +
+        \left<\pi_n^2,\mu^\xi_u \right>E^\xi_u \right]
+    \right)du;
+\end{equation}
+\begin{equation}
+    E^\xi_t-E^\xi_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu^\xi_u\right>M^\xi_u +
+      2\gamma \left[
+        \left<\pi_e^2,\mu^\xi_u \right>M^\xi_u +
+        \left<\pi_n \pi_e,\mu^\xi_u \right>E^\xi_u \right]
+    \right)du.
+\end{equation} By the monotonicity $\mu^\xi_u \le \mu_u$, and local boundedness in Lemma \ref{lemma: second moment finite after tgel},  $\langle \varphi^2, \mu^\xi_u\rangle $ is bounded, uniformly in $\xi<\infty$ and $u\in [s,t]$. It is also  straightforward to see that the truncated gel data are bounded by $M^\xi_u \le 1;\hspace{0.2cm} E^\xi_u \le \langle \pi_e, \mu_u\rangle.$ Together, these imply that the integrands are bounded. Using (\ref{eq: convergence to E+G}) and bounded convergence, we take the limit $\xi \rightarrow \infty$ to obtain  \begin{equation}
+    M_t-M_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n^2,\mu_u\right>M^\xi_u +
+      2\gamma \left[
+        \left<\pi_n \pi_e,\mu_u \right>M_u +
+        \left<\pi_n^2,\mu_u \right>E_u \right]
+    \right)du;
+\end{equation}
+\begin{equation}
+    E_t-E_s=\int_{s}^t 
+    \left(
+      \kappa \left<\pi_n \pi_e,\mu_u\right>M_u +
+      2\gamma \left[
+        \left<\pi_e^2,\mu_u \right>M_u +
+        \left<\pi_n \pi_e,\mu_u \right>E_u \right]
+    \right)du.
+\end{equation} Taking $s\downarrow t_\mathrm{g}$, and using the continuity $(M_s, E_s)\downarrow (0,0)$ established in Lemma \ref{lemma: representation of M, E}, we obtain the claimed result. \end{proof}

@@ -1,34 +1,44 @@
-\section{Uniform Convergence of the Stochastic Coagulant} We now show how previous results, describing the dynamics of $E_t, M_t$, show convergence at an exponential rate to the limiting values \begin{equation} M_t\rightarrow 1;\hspace{1cm} E_t\rightarrow \frac{1}{2}\sigma_2(m). \end{equation}  From this, we will be able to upgrade the previous result, Lemma \ref{lemma: local uniform convergence of stochastic coagulent}, on the convergence of the stochastic coagulant to \emph{uniform} convergence. \begin{lemma}\label{lemma: M and E at infinity} As $t\uparrow \infty$, we have \begin{equation}
-    M_t\uparrow 1; \hspace{1cm}E_t\uparrow  \frac{1}{2}\sigma_2(m).
-\end{equation} \end{lemma} \begin{proof} We recall that at least one of the rate parameters $\kappa, \gamma$ is strictly positive. Therefore, it is sufficient to prove the result in the cases where $\gamma>0$ and $\kappa$ is arbitrary, or where $\kappa>0$ and $\gamma$ is arbitrary.
-\paragraph{1. $\mathbf{\gamma>0}$.} We deal first with the case where $\gamma>0$ and $\kappa$ is arbitrary. Choose $t_0>t_\text{gel}$, and let $\lambda=E_{t_0}$; it follows from Lemma \ref{lemma: connecting mu-epsilon and mu} that $\lambda>0$, and since $E_t$ is increasing, $E_t\ge \lambda>0$ for all $t\ge t_0$. By Lemma \ref{lemma: dynamics after tgel}, for all $t\ge t_0$, we have \begin{equation} \begin{split} M_t\ge M_{t_0}+\int_{t_0}^t 2\gamma \langle \pi_n^2, \mu_s\rangle E_s ds & \ge M_{t_0}+2\lambda \gamma \int_{t_0}^t \langle \pi_n, \mu_s\rangle ds \\ & = M_{t_0}+2\lambda \gamma \int_{t_0}^t (1-M_s)ds\end{split}  \end{equation} where the second inequality uses the fact that $\pi_n \ge 1$ everywhere, and the final equality is the definition of $M_t$. It follows that, for all $t\ge t_0$, \begin{equation} M_t \ge 1-e^{-2\lambda \gamma (t-t_0)}(1-M_{t_0}). \end{equation} From the definition, it is immediate that $M_t\le 1$, which implies that $M_t\rightarrow 1$ as claimed. A similar argument for the energy shows that \begin{equation} E_t \ge E_{t_0} + 2\lambda \gamma  \int_{t_0}^t(\langle \pi_e, \mu_0\rangle -\langle \pi_e, \mu_s\rangle)ds\end{equation} from which it follows that, for $t\ge t_0$, \begin{equation} E_t\ge \langle \pi_e, \mu_0\rangle-e^{-2\lambda\gamma(t-t_0)}(\langle \pi_e, \mu_0\rangle - E_{t_0})  \end{equation}  which, as above, implies the claim.
+\section{Uniform Convergence of the Stochastic Coagulant} \label{sec: uniform convergence} We now show how previous results, describing the dynamics of $E_t, M_t$, imply convergence to the limiting values \begin{equation} M_t\rightarrow 1;\hspace{1cm} E_t\rightarrow \frac{1}{2}\sigma_2(m) \end{equation} at an exponential rate.  From this, we will be able to upgrade the previous result, Lemma \ref{lemma: local uniform convergence of stochastic coagulent}, on the convergence of the stochastic coagulant to \emph{uniform} convergence. \begin{lemma}\label{lemma: M and E at infinity} Let $\mu_0$ be an initial measure satisfying (A1-4.) for a probability measure $m$, and let $M_t, E_t$ be the mass and energy of the associated gel. As $t\uparrow \infty$, we have \begin{equation}
+    M_t\uparrow 1; \hspace{1cm}E_t\uparrow  \frac{1}{2}\sigma_2(m)
+\end{equation} where $m$ is given by (A2.). \end{lemma} \begin{proof} We recall that at least one of the rate parameters $\kappa, \gamma$ is strictly positive. Therefore, it is sufficient to prove the result in the cases where $\gamma>0$ and $\kappa \ge 0$ is arbitrary, or where $\kappa>0$ and $\gamma \ge 0$ is arbitrary.
+\paragraph{1. $\mathbf{\gamma>0}$.} We deal first with the case where $\gamma>0$ and $\kappa \ge 0$ is arbitrary. Choose $t_0>t_\text{gel}$, and let $\lambda=E_{t_0}$; it follows from Lemma \ref{lemma: representation of M, E} that $\lambda>0$, and since $E_t$ is increasing, $E_t\ge \lambda>0$ for all $t\ge t_0$. By Lemma \ref{lemma: dynamics after tgel}, for all $t\ge t_0$, we have \begin{equation} \begin{split} M_t\ge M_{t_0}+\int_{t_0}^t 2\gamma \langle \pi_n^2, \mu_s\rangle E_s ds & \ge M_{t_0}+2\lambda \gamma \int_{t_0}^t \langle \pi_n, \mu_s\rangle ds \\ & = M_{t_0}+2\lambda \gamma \int_{t_0}^t (1-M_s)ds\end{split}  \end{equation} where the second inequality uses the fact that $\pi_n \ge 1$ everywhere, and the final equality is the definition of $M_t$. It follows that, for all $t\ge t_0$, \begin{equation} M_t \ge 1-e^{-2\lambda \gamma (t-t_0)}(1-M_{t_0}). \end{equation} From the definition, it is immediate that $M_t\le 1$, which implies that $M_t\rightarrow 1$ as claimed. A similar argument for the energy shows that \begin{equation} E_t \ge E_{t_0} + 2\lambda \gamma  \int_{t_0}^t(\langle \pi_e, \mu_0\rangle -\langle \pi_e, \mu_s\rangle)ds\end{equation} from which it follows that, for $t\ge t_0$, \begin{equation} E_t\ge \langle \pi_e, \mu_0\rangle-e^{-2\lambda\gamma(t-t_0)}(\langle \pi_e, \mu_0\rangle - E_{t_0})  \end{equation}  which, as above, implies the claim.
 \paragraph{2. $\mathbf{\kappa>0}$.} The case $\kappa>0$ is essentially identical. Let $t_0>t_\text{gel}$,  and let $\lambda'$ be given instead by $\lambda'=M_{t_0}$. Then the same argument as above gives the inequalities, for all $t\ge t_0$, \begin{equation} M_t \ge M_{t_0}+\kappa \lambda'\int_{t_0}^t (1-M_s)ds; \end{equation} \begin{equation}  E_t \ge E_{t_0}+\kappa \lambda'\int_{t_0}^t (\langle \pi_e, \mu_0\rangle-E_s)ds \end{equation} which yield the claimed convergences as above. \end{proof} 
-\begin{lemma} \label{lemma: uniform convergence of coagulant} Let $\mu^N_t$ be the stochastic coagulants constructed in the introduction, and let $\mu_t$ be the corresponding solution to the Smoluchowski equation (\ref{eq: E+G}). Then we have the \emph{uniform} convergence \begin{equation} \sup_{t\ge 0} d_0(\mu^N_t, \mu_t) \rightarrow 0\end{equation} in probability.  \end{lemma} 
-\begin{proof} From the definition of the metric $d_0$, it is sufficient to prove that, for any $f\in C_c(S)$, \begin{equation}
-    \sup_{t\geq 0}\hspace{0.1cm} \langle(\pi_n+\pi_e)f, \mu^N_t-\mu_t \rangle \rightarrow 0 \hspace{1cm} \text{in probability.}
-\end{equation} Without loss of generality, we assume that $\|f\|_{L^\infty(S)}=1.$ Let $0<\epsilon<\frac{1}{2}$ and let $\delta>0$ be such that \begin{equation}
-    \delta< \min\left(\frac{\epsilon^2}{8\sigma_4(m)}, \frac{\epsilon}{4}\right)
+\begin{lemma} \label{lemma: uniform convergence of coagulant} Let $\mu^N_t$ be the stochastic coagulants constructed in the introduction, with $N$ particles sampled independently from a probability measure $m$, and let $\mu_t$ be the corresponding solution to the Smoluchowski equation (\ref{eq: E+G}), with conditions (A1-4.). Then we have the \emph{uniform} convergence \begin{equation} \sup_{t\ge 0} \hspace{0.1cm} d_0(\mu^N_t, \mu_t) \rightarrow 0\end{equation} in probability.  \end{lemma} 
+\begin{proof} 
+
+From the definition of the vague topology, it is sufficient to prove that, for any $f\in C_c(S)$ with $0\leq f \leq 1$, we have the uniform convergence
+$\sup_{t\geq 0}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle \rightarrow 0$ in probability.
+
+Fix $\epsilon>0$. By Lemma~\ref{lemma: M and E at infinity}, we can find $t_+\in (t_\text{g}, \infty)$ such that $M_{t_+}>1-\frac{\epsilon}{2}.$
+Let $A^1_N$ be the event $A^1_N=\{M^N_{t_+}>1-\frac{\epsilon}{2} \}$; by Lemma~\ref{lemma: WCOG}, it follows that $\mathbb{P}(A^1_N)\rightarrow 1$.
+On this event, we have
+\begin{equation} \begin{split}
+\sup_{t\geq 0}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle
+&\leq
+\sup_{0 \leq t \leq t_+}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle + \sup_{t >t_+}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle \\ &
+\leq
+\sup_{0 \leq t \leq t_+}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle + \left(1 - M_{t_+}^N\right) + \left(1 - M_{t_+}\right)
+\\ & \leq
+\sup_{0 \leq t \leq t_+}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle + \epsilon
+\end{split} \end{equation}
+and the first term converges to $0$ in probability by Lemma~\ref{lemma: local uniform convergence of stochastic coagulent}.
+
+\iffalse
+\begin{equation}
+    \sup_{t\geq 0}\hspace{0.1cm} \langle f, \mu^N_t-\mu_t \rangle \rightarrow 0 \hspace{1cm} \text{in probability.}
+\end{equation} Following Lemma \ref{lemma: coupling}, we let $(G^N_t)_{t\ge 0}$ be a random graph process coupled to $(\mu^N_t)_{t\ge 0}$. Without loss of generality, we assume that $\|f\|_\infty=1.$
+Let $0<\epsilon<1$, by Lemma~\ref{lemma: M and E at infinity} one can find $t_+\in (t_\text{gel}, \infty)$ such that $M_{t_+}>1-\frac{\epsilon}{2}.$
+
+Consider the events $
+        A^1_N=\{M^N_{t_+}>1-\frac{\epsilon}{2} \}$; by Lemma \ref{lemma: WCOG}, $\mathbb{P}(A^1_N)\rightarrow 1$. Since $f$ is compactly supported, we can choose $R<\infty$ such that $\text{Supp}(f)\subset \{x\in S: \pi_n(x)<R\}$. We write $\widetilde{\mu}^N_t$ for the stochastic coagulant with the largest cluster removed, corresponding to the random graphs $\widetilde{G}^N_t$ in Theorem \ref{thrm: coupling supercritical and subcritical}. Then, for $N$ large enough, $(1-\frac{\epsilon}{2})N>R$, and so, on $A^1_N$, \begin{equation}
+    \langle f,\mu^N_t\rangle = \langle f,\widetilde{\mu}^N_t\rangle+\frac{1}{N}f(Ng^N_t) =  \langle f,\widetilde{\mu}^N_t\rangle.
 \end{equation}
-    From Lemma \ref{lemma: M and E at infinity}, we can choose $t_+\in (t_\text{gel}, \infty)$ such that \begin{equation}
-        M_{t_+}>1-\delta;\hspace{1cm}E_{t_+}>\langle \pi_e, \mu_0\rangle -\frac{\epsilon}{4}. 
-    \end{equation}Consider the events
-    \begin{equation}
-        A^1_N=\left\{M^N_{t_+}>1-\delta \right\};
-    \end{equation}
-    \begin{equation} A^2_N = \left \{\langle \pi_e^2, \mu^N_0\rangle <\frac{1}{2}\sigma_4(m)\right\}.\end{equation} Then $\mathbb{P}(A^1_N)\rightarrow 1$ by Lemma \ref{lemma: WCOG}, and $\mathbb{P}(A^2_N)\rightarrow 1$ by the weak law of large numbers. Let $(G^N_t)$ be the random graph process associated to $\mu^N_t$, and let $\widetilde{\mu}^N_t$ be the stochastic coagulant $\mu^N_t$ with the largest cluster, corresponding to $C_1(G^N_t)$, removed.  Then, on the event $A^1_N\cap A^2_N$, for any $t\geq t_+$, we have \begin{equation} \begin{split}
-\langle \pi_e, \widetilde{\mu}^N_t\rangle & =\sum_{i\not \in C_1(G^N_t)}\frac{1}{2}|v|^2 \leq \left(\sum_{i \not\in C_1(G^N_t)} 1 \right)^\frac{1}{2} \left(\sum_{i =1}^N \frac{1}{4}|v_i|^4 \right)^\frac{1}{2}\\[2ex] & =(1-M^N_t)^\frac{1}{2} \langle \pi_e^2, \mu^N_0\rangle  \leq (1-M^N_{t_+})^\frac{1}{2}\langle \pi_e^2, \mu^N_0\rangle ^\frac{1}{2} \\[2ex] &\leq \delta^\frac{1}{2} \left(\frac{1}{2}\sigma_4(m)\right)^\frac{1}{2}<\frac{\epsilon}{4} \end{split} \end{equation} and \begin{equation}
-    \langle \pi_n, \widetilde{\mu}^N_t\rangle =1-M^N_t \leq 1-M^N_{t_+} <\frac{\epsilon}{4}.
-\end{equation} Since $f$ is compactly supported, we can choose $R<\infty$ such that $\text{Supp}(f)\subset \{x\in S: \pi_n(x)<R\}$. Then, for $N$ large enough, $(1-\delta)N>R$, and so, on $A^1_N$, \begin{equation}
-    \langle (\pi_n+\pi_e)f,\mu^N_t\rangle = \langle (\pi_n+\pi_e)f,\widetilde{\mu}^N_t\rangle+(M^N_t+E^N_t)f(Ng^N_t) =  \langle (\pi_n+\pi_e)f,\widetilde{\mu}^N_t\rangle.
-\end{equation} We now estimate, for $t\geq t_+$, \begin{equation}
-    |\langle (\pi_n+\pi_e)f, \mu_t\rangle|\leq \langle (\pi_n+\pi_e)|f|, \mu_t\rangle \leq \langle \pi_n+\pi_e, \mu_t\rangle <\frac{\epsilon}{2}
-\end{equation} and, on $A^1_N\cap A^2_N$, for $t\geq t_+$  and $N$ large enough, \begin{equation} \begin{split}
-    |\langle (\pi_n+\pi_e)f, \mu^N_t\rangle|&=|\langle (\pi_n+\pi_e)f, \widetilde{\mu}^N_t\rangle | \\ & \leq \langle \pi_n+\pi_e, \widetilde{\mu}^N_t\rangle <\frac{\epsilon}{2}.   \end{split}
-\end{equation} Therefore, on $A^1_N\cap A^2_N$, we have \begin{equation}
-    \sup_{t\geq t_+}|\langle (\pi_n+\pi_e)f, \mu^N_t-\mu_t\rangle| <\epsilon.
-\end{equation} Finally, let $B_N$ be the event \begin{equation}
-    B_N=\left\{\sup_{t\leq t_+} |\langle (\pi_n+\pi_e)f, \mu^N_t-\mu_t\rangle |<\epsilon\right\}.
-\end{equation} Then $\mathbb{P}(B_N)\rightarrow 1$ by Lemma \ref{lemma: local uniform convergence of stochastic coagulent}. On the event $A^1_N\cap A^2_N\cap B_N$, we have \begin{equation}
-    \sup_{t\geq 0} |\langle (\pi_n+\pi_e)f, \mu^N_t-\mu_t\rangle |<\epsilon
-\end{equation} which proves the claimed convergence.
+On $A^1_N$, for all $t\ge t_+$, we have $|\langle f, \widetilde{\mu}^N_t\rangle | \le \langle \pi_n, \widetilde{\mu}^N_t\rangle = 1-M^N_t<\frac{\epsilon}{2}.$
+For $t\geq t_+$, it is immediate that $|\langle f, \mu_t\rangle| \leq \langle \pi_n, \mu_t\rangle = 1-M_t <\frac{\epsilon}{2}.$
+Therefore, on $A^1_N$, for all $N > \frac{2}{2-\epsilon}R$, we have \begin{equation} \begin{split}
+    \sup_{t\ge t_+} |\langle f, \mu^N_t-\mu_t\rangle \le \epsilon.   \end{split}
+\end{equation} Finally, let $A^2_N$ be the event \begin{equation}
+    A^2_N=\left\{\sup_{t\leq t_+} |\langle f, \mu^N_t-\mu_t\rangle |<\epsilon\right\}.
+\end{equation} Then $\mathbb{P}(A^2_N)\rightarrow 1$ by Lemma \ref{lemma: local uniform convergence of stochastic coagulent}. For $N > \frac{2}{2-\epsilon}R$, on the event $A^1_N\cap A^2_N$, we have $\sup_{t\geq 0} |\langle f, \mu^N_t-\mu_t\rangle |<\epsilon,$ which proves the claimed convergence.
+\fi
 \end{proof}

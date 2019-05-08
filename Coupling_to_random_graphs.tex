@@ -1,63 +1,72 @@
 \section{Coupling of the Stochastic Coagulant to Random Graphs} \label{sec: coupling_to_random_graph}
-In this section, we will show that the Stochastic Coagulant may be coupled to a \emph{dynamic} version of the random graphs $\mathcal{G}^\mathcal{V}(N,tk)$ discussed above. This allows us to apply the results quoted above to analyse the stochastic coagulant process and the limit equation.
-\begin{definition}\label{def: GNT}[Dynamic Inhomogenous Random Graphs] Recall that $m$ is the initial distribution of particle velocities in $\mathbb{R}^d$ for the underlying Kac process. We let $\mathbf{v}_N=(v^{(N)}_i, i=1,2,...,N)$ be an independent sample of $N$ from $m$, and also sample $T_e \sim \text{Exponential}(1)$, independently of each other, and of $\mathbf{v}_N$. We use the notation \begin{equation} k(v,w)=\overline{K}\left(\{1,v, \frac{1}{2}|v|^2\},\{1,w, \frac{1}{2}|w|^2\}\right) \end{equation} where the right-hand side is the interaction kernel defined in (\ref{eq: smoluchowski kernel}). We form the random graphs $(G^N_t)_{t \ge 0}$ on $\{1,2,...,N\}$ by including the edge $e=(ij)$ if \begin{equation}
-    t\ge \frac{N T_e}{k\left(v^{(N)}_i,v^{(N)}_j\right)}.
-\end{equation}  \end{definition} This has the following immediate consequences. Firstly, if we define \begin{equation} \mathcal{V}=(\mathbb{R}^d, m, \mathbf{v}_N)\end{equation} then $\mathcal{V}$ is a vertex space in the sense of Definition \ref{def: Generalised vertex space} and, for all times $t$, $G^N_t$ is an instance of the inhomogenous random graph $\mathcal{G}^{\mathcal{V}}(N, tk)$ defined in Definition \ref{definition of GN}. Moreover, the process $(G^N_t)_{t\ge 0}$ is increasing, and is a Markov process. \medskip \\  We write $t_\mathrm{crit}$ for the critical time for the phase transition in Theorem \ref{thrm: RG1}, which is given by the norm $\|T\|^{-1}$. \medskip \\ For a cluster $\mathcal{C}$ of the graph $G^N_t$, we will write $P(\mathcal{C}), E(\mathcal{C})$ to denote the unnormalised mass, momentum and energy \begin{equation}
+In this section, we will show that the stochastic coagulant defined in \S\ref{s:jump_procs} may be coupled to a \emph{dynamic} version of the random graphs $\mathcal{G}^\mathcal{V}(N,tk)$ discussed above. This allows us to apply the results quoted above to analyse the stochastic coagulant process and the limit equation.
+\begin{definition}\label{def: GNT}[Dynamic Inhomogenous Random Graphs] Fix a measure $\mu_0$ satisfying (A1-4.). Let $\mathbf{v}_N=(v_i, i=1,2,...,l_N)$ be random velocities such that the empricial measures \begin{equation} \mu^N_0=\frac{1}{N}\sum_{i\le l_N} \delta_{(1,v_i,\frac{1}{2}|v_i|^2)}\end{equation}  satisfy the conditions (B1-2.), and sample $\tau_e \sim \text{Exponential}(1)$, independently of each other, and of $\mathbf{v}_N$. We define the kernel \begin{equation} k(v,w)=2\overline{K}\left(\left\{1,v, \frac{1}{2}\norm{v}^2\right\},\left\{1,w, \frac{1}{2}\norm{w}^2\right\}\right) \end{equation} where the right-hand side is the interaction kernel defined in (\ref{eq: smoluchowski kernel}). We form the random graphs $(G^N_t)_{t \ge 0}$ on $\{1,2,...,l_N\}$ by including the edge $e=(ij)$ if \begin{equation}
+    t\ge \frac{N \tau_e}{k(v_i,v_j)}.
+\end{equation} We emphasise that the $v_i$ do \emph{not} change during the dynamics. \end{definition} This has the following immediate consequences. Firstly, if we define $ \mathcal{V}=(\mathbb{R}^d, m, \mathbf{v}_N)$, then $\mathcal{V}$ is a vertex space in the sense of Definition \ref{def: Generalised vertex space} and, for all times $t$, $G^N_t$ is an instance of the inhomogenous random graph $\mathcal{G}^{\mathcal{V}}(N, tk)$ defined in Definition \ref{definition of GN}. Moreover, the process $(G^N_t)_{t\ge 0}$ is increasing, and is a Markov process, by the memoryless property of the exponential variables $\tau_e$.  We write $T$ for the convolution operator and $\|T\|$ for the associated operator norm, as defined following (\ref{eq: T}). We write also $t_\mathrm{c}$ for the critical time for the phase transition in Theorem \ref{thrm: RG1}, which is given by $\|T\|^{-1}$. \medskip \\ For a cluster $\mathcal{C}$ of the graph $G^N_t$, we will write $M(\mathcal{C}), P(\mathcal{C}), E(\mathcal{C})$ to denote the unnormalised mass, momentum and energy \begin{equation}\label{eq: cluster quantities}
    M(\mathcal{C})=\#\mathcal{C}; \hspace{1cm} P(\mathcal{C})=\sum_{i\in \mathcal{C}} v_i;\hspace{1cm} E(\mathcal{C})=\sum_{i\in \mathcal{C}} \frac{1}{2}|v_i|^2.
 \end{equation} We write $\delta(\mathcal{C})$ for the point mass in $S$ \begin{equation}
     \delta(\mathcal{C})=\delta_{(M(\mathcal{C}),P(\mathcal{C}),E(\mathcal{C}))}
-\end{equation} and $\mu^N(G^N_t)$ for the normalised empirical measure \begin{equation} \mu^N(G^N_t)=\frac{1}{N}\sum_\text{Clusters} \delta(\mathcal{C})\end{equation} where the sum is over all clusters $\mathcal{C}$ of $G^N_t$. This is connected to the stochastic coagulants as follows: \begin{lemma}[Coupling of Random Graphs and Stochastic Coagulants]\label{lemma: coupling} Let $(G^N_t)$ be the random graph process described in Definition \ref{def: GNT}. Then the process \begin{equation}
+\end{equation} and $\mu^N(G^N_t)$ for the normalised empirical measure \begin{equation} \mu^N(G^N_t)=\frac{1}{N}\sum_\text{Clusters} \delta(\mathcal{C})\end{equation} where the sum is over all clusters $\mathcal{C}$ of $G^N_t$. This is connected to the stochastic coagulants as follows:
+\begin{lemma}[Coupling of Random Graphs and Stochastic Coagulants]\label{lemma: coupling} Let $(G^N_t)$ be the random graph process described in Definition \ref{def: GNT}. Then the processes \begin{equation}
     \mu^N_t=\mu^N(G^N_t)
-\end{equation} are stochastic coagulants for the kernel $K$. \end{lemma} We also note that, since the rates are bounded, the stochastic coagulant has uniqueness in law. As a consequence, if we wish to prove any property of a general stochastic coagulant $\mu^N_t$, we may assume that it is given by $\mu^N_t=\mu^N(G^N_t)$, and appeal to an analysis of the random graphs.
-\begin{proof} For any two clusters $\mathcal{C}, \mathcal{C}'$ of $G^N_t$, using the memoryless property of the exponential distribution, the clusters merge at rate \begin{equation} \begin{split}
-    \frac{1}{N}\sum_{i \in \mathcal{C}, j \in \mathcal{C}'} k(v^{(N)}_i, v^{(N)}_j)& = \frac{1}{N}\sum_{i\in \mathcal{C}, j \in \mathcal{C}'} \kappa+\gamma|v^{(N)}_i|^2-2\gamma v^{(N)}_i \cdot v^{(N)}_j + \gamma|v^{(N)}_j|^2 \\ &= \frac{2}{N}\left(\kappa M(\mathcal{C})M(\mathcal{C}') +2\gamma (E(\mathcal{C})M(\mathcal{C}')-P(\mathcal{C})\cdot P(\mathcal{C}')+M(\mathcal{C}) E(\mathcal{C}')\right).
-\end{split} \end{equation} The new cluster $\mathcal{C}\sqcup \mathcal{C}'$ has data \begin{equation}
-    (M(\mathcal{C}\sqcup \mathcal{C}'), P(\mathcal{C}\sqcup \mathcal{C}'),E(\mathcal{C}\sqcup \mathcal{C}'))=(M(\mathcal{C}),P(\mathcal{C}), E(\mathcal{C}))+(M(\mathcal{C}'),P(\mathcal{C}'), E(\mathcal{C}')).
-\end{equation}These are exactly the transition rules for the stochastic coagulant derived in (\ref{e:cluster-merge-rate}). It is straightforward to see that these rates uniquely determine the law of the Markov process, which implies that $\mu^N(G^N_t)$ has the law of a stochastic coagulant. \end{proof} Combining this with the approximation result Lemma \ref{lemma: local uniform convergence of stochastic coagulent} for the stochastic coagulant, we may connect the random graph process to the limit equation as follows. \begin{lemma}[Convergence of the Random Graphs]\label{lemma: convergence of random graphs} Let $(G^N_t)_{t\ge 0}$ be the random graph processes constructed above, where the initial velocities are sampled from $m$. Let $\mu_0$ be the corresponding initial measure on $S$ under (\textbf{A3}), and let $(\mu_t)_{t\ge 0}$ be the solution to the Smoluchowski Equation (\ref{eq: E+G}) starting at $\mu_0$. Recalling that $d_0$ is a metric for the vague topology $\mathcal{F}(\mathcal{M}_{\le 1}(S), C_c(S))$, we have the local uniform convergence \begin{equation}\sup_{s\le t} \hspace{0.1cm}d_0(\mu^N(G^N_t), \mu_t) \rightarrow 0 \end{equation} in probability, for all $t<\infty.$ \end{lemma} 
+\end{equation} are stochastic coagulants for the kernel $K$.
+\end{lemma}
+
+We also note that, since the rates are bounded, the stochastic coagulant has uniqueness in law. As a consequence, if we wish to prove any property of a general stochastic coagulant $\mu^N_t$, we may assume that it is given by $\mu^N_t=\mu^N(G^N_t)$, and appeal to an analysis of the random graphs.
+\begin{proof}[Sketch of proof of Lemma~\ref{lemma: coupling}]
+One may verify that the two processes undergo the same transitions at the same rates; this essentially follows from the calculation (\ref{e:cluster-merge-rate}). We will give here an alternative proof, which we feel offers more insight. \medskip \\ From the calculation (\ref{e:cluster-merge-rate}), the rates of the stochastic coagulants do not depend on the collision kernel $B$ beyond the total rates $B(v,\mathbb{S}^{d-1})$. In particular, if $B, \tilde{B}$ are two kernels with the same total rates, then given random initial velocities $(v_i(0))_{i=1}^N$, one may couple the Kac processes $(v_i(t): t\ge 0)_{i=1}^N, (\tilde{v}_i(t): t\ge 0)_{i=1}^N$ so that the two processes have the same coagulation structure, and the initial velocities coincide. We also note that the total mass, momentum and energy for each cluster are the same in each model, thanks to the conservation properties of the kernel. Therefore, the processes of empirical measures $\mu^N_t$ coincide for the two models. \medskip \\ Now, we choose $\tilde{B}$ to be the degenerate kernel such that the outgoing velocities are the same as the incoming velocities: in particular, each $v_i(t)$ is constant in time. For this case, we construct a graph on $\{1, ...,N\}$ by including $(i,j)$ if particles $i, j$ have collided before, or at, time $t$, according to the Kac process for $\tilde{B}$. It is immediate that the resulting graph $G^N_t$ is distributed according to the distribution $\mathcal{G}^\mathcal{V}(N,tk)$ constructed above, and by construction, \begin{equation} \mu^N_t=\mu^N(G^N_t). \end{equation} Since this is true for a particular realisation of the two processes, we have equality in law, as claimed.\end{proof} Combining this with the approximation result Lemma \ref{lemma: local uniform convergence of stochastic coagulent} for the stochastic coagulant, we may connect the random graph process to the limit equation as follows. \begin{lemma}[Convergence of the Random Graphs]\label{lemma: convergence of random graphs} Let $(G^N_t)_{t\ge 0}$ be the random graph processes constructed above, such that the initial velocities $\mathbf{v}_N=(v_1,...v_{l_N})$ satisfy (B1-2.). Let $\mu_0$ be the corresponding initial measure on $S$ under ({A2}.), and assume that (A1-4.) hold. Let $(\mu_t)_{t\ge 0}$ be the solution to the Smoluchowski Equation (\ref{eq: E+G}) starting at $\mu_0$; then we have the local uniform convergence \begin{equation}\sup_{s\le t} \hspace{0.1cm}d_0(\mu^N(G^N_t), \mu_t) \rightarrow 0 \end{equation} in probability, for all $t<\infty,$  where we recall that $d_0$ is a metric for the vague topology $\mathcal{F}(\mathcal{M}_{\le 1}(S), C_c(S))$. We emphasise here that we do not require exactly $N$ particles, or that $\mu_0$ is a probability measure. \end{lemma} 
 
 We can also compute the critical time associated to $G^N_t$ explicitly:
-\begin{lemma}[Computation of critical time]\label{lemma: computation of tcrit} The critical time for the graph phase transition is \begin{equation}
-       t_\text{crit}= \frac{2}{\kappa +2\gamma\sigma_2(m) + \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}}.
-   \end{equation}\end{lemma} \begin{proof} Construct a basis $\{e_n\}_{n\geq 1}$ of $L^2(m)$, such that \begin{equation}
+\begin{lemma}[Computation of critical time]\label{lemma: computation of tcrit} Suppose condition (A3.) holds for $m$, and let $G^N_t$ be the random graphs defined above. Then $T$ is a bounded linear map from $L^2(m)$ to itself, and the critical time for the graph phase transition is
+\begin{equation}\label{eq: closed form for tc}
+        t_\text{c}= \left(\kappa\sigma_0(m) +2\gamma\sigma_2(m) + \sqrt{(\kappa\sigma_0(m)+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_0(m)\sigma_4(m)-\sigma_2^2(m))}\right)^{-1}
+   \end{equation} where we recall the notation $\sigma_k(m)$ for the $k^\text{th}$ moment $\langle |v|^k, m\rangle.$
+\end{lemma}
+\begin{remark} We remark that, in the case where $m$ is a probability measure, this is the closed form claimed for $t_\mathrm{g}$ in Theorem \ref{thrm: Smoluchowski equation}. However, we have not yet established that $t_\mathrm{c}=t_\mathrm{g}$; this is the content of Lemma \ref{lemma: connect critical times}. \end{remark}
+\begin{proof}[Proof of Lemma~\ref{lemma: computation of tcrit}]
+Firstly, by (A3.), it is easy to see that $k\in L^2(\mathbb{R}^d\times \mathbb{R}^d,m\times m)$. Therefore, as remarked in Section \ref{sec: IRG}, $\|T\|$ is precisely the operator norm of $T: L^2(m)\rightarrow L^2(m)$. \medskip \\ Construct a basis $\{e_n\}_{n\geq 1}$ of $L^2(m)$, such that \begin{equation}
        e_i(v)=v_i, \hspace{0.2cm}i=1,2,..d;
    \end{equation}
    \begin{equation}
        e_{d+1}(v)=1, \hspace{1cm}e_{d+2}(v)=|v|^2
    \end{equation} and such that, for $n\geq d+3$, $e_n$ is orthogonal to $E=\text{Span}(e_1,...,e_{d+2})$.
    By expanding the quadratic term $|v-w|^2$, we see that, for all $f\in L^2(m),$ \begin{equation} 
-       (Tf)(v)  =\left[\kappa\langle f, e_{d+1}\rangle e_{d+1}(v)
+       (Tf)(v)  =2\left[\kappa\langle f, e_{d+1}\rangle e_{d+1}(v)
        +\gamma \langle f, e_{d+1}\rangle e_{d+2}(v)
        -2\gamma \sum_{i=1}^d \langle f, e_i\rangle e_i(v)
-       +\gamma \langle f, e_{d+2}\rangle e_{d+1}(v)\right].
+       +\gamma \langle f, e_{d+2}\rangle e_{d+1}(v)\right]
    \end{equation} 
-  Now, it is clear that $T$ maps into the subspace $E$, and that $T(e_n)=0$ if $n\geq d+3.$ Moreover, it follows from the definition that $T$ is self-adjoint, and so the operator norm $\|T\|$ is given by the largest modulus of an eigenvalue of $T|_E.$ We write $\sigma_{2,i}(m)$ for the second moment $\sigma_{2,i}(m)=\int_{\mathbb{R}^d} v_i^2 m(dv)$. In this notation, $T|_E$ has the matrix representation with respect to the basis $\{e_1,...,e_d, e_{d+1}, e_{d+2}\}$ \begin{equation}
+ where $\langle\cdot,\cdot\rangle$ denotes the $L^2(m)$ inner product. Therefore, $T$ maps into the subspace $E$, and $T(e_n)=0$ if $n\geq d+3.$ It follows from the definition (\ref{eq: T}) that $T$ is self-adjoint, and so the operator norm $\|T\|$ is given by the largest modulus of an eigenvalue of $T|_E.$ We write $\sigma_{2,i}(m)$ for the second moment $\sigma_{2,i}(m)=\int_{\mathbb{R}^d} v_i^2 m(dv)$. In this notation, and with respect to the basis $\{e_1,...,e_d, e_{d+1}, e_{d+2}\}$,  $T|_E$ has the matrix representation  \begin{equation}
        \left[T|_E\right]=\begin{bmatrix}
-    -2\gamma\sigma_{2,1}(m) & 0  & \dots  & 0 &0 \\
-    0 & -2\gamma\sigma_{2,2}(m)  & \dots  & 0 &0\\
-    \vdots & \vdots  & \ddots & \vdots &\vdots \\
-    0 & 0  & \dots  & \kappa+\gamma\sigma_2(m) & \kappa\sigma_2(m)+\gamma \sigma_4(m) \\ 
-    0 & 0& \dots & \gamma & \gamma \sigma_2(m)
+    -4\gamma\sigma_{2,1}(m) & 0  & \dots  &0 & 0 &0 \\
+    0&-4\gamma\sigma_{2,2}(m)   & \dots  &0 & 0 &0 \\
+    
+    \vdots & \vdots  & \ddots & \vdots &\vdots & \vdots \\
+    0 & 0&  \dots & -4\gamma \sigma_{2,d}(m) & 0 &0\\
+    0&0   & \dots &0 & 2\kappa\sigma_0(m)+2\gamma\sigma_2(m) & 2\kappa\sigma_2(m)+2\gamma \sigma_4(m) \\ 
+    0& 0 & \dots & 0& 2\gamma \sigma_0(m) & 2\gamma \sigma_2(m)
 \end{bmatrix}.
-   \end{equation} Therefore, the eigenvalues are $-2\gamma \sigma_{2,i}(m), i=1,..,d$, and the two roots  $\lambda_\pm$ to a quadratic equation which simplifies to \begin{equation}
-       \lambda^2-\lambda(\kappa+2\gamma\sigma_2(m))+\gamma^2(\sigma_2^2(m)-\sigma_4(m))=0.
-   \end{equation} The two roots are \begin{equation}
-       \lambda_\pm=\frac{1}{2}\left(\kappa +2\gamma\sigma_2(m) \pm \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}\right).
+   \end{equation} Therefore, the eigenvalues are $-4\gamma \sigma_{2,i}(m), i=1,..,d$, and the two roots  $\lambda_\pm$ to a quadratic equation which simplifies to \begin{equation}
+       \lambda^2-2\lambda(\kappa\sigma_0(m)+2\gamma\sigma_2(m))+4\gamma^2(\sigma_2^2(m)-\sigma_0(m)\sigma_4(m))=0,
+   \end{equation} 
+   where $\sigma_0(m), \sigma_2(m), \sigma_4(m)$ are as defined in Assumption (A3.).
+   The two roots are \begin{equation}
+       \lambda_\pm=\kappa\sigma_0(m) +2\gamma\sigma_2(m) \pm \sqrt{(\kappa\sigma_0(m)+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_0(m)\sigma_4(m)-\sigma_2^2(m))}.
    \end{equation} It is straightforward to check that the largest eigenvalue in modulus is $\lambda_+$, so we find \begin{equation}
-       \|T\|=\frac{1}{2}\left(\kappa +2\gamma\sigma_2(m) + \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}\right).
+       \|T\|=\lambda_+=\kappa\sigma_0(m) +2\gamma\sigma_2(m) + \sqrt{(\kappa\sigma_0(m)+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_0(m)\sigma_4(m)-\sigma_2^2(m))}.
    \end{equation} This gives the critical time as \begin{equation}
-       t_\text{crit}= \frac{2}{\kappa +2\gamma\sigma_2(m) + \sqrt{(\kappa+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_4(m)-\sigma_2^2(m))}}
-   \end{equation} as claimed\end{proof}
-
-It is straightforward to show that (\ref{eq: BJR 51}) holds. Therefore, we may define $\rho_t$ as the survival function from Lemma \ref{lemma: survival function}, for kernel $tk$. We note, for future use, the following properties where $k$ is the kernel given above.
+       t_\text{c}= \left(\kappa\sigma_0(m) +2\gamma\sigma_2(m) + \sqrt{(\kappa\sigma_0(m)+2\gamma\sigma_2(m))^2+4\gamma^2(\sigma_0(m)\sigma_4(m)-\sigma_2^2(m))}\right)^{-1}
+   \end{equation} as claimed.\end{proof}
+It is straightforward to show that (\ref{eq: BJR 51}) holds, and we may there define $\rho_t$ as the survival function from Lemma \ref{lemma: survival function}, for kernel $tk$. We note, for future use, the following properties where $k$ is the kernel given above.
 \begin{lemma}\label{lemma: form of rho-t}
     The survival function $\rho_t(v)=\rho(tk,v)$ takes the form \begin{equation}
         \rho_t(v)=1-e^{-a_t-b_t|v|^2}
     \end{equation} for some $a_t, b_t \ge 0$. Moreover, the functions $t\mapsto a_t$, $t\mapsto b_t$ are continuous.
 \end{lemma} This proves the first two assertions of item 4 of Theorem \ref{thrm: Smoluchowski equation}.
-\begin{proof} Using the symmetry $k(-v,-w)=k(v,w)$ and hypothesis (\textbf{A1}.), it is simple to verify that $\tilde{\rho}(v)=\rho_t(-v)$ also satisfies the fixed point equation (\ref{eq: nonlinear fixed point equation}). By maximality of $\rho_t$, we must have $\rho_t(-v)\le \rho_t(v)$ for all $v\in \mathbb{R}^d$, which implies that $\rho_t$ is an even function of $v\in\mathbb{R}^d$. \medskip \\ Using the identification of the range of $T$ as in Lemma \ref{lemma: computation of tcrit}, we see that there exist $a_t, b_t, c^i_t: i=1, ..., d$ such that \begin{equation}
-    (T\rho_t)(v)=a_t+b_t|v|^2+\sum_{i=1}^d c^i_t v_i
+\begin{proof} Using the symmetry $k(-v,-w)=k(v,w)$ and hypothesis ({A1}.), it is simple to verify that $\tilde{\rho}(v):=\rho_t(-v)$ also satisfies the fixed point equation (\ref{eq: nonlinear fixed point equation}). By maximality of $\rho_t$, we must have $\rho_t(-v)\le \rho_t(v)$ for all $v\in \mathbb{R}^d$, which implies that $\rho_t$ is an even function of $v\in\mathbb{R}^d$. \medskip \\ Using the identification of the range of $T$ as in Lemma \ref{lemma: computation of tcrit}, we see that there exist $c^i_t: 1\le i\le d+2$ such that \begin{equation}
+    (T\rho_t)(v)=\sum_{i=1}^d c^i_t v_i+ c^{d+1}_t +c^{d+2}_t|v|^2
 \end{equation}and therefore, from the equation (\ref{eq: nonlinear fixed point equation}) defining $\rho$, \begin{equation}
-    \rho_t(v)=1-\exp\left(a_t+b_t|v|^2+\sum_{i=1}^d c^i_t v_i\right).
-\end{equation} Since $\rho_t$ is even, the linear term $\sum_i c^i_t v_i$ must identically vanish, which gives the claimed representation of $\rho_t$. Since $\rho_t(v)\le 1$ everywhere, it follows that \begin{equation}
-   \forall v \hspace{1cm} a_t+b_t|v|^2 \ge 0
+    \rho_t(v)=1-\exp\left(\sum_{i=1}^d c^i_t v_i+ c^{d+1}_t +c^{d+2}_t|v|^2\right).
+\end{equation} Since $\rho_t$ is even, the linear term $\sum_{i\le d} c^i_t v_i$ must identically vanish, which gives the claimed representation of $\rho_t$ by relabelling $a_t=c^{d+1}_t, b_t=c^{d+2}_t$. Since $\rho_t(v)\le 1$ everywhere, it follows that \begin{equation}
+   \forall v \in \mathbb{R}^d\hspace{1cm} a_t+b_t|v|^2 \ge 0
 \end{equation}which is only possible if $a_t, b_t\ge 0.$ The continuity follows immediately from Theorem \ref{thrm: continuity of rho}. \end{proof} 

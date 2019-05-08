@@ -1,42 +1,43 @@
-\section{Energy-Biasing Effect} 
+\section{Energy-Biasing Effect} \label{sec: EB}
 We also have the following result, which describes the average energy of a particle in the early gel. For $\gamma >0$, since highly energetic particles are more likely to become part of the gel, we would expect that the average energy of a particle, conditional on being in the gel, is strictly greater than the average energy of the initial distribution: \begin{equation}
-    \lim_{t\downarrow t_\mathrm{gel}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv)
+    \lim_{t\downarrow t_\mathrm{g}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv)
 \end{equation} We show that there is a \emph{finite biasing} effect: that this limit exists, and is finite. 
-\begin{theorem} Let $\mu_0$ be the initial data satisfying (\textbf{A1-4}.), for some measure $m$ on $\mathbb{R}^d$. Then \begin{equation}
-    \lim_{t\downarrow t_\mathrm{gel}}\frac{E_t}{M_t}=\frac{1}{2}\frac{\sigma_2(m)+\lambda\sigma_4(m)}{1+\sigma_2(m)\lambda}
-\end{equation} where $\sigma_k(m)$ are the moments $\sigma_k(m)=\langle |v|^k, m\rangle$, and where $\lambda$ is given by \begin{equation} \lambda=\frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m)}.\end{equation} In particular, unless $\gamma=0$ or $|v|$ is constant $m$-almost everywhere, we have a positive bias \begin{equation}
-    \lim_{t\downarrow t_\mathrm{gel}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv).
-\end{equation} \end{theorem}  We remark that in the case $\gamma=0$, the coefficient $\lambda=0$. The result is then trivial, since in this case the merger rate does not depend on the velocities, and $\frac{E_t}{M_t}$ is precisely the average $\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv)$ for $t>t_\mathrm{gel}$. For the remainder of this section, we will exclude this case. \medskip \\We recall, from Lemma \ref{lemma: form of rho-t}, that the survival function $\rho_t$ may be represented in terms of two parameters $a_t, b_t \ge 0$. We make the following claim on the behaviour of the coefficients near the critical point $t_\mathrm{gel}$: \begin{lemma}\label{lemma: a and b}Assume that $\gamma>0$. Then \begin{enumerate}[label=\roman{*}).]
-    \item For $t>t_\mathrm{gel}$, $a_t>0$;
-    \item As $t\downarrow t_\mathrm{gel}$, \begin{equation}
+\begin{theorem}\label{thrm: Size Biasing} Suppose the initial data $\mu_0$ satisfies ({A1-4}.). Then \begin{equation}
+    \lim_{t\downarrow t_\mathrm{g}}\frac{E_t}{M_t}=\frac{1}{2}\frac{\sigma_2(m)+\lambda\sigma_4(m)}{1+\sigma_2(m)\lambda}
+\end{equation} where we recall that $\sigma_k(m)$ are the moments $\sigma_k(m)=\langle |v|^k, m\rangle$, and where $\lambda$ is given by \begin{equation} \lambda=\frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m)}.\end{equation} In particular, unless $\gamma=0$ or $|v|$ is constant $m$-almost everywhere, we have a positive bias \begin{equation}
+    \lim_{t\downarrow t_\mathrm{g}}\frac{E_t}{M_t}>\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv).
+\end{equation} \end{theorem}  We remark that in the case $\gamma=0$, the coefficient $\lambda=0$. The result is then trivial, since in this case the coagulation rates are independent of the velocities, and $\frac{E_t}{M_t}$ is precisely the average $\frac{1}{2}\int_{\mathbb{R}^d}|v|^2m(dv)$ for $t>t_\mathrm{g}$, essentially by the law of large numbers. For the remainder of this section, we will exclude this case. \medskip \\We recall, from Lemma \ref{lemma: form of rho-t}, that the survival function $\rho_t$ may be represented in terms of two parameters $a_t, b_t \ge 0$. We make the following claim on the behaviour of the coefficients near the critical point $t_\mathrm{g}$: \begin{lemma}\label{lemma: a and b}In the notation of Theorem \ref{thrm: Size Biasing}, assume that $\gamma>0$. Then \begin{enumerate}[label=\roman{*}).]
+    \item For $t>t_\mathrm{g}$, $a_t>0$;
+    \item As $t\downarrow t_\mathrm{g}$, \begin{equation}
         a_t \rightarrow 0 \hspace{0.5cm} \text{and} \hspace{0.5cm} b_t\rightarrow 0;
     \end{equation}
-    \item As $t\downarrow t_\mathrm{gel}$, \begin{equation} \label{eq: b/a}
+    \item As $t\downarrow t_\mathrm{g}$, \begin{equation} \label{eq: b/a}
         \frac{b_t}{a_t}\rightarrow\lambda= \frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m)}.
     \end{equation}
 \end{enumerate}  \end{lemma}  Using Lemma \ref{lemma: representation of M, E}, we compute the mass and energy in terms of $a_t$ and $b_t$:\begin{equation}
     M_t=1-e^{-a_t}\int_{\mathbb{R}^d} e^{-b_t|v|^2}m(dv);
 \end{equation}\begin{equation}
     E_t=\frac{1}{2}\int_{\mathbb{R}^d}\left(1-e^{-a_t-b_t|v|^2}\right)|v|^2m(dv).
-\end{equation} Using hypothesis (\textbf{A3}.), we may differentiate under the integral sign to obtain \begin{equation}
+\end{equation} Using hypothesis ({A3}.), we may differentiate under the integral sign to obtain \begin{equation}
     M_t=a_t+b_t\sigma_2(m)+o(a_t+b_t); \hspace{1cm} E_t=\frac{1}{2}a_t\sigma_2(m)+\frac{1}{2}b_t\sigma_4(m)+o(a_t+b_t).
 \end{equation} The claimed result now follows from Lemma \ref{lemma: a and b} by taking quotients and using (\ref{eq: b/a}). 
 \begin{proof}[Proof of Lemma \ref{lemma: a and b}] \begin{enumerate}[label=\roman{*}).]
-    \item For $t>t_\mathrm{gel}$, $\rho_t$ is not identically $0$, and so is positive on a set of positive measure. Hence, using the nonlinear fixed point equation (\ref{eq: nonlinear fixed point equation}) and the strict positivity of $K$, it follows that $\rho_t>0$ everywhere. In particular, \begin{equation}
+    \item For $t>t_\mathrm{g}$, $\rho_t$ is not identically $0$, and so is positive on a set of positive measure. Hence, using the nonlinear fixed point equation (\ref{eq: nonlinear fixed point equation}) and the strict positivity of $K$, it follows that $\rho_t>0$ everywhere. In particular, \begin{equation}
         \rho_t(0)=1-e^{-a_t}>0
     \end{equation} which implies that $a_t>0.$
-    \item By Theorem \ref{thrm: continuity of rho},  $\rho_t\rightarrow 0$ almost everywhere as $t\downarrow t_\mathrm{gel}$. Using the identification in Lemma \ref{lemma: form of rho-t}, this implies that both $a_t$, $b_t \rightarrow 0$ as $t\downarrow t_\mathrm{gel}$.
+    \item By Theorem \ref{thrm: continuity of rho},  $\rho_t\rightarrow 0$ almost everywhere as $t\downarrow t_\mathrm{g}$. Using the identification in Lemma \ref{lemma: form of rho-t}, this implies that both $a_t$, $b_t \rightarrow 0$ as $t\downarrow t_\mathrm{g}$.
     \item Substituting the identification in Lemma \ref{lemma: form of rho-t} into the fixed point equation (\ref{eq: nonlinear fixed point equation}), we find that, for all $v\in \mathbb{R}^d,$ \begin{equation}\begin{split} a_t+b_t|v|^2 &= t(T\rho_t)(v)\\ & =2\int_{\mathbb{R}^d}t(\kappa+\gamma|v-w|^2)\left(1-e^{-a_t-b_t|w|^2}\right)m(dw) \\ & = 2\int_{\mathbb{R}^d} t(\kappa+\gamma|w|^2)\left(1-e^{-a_t-b_t|w|^2}\right)m(dw)+2|v|^2\int_{\mathbb{R}^d}\gamma t \left(1-e^{-a_t-b_t|w|^2}\right)m(dw). \end{split} \end{equation} Therefore, by differentiating under the integral as above, $a_t, b_t$ satisfy the relations \begin{equation} \begin{split}
         a_t&=2\int_{\mathbb{R}^d} t(\kappa+\gamma|w|^2)\left(1-e^{-a_t-b_t|w|^2}\right)m(dw)\\[1ex]&=2t(\kappa+\gamma\sigma_2(m))a_t+2t(\kappa\sigma_2(m)+\gamma\sigma_4(m))b_t+o(a_t+b_t).
    \end{split} \end{equation}\begin{equation}
         b_t=2\gamma t\int_{\mathbb{R}^d}\left(1-e^{-a_t-b_t|w|^2}m(dw)\right)= 2\gamma t(a_t+\sigma_2(m) b_t)+o(a_t+b_t);
-    \end{equation} In particular, $b_t>0$. For $t>t_\mathrm{gel}$ small enough, we have \begin{equation} b_t\le \min\left(4\gamma t(a_t+\sigma_2(m)b_t),1\right);  \end{equation} \begin{equation}  t((\kappa+\gamma\sigma_2(m))a_t+(\kappa\sigma_2(m)+\gamma\sigma_4(m))b_t) \le a_t \le 1. \end{equation} It is straightforward to see that there exists a constant $C$ such that, for all $a, b \in (0,1]$, \begin{equation}
+    \end{equation} In particular, $b_t>0$. For $t>t_\mathrm{g}$ small enough, we have \begin{equation} b_t\le \min\left(4\gamma t(a_t+\sigma_2(m)b_t),1\right);  \end{equation} \begin{equation}  t((\kappa+\gamma\sigma_2(m))a_t+(\kappa\sigma_2(m)+\gamma\sigma_4(m))b_t) \le a_t \le 1. \end{equation} It is straightforward to see that there exists a constant $C$ such that, for all $a, b \in (0,1]$, \begin{equation}
        \frac{\gamma( a+\sigma_2(m)b)}{(\kappa+\gamma \sigma_2(m))a+(\kappa \sigma_2(m)+\gamma\sigma_4(m))b}\le C
-   \end{equation} It therefore follows that, for $t> t_\mathrm{gel}$ small enough, $(\frac{b_t}{a_t})$ takes values in the compact set $[0,4C]$, and so has at least one limit point as $t\downarrow t_\mathrm{gel}$. A similar argument shows that $\frac{b_t}{a_t}$ is bounded away from $0$ as $t\downarrow t_\mathrm{gel}$, and we see that \begin{equation}\label{eq: btoverat}
+   \end{equation} It therefore follows that, for $t> t_\mathrm{g}$ small enough, $(\frac{b_t}{a_t})$ takes values in the compact set $[0,4C]$, and so has at least one limit point as $t\downarrow t_\mathrm{g}$. A similar argument shows that $\frac{b_t}{a_t}$ is bounded away from $0$ as $t\downarrow t_\mathrm{g}$, and we see that \begin{equation}\label{eq: btoverat}
         \frac{b_t}{a_t}\sim \frac{\gamma (a_t+\sigma_2(m)b_t)}{(\kappa+\gamma \sigma_2(m))a_t+(\kappa \sigma_2(m)+\gamma\sigma_4(m))b_t}
-    \end{equation} in the sense that the quotient of the two sides converges to $1$ as $t\downarrow t_\mathrm{gel}$. Now, if $\lambda$ is any limit point of $\frac{b_t}{a_t}$ as $t\downarrow t_\mathrm{gel}$, then taking limits of (\ref{eq: btoverat}), $\lambda \ge 0$ must satisfy \begin{equation}\label{eq: equation for lambda}
+    \end{equation} in the sense that the quotient of the two sides converges to $1$ as $t\downarrow t_\mathrm{g}$. Now, if $\lambda$ is any limit point of $\frac{b_t}{a_t}$ as $t\downarrow t_\mathrm{g}$, then taking limits of (\ref{eq: btoverat}), $\lambda \ge 0$ must satisfy \begin{equation}\label{eq: equation for lambda}
         \lambda=\frac{\gamma(1 +\sigma_2(m)\lambda)}{(\kappa+\gamma \sigma_2(m))+(\kappa \sigma_2(m)+\gamma\sigma_4(m))\lambda}.
     \end{equation}The unique positive solution to (\ref{eq: equation for lambda}) is \begin{equation}
        \lambda=\frac{\sqrt{\kappa^2+4\gamma(\kappa\sigma_2(m)+\gamma \sigma_4(m))}-\kappa}{2(\kappa\sigma_2(m)+\gamma\sigma_4(m)}
     \end{equation} which proves the claimed convergence.
 \end{enumerate}\end{proof}
+% \dhcomment{This is a cute result, but if we want to cut anything, it should be this. We can obtain a crude bound, that $\frac{E_t}{M_t} \ge \frac{1}{2}\int |v|^2m(dv)$ very easily by correlation inequalities - while not sharp it will save several pages.}
